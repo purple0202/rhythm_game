@@ -9,6 +9,12 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+            Debug.LogError("Rigidbody2D not found on " + gameObject.name);
+        else
+            Debug.Log("Rigidbody2D found: " + rb.name);
+        //rb = GetComponent<Rigidbody2D>();
+        rb.linearVelocity = movement * moveSpeed;
     }
 
     void Update()
