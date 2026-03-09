@@ -19,6 +19,7 @@ public class BeatConductor : MonoBehaviour
     [Header("Offsets")]
     public float songOffset = 0f;     // manual timing offset
 
+
     void Awake()
     {
         Instance = this;
@@ -30,6 +31,8 @@ public class BeatConductor : MonoBehaviour
         secondsPerBeat = 60f / beatmap.bpm;
 
         audioSource.clip = beatmap.music;
+
+        beatmap.GenerateBeats();
 
         StartSong();
     }
