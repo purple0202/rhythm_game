@@ -32,7 +32,7 @@ public class JudgementManager : MonoBehaviour
             SpriteRenderer sr = prefab.GetComponent<SpriteRenderer>();
             sr.sortingLayerName = "Foreground";  // a layer above Player
             sr.sortingOrder = 10;
-            Vector3 spawnPos = transform.position + new Vector3(0.25f, 0.25f, 0);
+            Vector3 spawnPos = transform.position + new Vector3(0.75f, 0.75f, 0);
             GameObject instance = Instantiate(prefab, spawnPos, Quaternion.identity);
             SpriteRenderer sre = instance.GetComponent<SpriteRenderer>();
             sre.sortingOrder = currentOrder;
