@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1d1dd649b6ccd4f40aec90c1a380c2a3
+guid: 09044245af9af2f4a8b12112e0a660ae
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -116,12 +116,12 @@ TextureImporter:
       name: test_mob_enemy_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 405
-        height: 720
+        x: 6
+        y: 351
+        width: 147
+        height: 164
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,11 +134,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: test_mob_enemy_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 356
+        width: 138
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4aecc672c11a8e48a76b12b6e73e38e
+      internalID: -260503225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 054bdaaa51fa75c47b802fb457023783
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +171,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       test_mob_enemy_0: -4461996033406915884
+      test_mob_enemy_1: -260503225
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
