@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6210269094512564814}
   - component: {fileID: 6311524223416918969}
   - component: {fileID: -5343136571921208566}
+  - component: {fileID: 7599300040541521689}
   m_Layer: 0
   m_Name: MobEnemy
   m_TagString: Untagged
@@ -170,3 +171,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemyMovement
   moveSpeed: 2
+--- !u!114 &7599300040541521689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398283090820756673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e27a2f3d7b0dfd40ae5c293c378393d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
+  damage: 5
