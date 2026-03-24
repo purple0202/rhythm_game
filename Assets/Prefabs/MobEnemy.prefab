@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6311524223416918969}
   - component: {fileID: -5343136571921208566}
   - component: {fileID: 7599300040541521689}
-  m_Layer: 0
+  - component: {fileID: 5742016348395041784}
+  m_Layer: 3
   m_Name: MobEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,3 +185,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
   damage: 5
+--- !u!114 &5742016348395041784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398283090820756673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a11eb92fcd2b65469328d552ef163ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 20

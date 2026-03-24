@@ -1727,6 +1727,7 @@ GameObject:
   - component: {fileID: 1408611455}
   - component: {fileID: 1408611457}
   - component: {fileID: 1408611456}
+  - component: {fileID: 1408611458}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1918,6 +1919,26 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.55583334
+--- !u!114 &1408611458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408611450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f46033dfd65c004b9bc8d6ca3ac1456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  perfectDamage: 15
+  goodDamage: 10
+  attackRadius: 1.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  attackEffectPrefab: {fileID: 6149312452721128620, guid: 57511b68d16e3084fab6fd0acbf053b9, type: 3}
+  effectDuration: 0.2
 --- !u!1 &1653043212
 GameObject:
   m_ObjectHideFlags: 0
