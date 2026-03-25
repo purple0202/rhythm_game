@@ -4,7 +4,8 @@ public class InputJudge : MonoBehaviour
 {
     public BeatmapData beatmap;
     public JudgementManager judgementManager; // reference to the player's manager
-    public PlayerAttack playerAttack;
+    //public PlayerAttack playerAttack;
+    public WeaponController weaponController;
 
     public float perfectWindow = 0.05f;
     public float greatWindow = 0.1f;
@@ -64,7 +65,7 @@ public class InputJudge : MonoBehaviour
             result = "Bad";
 
         judgementManager.ShowJudgement(result);
-        playerAttack.PerformAttack(result);
+        weaponController.PerformAttack(result);
         //judgementManager.ShowJudgement
         Debug.Log(result);
         Debug.Log(closest);
