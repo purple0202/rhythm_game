@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5343136571921208566}
   - component: {fileID: 7599300040541521689}
   - component: {fileID: 5742016348395041784}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: MobEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -197,4 +197,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a11eb92fcd2b65469328d552ef163ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 20
+  maxHealth: 10

@@ -10,24 +10,52 @@ public class BeatmapData : ScriptableObject
     [Header("Song Info")]
     public float bpm;
     public float offset;
+    public int songLength;
 
     //[Header("Beat Times")]
     //public List<float> beatTimings = new List<float>();
 
     //[Header("Beat Times")]
+    //public List<float> beatTimings = new List<float>();
+    //public List<int> ints = Enumerable.Range(1, song_length).ToList();
+    //public float SecondsPerBeat => 60f / bpm;
+
+    //public void GenerateBeats()
+    //{
+    //    for (int i = 0; i < beatTimings.Count; i++)
+    //    {
+    //        beatTimings[i] = offset + ints[i] * SecondsPerBeat;
+    //    }
+    //}
+
+    [Header("Generated Beat Times")]
     public List<float> beatTimings = new List<float>();
-    public List<int> ints = Enumerable.Range(1, 100).ToList();
+
     public float SecondsPerBeat => 60f / bpm;
 
     public void GenerateBeats()
     {
-        for (int i = 0; i < beatTimings.Count; i++)
+        beatTimings.Clear();
+
+        float currentTime = offset;
+
+        while (currentTime < songLength)
         {
-            beatTimings[i] = offset + ints[i] * SecondsPerBeat;
+            beatTimings.Add(currentTime);
+            currentTime += SecondsPerBeat;
         }
+
+        Debug.Log("Generated " + beatTimings.Count + " beats.");
     }
 
-    
+    public float GetLoopedTime(float songTime)
+    {
+        if (songLength <= 0) return songTime;
+
+        return songTime % songLength;
+    }
+
+
 
     public float GetBeatTime(int index)
     {

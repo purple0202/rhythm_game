@@ -52,7 +52,9 @@ public class BeatConductor : MonoBehaviour
     {
         double dspTime = AudioSettings.dspTime;
 
-        songPosition = (float)(dspTime - songStartDSPTime) + songOffset;
+        //songPosition = (float)(dspTime - songStartDSPTime) + songOffset;
+
+        songPosition = ((float)(dspTime - songStartDSPTime) + songOffset) % beatmap.songLength;
 
         songPositionInBeats = songPosition / secondsPerBeat;
     }

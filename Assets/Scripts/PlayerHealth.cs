@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
 
     float lastDamageTime;
 
+    bool isInvincible = false;
+
     public HealthBar healthBar;
 
     void Start()
@@ -23,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (isInvincible) return;
         // Cooldown check
         if (Time.time < lastDamageTime + damageCooldown)
             return;
@@ -43,6 +46,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
+    public void SetInvincible(bool value)
+    {
+        isInvincible = value;
+    }
     void Die()
     {
         Debug.Log("Player Died");
