@@ -8,6 +8,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        //MOVE TO GAME MANAGER LATER
+        Physics2D.IgnoreLayerCollision(
+            LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("Enemy"),
+            true
+        );
+
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
             Debug.LogError("Rigidbody2D not found on " + gameObject.name);
