@@ -24,6 +24,19 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnCenter = player.position + (Vector3)(spawnDirection * spawnDistance);
 
+        if(spawnCenter.x < -15){
+            spawnCenter.x = -11;
+        } else if(spawnCenter.x > 15){
+            spawnCenter.x = 11;
+        }
+        if (spawnCenter.y < -15)
+        {
+            spawnCenter.y = -11;
+        }
+        else if (spawnCenter.y > 15)
+        {
+            spawnCenter.y = 11;
+        }
         SpawnGroup(spawnCenter);
     }
 
