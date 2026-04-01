@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        InvokeRepeating(nameof(SpawnWave), 2f, 5f);
+        //InvokeRepeating(nameof(SpawnWave), 2f, 5f);
     }
 
     void SpawnWave()
