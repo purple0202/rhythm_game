@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnCenter = player.position + (Vector3)(spawnDirection * spawnDistance);
 
+        //FUCKED UP HARDCODING BUT THIS IS THE WALL BOUNDARIES
         if(spawnCenter.x < -15){
             spawnCenter.x = -11;
         } else if(spawnCenter.x > 15){

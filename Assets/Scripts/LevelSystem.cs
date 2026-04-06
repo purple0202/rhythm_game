@@ -17,6 +17,16 @@ public class LevelSystem : MonoBehaviour
         }
     }
 
+    //void LevelUp()
+    //{
+    //    currentExp -= expToNextLevel;
+    //    level++;
+
+    //    expToNextLevel *= 1.2f;
+
+    //    PlayerStats.Instance.ApplyLevelUp(level);
+    //}
+
     void LevelUp()
     {
         currentExp -= expToNextLevel;
@@ -24,6 +34,8 @@ public class LevelSystem : MonoBehaviour
 
         expToNextLevel *= 1.2f;
 
-        PlayerStats.Instance.ApplyLevelUp(level);
+        Time.timeScale = 0f;
+
+        UpgradeUI.Instance.Show();
     }
 }

@@ -1,7 +1,9 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public PlayerStats player_stats;
     [Header("Health Settings")]
     public float maxHealth = 100f;
     public float currentHealth;
@@ -17,8 +19,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        maxHealth = player_stats.maxHealth;
         currentHealth = maxHealth;
-
+        
         if (healthBar != null)
             healthBar.SetMaxHealth(maxHealth);
     }

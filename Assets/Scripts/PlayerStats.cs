@@ -20,4 +20,12 @@ public class PlayerStats : MonoBehaviour
         maxHealth *= 1.1f;
         moveSpeed *= 1.02f;
     }
+
+    public int projectileCount = 1;
+
+    public bool HasWeapon(string weaponName)
+    {
+        // Replace with your weapon system later
+        return true;
+    }
 }

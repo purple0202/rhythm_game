@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     public Transform player;
     public BoxCollider2D mapBounds;
 
+    //public float spawnDistance = Random.Range(8, 15);
     void Start()
     {
         StartWave();
@@ -32,6 +33,7 @@ public class WaveManager : MonoBehaviour
                 Debug.Log("found enemy");
                 Vector3 spawnPos = GetSpawnPosition();
                 Instantiate(enemyData.enemyPrefab, spawnPos, Quaternion.identity);
+                //wait
                 //EnemySpawner.SpawnWave();
             }
         }
@@ -55,9 +57,33 @@ public class WaveManager : MonoBehaviour
         //Bounds bounds = mapBounds.bounds;
 
         //HARDCODED FOR NOW FIX!!
-        float x = Random.Range(-14, 14);
-        float y = Random.Range(-11, 11);
+        //float x = Random.Range(-14, 14);
+        //float y = Random.Range(-11, 11);
+        float spawnDistance = Random.Range(8, 15);
+        Vector2 spawnDirection = Random.insideUnitCircle.normalized;
 
-        return new Vector3(x, y, 0);
+        Vector3 spawnCenter = player.position + (Vector3)(spawnDirection * spawnDistance);
+
+        //FUCKED UP HARDCODING BUT THIS IS THE WALL BOUNDARIES
+        if (spawnCenter.x < -15)
+        {
+            spawnCenter.x = -11;
+        }
+        else if (spawnCenter.x > 15)
+        {
+            spawnCenter.x = 11;
+        }
+        if (spawnCenter.y < -15)
+        {
+            spawnCenter.y = -11;
+        }
+        else if (spawnCenter.y > 15)
+        {
+            spawnCenter.y = 11;
+        }
+        //SpawnGroup(spawnCenter);
+
+        //return new Vector3(x, y, 0);
+        return spawnCenter;
     }
 }
