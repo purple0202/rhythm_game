@@ -16,19 +16,35 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        if (equippedWeapons.Count == 0) return;
+        // Debug.Log("FUARRRRK");
+        // Debug.Log($"[WeaponController] instanceID={GetInstanceID()} count={equippedWeapons.Count}");
+        if (equippedWeapons.Count == 0)
+        {
+            // Debug.Log("HUHH");
+            return;
+        }
+        // Debug.Log("FUCKKKK");
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && equippedWeapons.Count >= 1)
+        if (Input.GetKeyDown(KeyCode.Alpha1)){
+            Debug.Log("HIIIII");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && equippedWeapons.Count >= 1){
+            Debug.Log("switch to melee");
             SelectWeapon(0);
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha2) && equippedWeapons.Count >= 2)
+        {
+            Debug.Log("switch detected");
             SelectWeapon(1);
+        }
     }
 
     public void EquipWeapon()
     {
         bool isFirst = equippedWeapons.Count == 0;
-
+        
 
         // equippedWeapons.Add();
         // weapon.gameObject.SetActive(false);
@@ -44,7 +60,8 @@ public class WeaponController : MonoBehaviour
         {
             equippedWeapons.Add(SecondWeapon);
         }
-
+        Debug.Log("sex");
+        Debug.Log($"[WeaponController] instanceID={GetInstanceID()} count={equippedWeapons.Count}");
         if (weaponUI != null)
             weaponUI.RefreshUI(equippedWeapons, currentWeaponIndex);
     }
@@ -76,7 +93,7 @@ public class WeaponController : MonoBehaviour
     void SelectWeapon(int index)
     {
         if (index < 0 || index >= equippedWeapons.Count) return;
-
+        Debug.Log("reached!!");
         if (currentWeaponIndex >= 0 && currentWeaponIndex < equippedWeapons.Count)
             equippedWeapons[currentWeaponIndex].gameObject.SetActive(false);
 

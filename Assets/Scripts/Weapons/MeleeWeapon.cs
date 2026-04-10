@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class MeleeWeapon : Weapon
 {
@@ -12,16 +11,20 @@ public class MeleeWeapon : Weapon
     public GameObject attackEffectPrefab;
     public float effectDuration = 0.2f;
 
+    public float autoDamage = 5f;
+
     public override void PerformAttack(string judgement)
     {
-        float damage = 0f;
+        float damage;
 
         if (judgement == "Perfect")
             damage = perfectDamage;
         else if (judgement == "Good")
             damage = goodDamage;
+        else if (judgement == "Auto")
+            damage = autoDamage;
         else
-            return;
+            return; // "Bad"
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(
             transform.position,
@@ -37,16 +40,7 @@ public class MeleeWeapon : Weapon
                 enemy.TakeDamage(damage);
         }
 
-        StartCoroutine(SpawnEffect());
-    }
-
-    IEnumerator SpawnEffect()
-    {
-        GameObject effect = Instantiate(attackEffectPrefab, transform.position, Quaternion.identity);
-        effect.transform.parent = transform;
-
-        yield return new WaitForSeconds(effectDuration);
-
-        Destroy(effect);
+        GameObject effect = Instantiate(attackEffectPrefab, transform.position, Quaternion.identity, transform);
+        Destroy(effect, effectDuration);
     }
 }

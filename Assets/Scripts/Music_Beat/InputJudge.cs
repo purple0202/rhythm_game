@@ -3,18 +3,24 @@ using UnityEngine;
 public class InputJudge : MonoBehaviour
 {
     public BeatmapData beatmap;
-    public JudgementManager judgementManager; // reference to the player's manager
-    //public PlayerAttack playerAttack;
+    public JudgementManager judgementManager;
     public WeaponController weaponController;
 
     public float perfectWindow = 0.05f;
     public float greatWindow = 0.1f;
     public float goodWindow = 0.15f;
 
-    //void Start()
-    //{
-    //    playerAttack = GetComponent<PlayerAttack>();
-    //}
+    private string pendingJudgement = "Auto";
+
+    void OnEnable()
+    {
+        BeatConductor.OnBeat += OnBeat;
+    }
+
+    void OnDisable()
+    {
+        BeatConductor.OnBeat -= OnBeat;
+    }
 
     void Update()
     {
@@ -24,66 +30,32 @@ public class InputJudge : MonoBehaviour
         }
     }
 
-    //void JudgeHit()
-    //{
-    //    float songPos = conductor.songPosition;
-    //    float nearestBeat = conductor.GetNearestBeatTime(songPos);
-    //    float diff = Mathf.Abs(songPos - nearestBeat);
-
-    //    string result = "Bad";
-
-    //    if (diff <= perfectWindow)
-    //        result = "Perfect";
-    //    else if (diff <= greatWindow)
-    //        result = "Good";
-    //    else if (diff <= goodWindow)
-    //        result = "Bad";
-
-    //    judgementManager.ShowJudgement(result);
-    //}
-
     void CheckInput()
     {
         float currentTime = BeatConductor.Instance.songPosition;
-
         float closest = float.MaxValue;
 
         foreach (float beat in beatmap.beatTimings)
         {
             float diff = Mathf.Abs(beat - currentTime);
-
             if (diff < closest)
                 closest = diff;
         }
-        string result = "Bad";
 
         if (closest <= perfectWindow)
-            result = "Perfect";
+            pendingJudgement = "Perfect";
         else if (closest <= greatWindow)
-            result = "Good";
+            pendingJudgement = "Good";
         else if (closest <= goodWindow)
-            result = "Bad";
+            pendingJudgement = "Bad";
+        else
+            pendingJudgement = "Bad";
+    }
 
-        judgementManager.ShowJudgement(result);
-        weaponController.PerformAttack(result);
-        //judgementManager.ShowJudgement
-        Debug.Log(result);
-        Debug.Log(closest);
-        //if (closest <= perfectWindow)
-        //{
-        //    Debug.Log("Perfect");
-        //}
-        //else if (closest <= greatWindow)
-        //{
-        //    Debug.Log("Great");
-        //}
-        //else if (closest <= goodWindow)
-        //{
-        //    Debug.Log("Good");
-        //}
-        //else
-        //{
-        //    Debug.Log("Bad");
-        //}
+    void OnBeat()
+    {
+        judgementManager.ShowJudgement(pendingJudgement);
+        weaponController.PerformAttack(pendingJudgement);
+        pendingJudgement = "Auto";
     }
 }

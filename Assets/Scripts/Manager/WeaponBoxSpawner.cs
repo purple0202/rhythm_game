@@ -25,6 +25,7 @@ public class WeaponBoxSpawner : MonoBehaviour
 
     void SpawnBox()
     {
+        //Change spawn coordinates so that it doesn't automatically hit the player
         Instantiate(weaponBoxPrefab, spawnPoint.position, Quaternion.identity);
     }
 }

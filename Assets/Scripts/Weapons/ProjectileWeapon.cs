@@ -9,20 +9,18 @@ public class ProjectileWeapon : Weapon
 
     public override void PerformAttack(string judgement)
     {
-        if (judgement != "Perfect" && judgement != "Good")
-            return;
+        if (judgement == "Bad") return;
+
+        // Auto fires 1 projectile regardless of projectileCount
+        int count = (judgement == "Auto") ? 1 : projectileCount;
 
         Transform target = FindClosestEnemy();
+        if (target == null) return;
 
-        if (target == null)
-            return;
-
-        for (int i = 0; i < projectileCount; i++)
+        for (int i = 0; i < count; i++)
         {
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-
             Vector2 dir = (target.position - transform.position).normalized;
-
             proj.GetComponent<Projectile>().SetDirection(dir);
         }
     }
@@ -39,7 +37,6 @@ public class ProjectileWeapon : Weapon
             if (!hit.CompareTag("Enemy")) continue;
 
             float dist = Vector2.Distance(transform.position, hit.transform.position);
-
             if (dist < minDist)
             {
                 minDist = dist;

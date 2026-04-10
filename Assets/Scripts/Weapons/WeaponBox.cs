@@ -9,7 +9,7 @@ public class WeaponBox : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        WeaponController controller = other.GetComponent<WeaponController>();
+        WeaponController controller = other.GetComponentInChildren<WeaponController>();
         if (controller == null) return;
 
         // Weapon weaponInstance = Instantiate(weaponPrefab, other.transform);

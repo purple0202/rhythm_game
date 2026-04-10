@@ -24,7 +24,7 @@ public class JudgementManager : MonoBehaviour
             case "Good": prefab = goodPrefab; break;
             case "Bad": prefab = badPrefab; break;
         }
-        Debug.Log("reached here!");
+        // Debug.Log("reached here!");
         if (prefab != null)
         {
             // Spawn a new instance slightly above player
@@ -38,7 +38,7 @@ public class JudgementManager : MonoBehaviour
             sre.sortingOrder = currentOrder;
             currentOrder++;
             instance.transform.parent = transform; // optional: move with player
-            Debug.Log("reached!");
+            // Debug.Log("reached!");
             StartCoroutine(HideAfterTime(instance, displayTime));
         }
     }
