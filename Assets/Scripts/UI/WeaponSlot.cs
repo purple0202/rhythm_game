@@ -12,18 +12,34 @@ public class WeaponSlot : MonoBehaviour
     public float selectedAlpha = 1f;
     public float unselectedAlpha = 0.5f;
 
-    public void SetSelected(bool isSelected)
+    public Color emptyColor = new Color(0.3f, 0.3f, 0.3f, 1f);
+
+    private bool hasWeapon = false;
+
+    public void SetWeapon(Sprite weaponIcon)
     {
-        if (isSelected)
-        {
-            transform.localScale = Vector3.one * selectedScale;
-            SetAlpha(selectedAlpha);
+        hasWeapon = weaponIcon != null;
+        if (weaponIcon != null)
+        {   
+            Debug.Log("HAS WEAPON");
+            icon.sprite = weaponIcon;
+            // SetAlpha(selectedAlpha);
+            icon.color = new Color(1f, 1f, 1f, unselectedAlpha);
         }
         else
         {
-            transform.localScale = Vector3.one * normalScale;
-            SetAlpha(unselectedAlpha);
+            Debug.Log("nahh didn't work");
+            icon.sprite = null;
+            icon.color = emptyColor;
+            // SetAlpha(0f);
         }
+    }
+
+    public void SetSelected(bool isSelected)
+    {
+        transform.localScale = Vector3.one * (isSelected ? selectedScale : normalScale);
+        if (hasWeapon)
+            SetAlpha(isSelected ? selectedAlpha : unselectedAlpha);
     }
 
     void SetAlpha(float alpha)
