@@ -10,7 +10,7 @@ public class WaveManager : MonoBehaviour
 
     private bool waveActive = false;
 
-    public static event System.Action OnFirstWaveCleared;
+    public static event System.Action OnWaveCleared;
 
     void OnEnable()
     {
@@ -56,9 +56,9 @@ public class WaveManager : MonoBehaviour
     void NextWave()
     {
         currentWaveIndex++;
-        if(currentWaveIndex == 1)
+        if (currentWaveIndex >= 1 && currentWaveIndex <= 3)
         {
-            OnFirstWaveCleared?.Invoke();
+            OnWaveCleared?.Invoke();
         }
         if (currentWaveIndex >= waves.Length)
         {

@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 684fa382301aa73459fb040e6be947bc, type: 3}
-  m_Name: Wave2
+  m_Name: Wave3
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   enemies:
-  - enemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
-    count: 20
   - enemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
     count: 10

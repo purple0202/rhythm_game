@@ -166,6 +166,8 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 239707a64242f7342971bd8fbb9492e4, type: 2}
   - {fileID: 11400000, guid: 4c6816eaf6fe1ae44a530bf6bb2f87a1, type: 2}
+  - {fileID: 11400000, guid: 65559b206a81b504495234f6466e293c, type: 2}
+  - {fileID: 11400000, guid: 239707a64242f7342971bd8fbb9492e4, type: 2}
   currentWaveIndex: 0
   player: {fileID: 1408611453}
   mapBounds: {fileID: 0}
@@ -541,6 +543,8 @@ Transform:
   m_Children:
   - {fileID: 1370067887}
   - {fileID: 1591903761}
+  - {fileID: 520855287}
+  - {fileID: 1959190489}
   m_Father: {fileID: 1408611453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &249762972
@@ -558,8 +562,8 @@ MonoBehaviour:
   weaponUI: {fileID: 186242514}
   FirstWeapon: {fileID: 1370067888}
   SecondWeapon: {fileID: 1591903762}
-  ThirdWeapon: {fileID: 0}
-  FourthWeapon: {fileID: 0}
+  ThirdWeapon: {fileID: 520855288}
+  FourthWeapon: {fileID: 1959190490}
 --- !u!1 &392382331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1278,62 @@ MonoBehaviour:
   player: {fileID: 1408611453}
   background: {fileID: 621102668}
   smoothSpeed: 5
+--- !u!1 &520855286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520855287}
+  - component: {fileID: 520855288}
+  m_Layer: 6
+  m_Name: LightningWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &520855287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520855286}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &520855288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520855286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3aefc6641d7224a9490c848d95271c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightningWeapon
+  weaponName: LightningWeapon
+  icon: {fileID: 7980029341427962936, guid: 6b4e77e322962a34f97548b28e809dd5, type: 3}
+  perfectDamage: 20
+  goodDamage: 12
+  strikeRadius: 1.5
+  perfectRadiusBonus: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  strikeEffectPrefab: {fileID: 1008662300852731096, guid: e1c7445f12b4106438f9921d49a2b5f5, type: 3}
+  effectDuration: 0.4
+  autoDamage: 8
 --- !u!1 &574552874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3596760738653520485, guid: dc6ba86f411097d48ba07a7723b11cbe, type: 3}
+  m_Sprite: {fileID: 7702954178566244862, guid: 9fb6a2e064eac144aa5b6815a47a6be5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6467,6 +6527,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908785055}
   m_CullTransparentMesh: 1
+--- !u!1 &1959190488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959190489}
+  - component: {fileID: 1959190490}
+  m_Layer: 6
+  m_Name: CannonModeWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959190489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959190488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959190490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959190488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdfcb05a1ba66bf48a64e74e09ab5ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonWeapon
+  weaponName: CannonWeapon
+  icon: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
+  perfectDamage: 60
+  goodDamage: 40
+  autoDamage: 20
+  cannonballPrefab: {fileID: 7296252839968887923, guid: 610d9a4e24eaa9448bcb66020f489af6, type: 3}
+  playerMovement: {fileID: 1408611454}
+  playerDash: {fileID: 1408611462}
+  playerRenderer: {fileID: 1408611452}
+  tankSprite: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
 --- !u!1 &1961230033
 GameObject:
   m_ObjectHideFlags: 0

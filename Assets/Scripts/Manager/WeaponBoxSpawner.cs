@@ -15,12 +15,12 @@ public class WeaponBoxSpawner : MonoBehaviour
 
     void OnEnable()
     {
-        WaveManager.OnFirstWaveCleared += SpawnBox;
+        WaveManager.OnWaveCleared += SpawnBox;
     }
 
     void OnDisable()
     {
-        WaveManager.OnFirstWaveCleared -= SpawnBox;
+        WaveManager.OnWaveCleared -= SpawnBox;
     }
 
     void SpawnBox()

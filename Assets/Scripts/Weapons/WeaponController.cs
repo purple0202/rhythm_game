@@ -14,75 +14,45 @@ public class WeaponController : MonoBehaviour
     private List<Weapon> equippedWeapons = new List<Weapon>();
     private int currentWeaponIndex = -1;
 
+    void Awake()
+    {
+        Weapon[] allWeapons = { FirstWeapon, SecondWeapon, ThirdWeapon, FourthWeapon };
+        foreach (var w in allWeapons)
+            if (w != null) w.gameObject.SetActive(false);
+    }
+
     void Update()
     {
-        // Debug.Log("FUARRRRK");
-        // Debug.Log($"[WeaponController] instanceID={GetInstanceID()} count={equippedWeapons.Count}");
-        if (equippedWeapons.Count == 0)
-        {
-            // Debug.Log("HUHH");
-            return;
-        }
-        // Debug.Log("FUCKKKK");
+        if (equippedWeapons.Count == 0) return;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)){
-            Debug.Log("HIIIII");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1) && equippedWeapons.Count >= 1){
-            Debug.Log("switch to melee");
-            SelectWeapon(0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2) && equippedWeapons.Count >= 2)
-        {
-            Debug.Log("switch detected");
-            SelectWeapon(1);
-        }
+        if (Input.GetKeyDown(KeyCode.Alpha1) && equippedWeapons.Count >= 1) SelectWeapon(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2) && equippedWeapons.Count >= 2) SelectWeapon(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3) && equippedWeapons.Count >= 3) SelectWeapon(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4) && equippedWeapons.Count >= 4) SelectWeapon(3);
     }
 
     public void EquipWeapon()
     {
-        bool isFirst = equippedWeapons.Count == 0;
-        
+        Weapon[] allWeapons = { FirstWeapon, SecondWeapon, ThirdWeapon, FourthWeapon };
+        int nextIndex = equippedWeapons.Count;
 
-        // equippedWeapons.Add();
-        // weapon.gameObject.SetActive(false);
+        if (nextIndex >= allWeapons.Length) return;
 
-        // Auto-select if this is the first weapon
+        Weapon toEquip = allWeapons[nextIndex];
+        if (toEquip == null) return;
+
+        bool isFirst = nextIndex == 0;
+        equippedWeapons.Add(toEquip);
+
         if (isFirst)
         {
-            equippedWeapons.Add(FirstWeapon);
             SelectWeapon(0);
             OnFirstWeaponEquipped?.Invoke();
-        } else if(equippedWeapons.Count ==1)
-        //Case for adding second weapon + later implement third/fourth
-        {
-            equippedWeapons.Add(SecondWeapon);
         }
-        Debug.Log("sex");
-        Debug.Log($"[WeaponController] instanceID={GetInstanceID()} count={equippedWeapons.Count}");
+
         if (weaponUI != null)
             weaponUI.RefreshUI(equippedWeapons, currentWeaponIndex);
     }
-
-    // public void EquipWeapon(Weapon weapon)
-    // {
-    //     bool isFirst = equippedWeapons.Count == 0;
-
-    //     equippedWeapons.Add(weapon);
-    //     weapon.gameObject.SetActive(false);
-
-    //     // Auto-select if this is the first weapon
-    //     if (isFirst)
-    //     {
-    //         SelectWeapon(0);
-    //         OnFirstWeaponEquipped?.Invoke();
-    //     }
-
-    //     if (weaponUI != null)
-    //         weaponUI.RefreshUI(equippedWeapons, currentWeaponIndex);
-    // }
 
     public void PerformAttack(string judgement)
     {
