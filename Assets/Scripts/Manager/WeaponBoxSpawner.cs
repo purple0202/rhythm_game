@@ -6,7 +6,7 @@ public class WeaponBoxSpawner : MonoBehaviour
     public GameObject weaponBoxPrefab;
 
     [Header("Spawn Settings")]
-    public Transform spawnPoint;
+    public float spawnOffsetX = 2f;
 
     void Start()
     {
@@ -25,7 +25,10 @@ public class WeaponBoxSpawner : MonoBehaviour
 
     void SpawnBox()
     {
-        //Change spawn coordinates so that it doesn't automatically hit the player
-        Instantiate(weaponBoxPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null) return;
+
+        Vector3 spawnPos = player.transform.position + new Vector3(spawnOffsetX, 0f, 0f);
+        Instantiate(weaponBoxPrefab, spawnPos, Quaternion.identity);
     }
 }
