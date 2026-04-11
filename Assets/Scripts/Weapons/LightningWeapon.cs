@@ -72,7 +72,7 @@ public class LightningWeapon : Weapon
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
             if (enemy != null)
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, weaponType);
         }
     }
 }

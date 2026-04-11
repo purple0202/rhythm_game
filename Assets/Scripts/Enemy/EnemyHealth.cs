@@ -7,20 +7,71 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
     public int expValue = 10;
 
+    [Header("Type")]
+    public EnemyType enemyType = EnemyType.None;
+
+    [Header("Outline Materials")]
+    public Material blueMaterial;
+    public Material redMaterial;
+    public Material greenMaterial;
+    public Material yellowMaterial;
+
+    // Damage multipliers
+    private const float MatchMultiplier    = 2.0f;
+    private const float MismatchMultiplier = 0.5f;
+
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
         EnemyManager.Instance.RegisterEnemy(gameObject);
         currentHealth = maxHealth;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        ApplyOutline();
     }
 
-    public void TakeDamage(float damage)
+    public void SetType(EnemyType type)
     {
-        currentHealth -= damage;
+        enemyType = type;
+        ApplyOutline();
+    }
+
+    public void TakeDamage(float damage, EnemyType weaponType = EnemyType.None)
+    {
+        float multiplier = GetDamageMultiplier(weaponType);
+        currentHealth -= damage * multiplier;
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
+    }
+
+    float GetDamageMultiplier(EnemyType weaponType)
+    {
+        // None-type enemies take normal damage from everything
+        if (enemyType == EnemyType.None) return 1f;
+
+        // None-type weapons deal normal damage to everything
+        if (weaponType == EnemyType.None) return 1f;
+
+        return weaponType == enemyType ? MatchMultiplier : MismatchMultiplier;
+    }
+
+    void ApplyOutline()
+    {
+        if (spriteRenderer == null) return;
+
+        Material mat = enemyType switch
+        {
+            EnemyType.Blue   => blueMaterial,
+            EnemyType.Red    => redMaterial,
+            EnemyType.Green  => greenMaterial,
+            EnemyType.Yellow => yellowMaterial,
+            _                => null
+        };
+
+        if (mat != null)
+            spriteRenderer.material = mat;
     }
 
     void Die()
@@ -28,6 +79,5 @@ public class EnemyHealth : MonoBehaviour
         FindObjectOfType<LevelSystem>().AddExp(expValue);
         EnemyManager.Instance.UnregisterEnemy(gameObject);
         Destroy(gameObject);
-
     }
 }

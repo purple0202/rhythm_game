@@ -20,8 +20,9 @@ public class ProjectileWeapon : Weapon
         for (int i = 0; i < count; i++)
         {
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Vector2 dir = (target.position - transform.position).normalized;
-            proj.GetComponent<Projectile>().SetDirection(dir);
+            Projectile p = proj.GetComponent<Projectile>();
+            p.weaponType = weaponType;
+            p.SetDirection((target.position - transform.position).normalized);
         }
     }
 

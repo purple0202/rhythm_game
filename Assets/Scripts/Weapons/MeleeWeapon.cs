@@ -37,7 +37,7 @@ public class MeleeWeapon : Weapon
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
 
             if (enemy != null)
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, weaponType);
         }
 
         GameObject effect = Instantiate(attackEffectPrefab, transform.position, Quaternion.identity, transform);

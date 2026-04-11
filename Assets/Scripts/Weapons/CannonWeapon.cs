@@ -70,6 +70,7 @@ public class CannonWeapon : Weapon
         CannonBall ball = proj.GetComponent<CannonBall>();
         if (ball != null)
         {
+            ball.weaponType = weaponType;
             ball.SetDirection(aimDirection);
             ball.damage = damage;
         }

@@ -6,6 +6,8 @@ public class MobEnemyMovement : MonoBehaviour
 
     Transform player;
     Rigidbody2D rb;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     Vector2 movement;
 
@@ -13,6 +15,8 @@ public class MobEnemyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -21,5 +25,12 @@ public class MobEnemyMovement : MonoBehaviour
 
         movement = (player.position - transform.position).normalized;
         rb.linearVelocity = movement * moveSpeed;
+
+        // Flip sprite to face the direction of movement
+        if (movement.x != 0)
+            spriteRenderer.flipX = movement.x < 0;
+
+        if (animator != null)
+            animator.SetBool("IsMoving", rb.linearVelocity.sqrMagnitude > 0.01f);
     }
 }

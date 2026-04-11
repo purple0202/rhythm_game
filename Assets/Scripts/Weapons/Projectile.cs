@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour
     public float damage = 10f;
     public float lifetime = 3f;
 
+    public EnemyType weaponType = EnemyType.None;
+
     private Vector2 direction;
 
     public void SetDirection(Vector2 dir)
@@ -30,7 +32,7 @@ public class Projectile : MonoBehaviour
             EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
 
             if (enemy != null)
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, weaponType);
 
             Destroy(gameObject);
         }

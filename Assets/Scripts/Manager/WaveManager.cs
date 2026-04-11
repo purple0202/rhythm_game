@@ -46,9 +46,11 @@ public class WaveManager : MonoBehaviour
         {
             for (int i = 0; i < enemyData.count; i++)
             {
-                Debug.Log("found enemy");
                 Vector3 spawnPos = GetSpawnPosition();
-                Instantiate(enemyData.enemyPrefab, spawnPos, Quaternion.identity);
+                GameObject enemy = Instantiate(enemyData.enemyPrefab, spawnPos, Quaternion.identity);
+                EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+                if (health != null)
+                    health.SetType(enemyData.enemyType);
             }
         }
     }

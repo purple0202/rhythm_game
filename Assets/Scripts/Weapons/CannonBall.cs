@@ -7,6 +7,8 @@ public class CannonBall : MonoBehaviour
     public float damage = 30f;
     public float lifetime = 4f;
 
+    public EnemyType weaponType = EnemyType.None;
+
     private Vector2 direction;
     private HashSet<Collider2D> hitEnemies = new HashSet<Collider2D>();
 
@@ -26,7 +28,7 @@ public class CannonBall : MonoBehaviour
 
         hitEnemies.Add(collision);
         EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
-        if (enemy != null) enemy.TakeDamage(damage);
+        if (enemy != null) enemy.TakeDamage(damage, weaponType);
         // No Destroy — pierces through all enemies
     }
 }

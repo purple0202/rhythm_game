@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -5343136571921208566}
   - component: {fileID: 7599300040541521689}
   - component: {fileID: 5742016348395041784}
+  - component: {fileID: -2438289490178202847}
   m_Layer: 7
   m_Name: MobEnemy
   m_TagString: Enemy
@@ -198,3 +199,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 10
+  expValue: 10
+  enemyType: 0
+  blueMaterial: {fileID: 2100000, guid: a02ab7f7e7a140b4387d531903410d82, type: 2}
+  redMaterial: {fileID: 2100000, guid: a3e86fccc99c7ba42b96faa59187c321, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 0737e31e849c8584099176de3ac529b0, type: 2}
+  yellowMaterial: {fileID: 2100000, guid: fbff1a52260db834e8cd88e854f879c5, type: 2}
+--- !u!95 &-2438289490178202847
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398283090820756673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19be94416e4abf5459901207920d3c71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
