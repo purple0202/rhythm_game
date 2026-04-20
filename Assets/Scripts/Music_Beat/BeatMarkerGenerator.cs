@@ -31,7 +31,7 @@ public class BeatMarkerGenerator : MonoBehaviour
     {
         for (int i = 0; i < windowBeats; i++)
         {
-            float xPos = ((float)i / windowBeats) * barWidth - barWidth / 2f;
+            float xPos = ((i + 0.5f) / windowBeats) * barWidth - barWidth / 2f;
 
             GameObject marker = Instantiate(beatMarkerPrefab, markersParent);
             RectTransform rt = marker.GetComponent<RectTransform>();
@@ -55,7 +55,7 @@ public class BeatMarkerGenerator : MonoBehaviour
     {
         if (BeatConductor.Instance == null) return;
 
-        float posInWindow = Mathf.Repeat(BeatConductor.Instance.songPosition - beatmap.offset, windowSeconds);
+        float posInWindow = Mathf.Repeat(BeatConductor.Instance.songPosition - beatmap.offset + 0.5f * beatmap.SecondsPerBeat, windowSeconds);
         float xPos = (posInWindow / windowSeconds) * barWidth - barWidth / 2f;
         playhead.anchoredPosition = new Vector2(xPos, playhead.anchoredPosition.y);
     }
