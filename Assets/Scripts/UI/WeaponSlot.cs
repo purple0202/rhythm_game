@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class WeaponSlot : MonoBehaviour
 {
     public Image icon;
+    public Image outline;
 
     [Header("Visual Settings")]
     public float selectedScale = 1.2f;
@@ -16,23 +17,26 @@ public class WeaponSlot : MonoBehaviour
 
     private bool hasWeapon = false;
 
-    public void SetWeapon(Sprite weaponIcon)
+    static readonly Color BlueColor   = new Color(0.20f, 0.53f, 1.00f);
+    static readonly Color RedColor    = new Color(1.00f, 0.22f, 0.22f);
+    static readonly Color GreenColor  = new Color(0.18f, 0.85f, 0.35f);
+    static readonly Color YellowColor = new Color(1.00f, 0.85f, 0.10f);
+
+    public void SetWeapon(Sprite weaponIcon, EnemyType weaponType = EnemyType.None)
     {
         hasWeapon = weaponIcon != null;
         if (weaponIcon != null)
-        {   
-            Debug.Log("HAS WEAPON");
+        {
             icon.sprite = weaponIcon;
-            // SetAlpha(selectedAlpha);
             icon.color = new Color(1f, 1f, 1f, unselectedAlpha);
         }
         else
         {
-            Debug.Log("nahh didn't work");
             icon.sprite = null;
             icon.color = emptyColor;
-            // SetAlpha(0f);
         }
+
+        SetOutlineColor(weaponType);
     }
 
     public void SetSelected(bool isSelected)
@@ -47,5 +51,21 @@ public class WeaponSlot : MonoBehaviour
         Color c = icon.color;
         c.a = alpha;
         icon.color = c;
+    }
+
+    void SetOutlineColor(EnemyType weaponType)
+    {
+        if (outline == null) return;
+
+        Color color = weaponType switch
+        {
+            EnemyType.Blue   => BlueColor,
+            EnemyType.Red    => RedColor,
+            EnemyType.Green  => GreenColor,
+            EnemyType.Yellow => YellowColor,
+            _                => new Color(0.5f, 0.5f, 0.5f, 1f)
+        };
+
+        outline.color = color;
     }
 }

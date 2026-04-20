@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: cef1e5b2eaabee2468843c3ab66cb762
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1572724618307809313
+    second: test_ranged_update_sheet_0
+  - first:
+      213: 5801881829607415110
+    second: test_ranged_update_sheet_1
+  - first:
+      213: -4588789754507436109
+    second: test_ranged_update_sheet_2
+  - first:
+      213: -2911178024772513234
+    second: test_ranged_update_sheet_3
+  - first:
+      213: -5403642613423191026
+    second: test_ranged_update_sheet_4
+  - first:
+      213: 2894985078960035822
+    second: test_ranged_update_sheet_5
+  - first:
+      213: -6783578473724272965
+    second: test_ranged_update_sheet_6
+  - first:
+      213: -4645149519424295614
+    second: test_ranged_update_sheet_7
+  - first:
+      213: -5200498865184312577
+    second: test_ranged_update_sheet_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 120bfbb25b073d510800000000000000
+      internalID: 1572724618307809313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64d1b8ac8cc648050800000000000000
+      internalID: 5801881829607415110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfd1add7085150c0800000000000000
+      internalID: -4588789754507436109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22d283b20b6997d0800000000000000
+      internalID: -2911178024772513234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c4fbd3ca76205b0800000000000000
+      internalID: -5403642613423191026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7187d479d0d2820800000000000000
+      internalID: 2894985078960035822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe9dafa153ebd1a0800000000000000
+      internalID: -6783578473724272965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24d63268f1d198fb0800000000000000
+      internalID: -4645149519424295614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff2fdd5e5dd14d7b0800000000000000
+      internalID: -5200498865184312577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce65637a6f866547b2b690eb762610d
+      internalID: 1014900217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8677d0c1b542345b900b5ccf0b5046
+      internalID: 58317513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1815
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07ab7d46ff23f1488e3c768dd80cc07
+      internalID: 484712340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b114f7c81870ab4bacc429e175f8ab4
+      internalID: -1958098698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2145
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c96073ff11cd1c9438ea59097c97d115
+      internalID: 1710819029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2310
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e745ba578ba184ba508a937c06f9d3
+      internalID: -1952553873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2475
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb15e5aaf3391342b49b422ac982f72
+      internalID: -766525731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 2640
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8d530fed22ec54a88a79c83b588c6c
+      internalID: -1178781954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 2805
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25a7d1de3c96b846a8da219d58436da
+      internalID: 437512468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699e51d5428570b48a9866079c75b9f3
+      internalID: -1540837925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 3135
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c19f8125c51b240accab751bdfc900
+      internalID: 32733670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fadbfbfe6ab5564985101e93bb3c7cc
+      internalID: 903429565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 3465
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03e15004842ddc4288e93bf73c34603
+      internalID: -1328035489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 3630
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194e599b6e5cd014e94383d260804335
+      internalID: 513495275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd6c8a2cabe47747892d0105522d39b
+      internalID: -202478949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 3960
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c405dc1fb9a44f4ea6160c4f1aa3001
+      internalID: -7201501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 4125
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284ffb8a3ea90cd4ea338f45f060e778
+      internalID: 1034208256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 4290
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2fd5e9063e384448e8ff9ae649bc19
+      internalID: -1616045521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 4455
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1555324c7973c2846a047ada8e31b638
+      internalID: -344160196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 4620
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c6f7d699bb3ab4faebc9ff6a67dceb
+      internalID: -293722947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 4785
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ae8d4e8e238644496a63842c9a5d12
+      internalID: 1326701369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 4950
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474d935172a980a489bd0b2d852a4de2
+      internalID: -169106133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 5115
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c5373c0367033499eda2dbbf9404f2
+      internalID: 1082679394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce95f4aa4e4cac44abaa2db2abaeb44f
+      internalID: -1154509792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_33
+      rect:
+        serializedVersion: 2
+        x: 5445
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2e0cd885704254da747fbbd24c1e40
+      internalID: -628784376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_34
+      rect:
+        serializedVersion: 2
+        x: 5610
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576edf2bc894e25408496f7f968d5948
+      internalID: -639586580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 5775
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a37f2c36b5c60c4f9707e2238bbd386
+      internalID: -947346181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 5940
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ce9fe9d00ea344ea02d2beb50eb494
+      internalID: -684945431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 6105
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443d3965804c73c4698915e4c0ade16d
+      internalID: -388303842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 6270
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96b773803a83624fad835dc805c94e1
+      internalID: 950406741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_39
+      rect:
+        serializedVersion: 2
+        x: 6435
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b727d7b09d0a6b4fbdcf38b23f3112e
+      internalID: -5794707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_40
+      rect:
+        serializedVersion: 2
+        x: 6600
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd04c2fc4a92bc48914659e986b271b
+      internalID: -1163588777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_41
+      rect:
+        serializedVersion: 2
+        x: 6765
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d217c05ed2e88e48bd1aff723fdbb50
+      internalID: 2131924176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_42
+      rect:
+        serializedVersion: 2
+        x: 6930
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a630dc863ee624199dde0564442ee2
+      internalID: -1395766663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 7095
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0bdada97955dc498fd37cbaf28ac5e
+      internalID: 150824477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 7260
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08178c845d1b3f04cb2187fda87688cb
+      internalID: 2088655747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_45
+      rect:
+        serializedVersion: 2
+        x: 7425
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c8c3fe5fdc44c408a4f9bb1566c2db
+      internalID: -677996995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_46
+      rect:
+        serializedVersion: 2
+        x: 7590
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84cbca71d2f64a748850bdde387eb18d
+      internalID: 2029372726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_47
+      rect:
+        serializedVersion: 2
+        x: 7755
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae723eb6809eba94d867f0cef2da1df5
+      internalID: 98038028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_48
+      rect:
+        serializedVersion: 2
+        x: 7920
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34c9996808a7524a91973b14761df33
+      internalID: 473284648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_49
+      rect:
+        serializedVersion: 2
+        x: 8085
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67793543df8d73346a983ef1b96ab726
+      internalID: 1956103958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_50
+      rect:
+        serializedVersion: 2
+        x: 8250
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2a52efa9d7a9f48aa4c3ece40eba9c
+      internalID: -779405244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_51
+      rect:
+        serializedVersion: 2
+        x: 8415
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77fe295908089e438814e5f154cd532
+      internalID: -1177753187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_update_sheet_52
+      rect:
+        serializedVersion: 2
+        x: 8580
+        y: 0
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5144677d8d770bd4c84545dc2e3ffe17
+      internalID: -214456057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e56bc07af36ef34abfa1e8d22b846b5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":53.0,"y":1.0},"gridSpriteSize":{"x":165.0,"y":165.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      test_ranged_update_sheet_0: 1572724618307809313
+      test_ranged_update_sheet_1: 5801881829607415110
+      test_ranged_update_sheet_10: 58317513
+      test_ranged_update_sheet_11: 484712340
+      test_ranged_update_sheet_12: -1958098698
+      test_ranged_update_sheet_13: 1710819029
+      test_ranged_update_sheet_14: -1952553873
+      test_ranged_update_sheet_15: -766525731
+      test_ranged_update_sheet_16: -1178781954
+      test_ranged_update_sheet_17: 437512468
+      test_ranged_update_sheet_18: -1540837925
+      test_ranged_update_sheet_19: 32733670
+      test_ranged_update_sheet_2: -4588789754507436109
+      test_ranged_update_sheet_20: 903429565
+      test_ranged_update_sheet_21: -1328035489
+      test_ranged_update_sheet_22: 513495275
+      test_ranged_update_sheet_23: -202478949
+      test_ranged_update_sheet_24: -7201501
+      test_ranged_update_sheet_25: 1034208256
+      test_ranged_update_sheet_26: -1616045521
+      test_ranged_update_sheet_27: -344160196
+      test_ranged_update_sheet_28: -293722947
+      test_ranged_update_sheet_29: 1326701369
+      test_ranged_update_sheet_3: -2911178024772513234
+      test_ranged_update_sheet_30: -169106133
+      test_ranged_update_sheet_31: 1082679394
+      test_ranged_update_sheet_32: -1154509792
+      test_ranged_update_sheet_33: -628784376
+      test_ranged_update_sheet_34: -639586580
+      test_ranged_update_sheet_35: -947346181
+      test_ranged_update_sheet_36: -684945431
+      test_ranged_update_sheet_37: -388303842
+      test_ranged_update_sheet_38: 950406741
+      test_ranged_update_sheet_39: -5794707
+      test_ranged_update_sheet_4: -5403642613423191026
+      test_ranged_update_sheet_40: -1163588777
+      test_ranged_update_sheet_41: 2131924176
+      test_ranged_update_sheet_42: -1395766663
+      test_ranged_update_sheet_43: 150824477
+      test_ranged_update_sheet_44: 2088655747
+      test_ranged_update_sheet_45: -677996995
+      test_ranged_update_sheet_46: 2029372726
+      test_ranged_update_sheet_47: 98038028
+      test_ranged_update_sheet_48: 473284648
+      test_ranged_update_sheet_49: 1956103958
+      test_ranged_update_sheet_5: 2894985078960035822
+      test_ranged_update_sheet_50: -779405244
+      test_ranged_update_sheet_51: -1177753187
+      test_ranged_update_sheet_52: -214456057
+      test_ranged_update_sheet_6: -6783578473724272965
+      test_ranged_update_sheet_7: -4645149519424295614
+      test_ranged_update_sheet_8: -5200498865184312577
+      test_ranged_update_sheet_9: 1014900217
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

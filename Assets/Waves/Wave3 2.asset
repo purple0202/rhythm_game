@@ -15,3 +15,4 @@ MonoBehaviour:
   enemies:
   - enemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
     count: 10
+    enemyType: 4

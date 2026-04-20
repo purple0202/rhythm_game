@@ -20,8 +20,10 @@ public class WeaponUI : MonoBehaviour
         for (int i = 0; i < weaponSlots.Length; i++)
         {
             bool hasWeapon = i < equippedWeapons.Count;
-            Debug.Log("COUNT: " + equippedWeapons.Count + hasWeapon);
-            weaponSlots[i].SetWeapon(hasWeapon ? equippedWeapons[i].icon : null);
+            weaponSlots[i].SetWeapon(
+                hasWeapon ? equippedWeapons[i].icon : null,
+                hasWeapon ? equippedWeapons[i].weaponType : EnemyType.None
+            );
             weaponSlots[i].SetSelected(hasWeapon && i == selectedIndex);
         }
     }

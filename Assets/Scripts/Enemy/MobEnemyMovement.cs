@@ -6,8 +6,8 @@ public class MobEnemyMovement : MonoBehaviour
 
     Transform player;
     Rigidbody2D rb;
-    Animator animator;
     SpriteRenderer spriteRenderer;
+    Animator animator;
 
     Vector2 movement;
 
@@ -15,8 +15,12 @@ public class MobEnemyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
+        // Start animation at a random point so enemies don't animate in sync
+        if (animator != null)
+            animator.Play(0, 0, Random.value);
     }
 
     void FixedUpdate()
@@ -30,7 +34,7 @@ public class MobEnemyMovement : MonoBehaviour
         if (movement.x != 0)
             spriteRenderer.flipX = movement.x < 0;
 
-        if (animator != null)
-            animator.SetBool("IsMoving", rb.linearVelocity.sqrMagnitude > 0.01f);
+        // Lower Y = closer to camera = higher sort order
+        spriteRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y * 10);
     }
 }
