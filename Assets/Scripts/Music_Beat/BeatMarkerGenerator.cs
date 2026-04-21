@@ -17,11 +17,18 @@ public class BeatMarkerGenerator : MonoBehaviour
     [SerializeField] float goodWindow = 0.1f;
     [SerializeField] float badWindow = 0.15f;
 
+    [Header("Position")]
+    [SerializeField] Vector3 defaultLocalOffset = new Vector3(0f, 1.5f, 0f);
+
     float windowSeconds;
     float pixelsPerSecond;
+    Camera cam;
+    RectTransform rectTransform;
 
     void Start()
     {
+        cam = Camera.main;
+        rectTransform = GetComponent<RectTransform>();
         windowSeconds = windowBeats * beatmap.SecondsPerBeat;
         pixelsPerSecond = barWidth / windowSeconds;
         SpawnMarkers();
@@ -58,5 +65,20 @@ public class BeatMarkerGenerator : MonoBehaviour
         float posInWindow = Mathf.Repeat(BeatConductor.Instance.songPosition - beatmap.offset + 0.5f * beatmap.SecondsPerBeat, windowSeconds);
         float xPos = (posInWindow / windowSeconds) * barWidth - barWidth / 2f;
         playhead.anchoredPosition = new Vector2(xPos, playhead.anchoredPosition.y);
+    }
+
+    void LateUpdate()
+    {
+        float halfBarW = rectTransform.rect.width  * transform.lossyScale.x / 2f;
+        float halfBarH = rectTransform.rect.height * transform.lossyScale.y / 2f;
+
+        float halfCamH = cam.orthographicSize;
+        float halfCamW = halfCamH * cam.aspect;
+
+        Vector3 desired = transform.parent.position + defaultLocalOffset;
+        Vector3 camPos = cam.transform.position;
+        desired.x = Mathf.Clamp(desired.x, camPos.x - halfCamW + halfBarW, camPos.x + halfCamW - halfBarW);
+        desired.y = Mathf.Clamp(desired.y, camPos.y - halfCamH + halfBarH, camPos.y + halfCamH - halfBarH);
+        transform.position = desired;
     }
 }

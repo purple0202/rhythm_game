@@ -9,7 +9,24 @@ public class MobEnemyMovement : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
 
+    [Header("Level-Up Push")]
+    [SerializeField] float pushDistance = 1f;
+    [SerializeField] float pushRadius = 5f;
+
     Vector2 movement;
+
+    void OnEnable()  => LevelSystem.OnLevelUp += OnLevelUp;
+    void OnDisable() => LevelSystem.OnLevelUp -= OnLevelUp;
+
+    void OnLevelUp()
+    {
+        if (player == null) return;
+        float dist = Vector2.Distance(transform.position, player.position);
+        if (dist > pushRadius) return;
+
+        Vector2 dir = ((Vector2)transform.position - (Vector2)player.position).normalized;
+        rb.position += dir * pushDistance;
+    }
 
     void Start()
     {
@@ -18,7 +35,6 @@ public class MobEnemyMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
-        // Start animation at a random point so enemies don't animate in sync
         if (animator != null)
             animator.Play(0, 0, Random.value);
     }
@@ -30,11 +46,9 @@ public class MobEnemyMovement : MonoBehaviour
         movement = (player.position - transform.position).normalized;
         rb.linearVelocity = movement * moveSpeed;
 
-        // Flip sprite to face the direction of movement
         if (movement.x != 0)
             spriteRenderer.flipX = movement.x < 0;
 
-        // Lower Y = closer to camera = higher sort order
         spriteRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y * 10);
     }
 }

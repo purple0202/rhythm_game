@@ -27,12 +27,16 @@ public class LevelSystem : MonoBehaviour
     //    PlayerStats.Instance.ApplyLevelUp(level);
     //}
 
+    public static event System.Action OnLevelUp;
+
     void LevelUp()
     {
         currentExp -= expToNextLevel;
         level++;
 
         expToNextLevel *= 1.2f;
+
+        OnLevelUp?.Invoke();
 
         Time.timeScale = 0f;
 
