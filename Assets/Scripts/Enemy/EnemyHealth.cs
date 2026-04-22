@@ -16,6 +16,9 @@ public class EnemyHealth : MonoBehaviour
     public Material greenMaterial;
     public Material yellowMaterial;
 
+    [Header("Damage Popup")]
+    [SerializeField] GameObject damagePopupPrefab;
+
     // Damage multipliers
     private const float MatchMultiplier    = 2.0f;
     private const float MismatchMultiplier = 0.5f;
@@ -40,7 +43,14 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage, EnemyType weaponType = EnemyType.None)
     {
         float multiplier = GetDamageMultiplier(weaponType);
-        currentHealth -= damage * multiplier;
+        float trueDamage = damage * multiplier;
+        currentHealth -= trueDamage;
+
+        if (damagePopupPrefab != null)
+        {
+            GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+            popup.GetComponent<DamagePopup>().Setup(trueDamage);
+        }
 
         if (currentHealth <= 0)
             Die();

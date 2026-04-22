@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemyMovement
   moveSpeed: 2
+  pushDistance: 1
+  pushRadius: 5
 --- !u!114 &7599300040541521689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +207,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: a3e86fccc99c7ba42b96faa59187c321, type: 2}
   greenMaterial: {fileID: 2100000, guid: 0737e31e849c8584099176de3ac529b0, type: 2}
   yellowMaterial: {fileID: 2100000, guid: fbff1a52260db834e8cd88e854f879c5, type: 2}
+  damagePopupPrefab: {fileID: 329508539881309488, guid: a9afca8d2777dba4fa69409a416348e8, type: 3}
 --- !u!95 &-2438289490178202847
 Animator:
   serializedVersion: 7
