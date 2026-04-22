@@ -25,7 +25,7 @@ public class UpgradeUI : MonoBehaviour
             UpgradeManager.Instance.GetRandomUpgrades(PlayerStats.Instance);
 
         for (int i = 0; i < optionSlots.Length; i++)
-            optionSlots[i].Setup(upgrades[i]);
+            optionSlots[i].Setup(upgrades[i], i);
 
         selectedIndex = 0;
         FocusSelected();
@@ -44,11 +44,16 @@ public class UpgradeUI : MonoBehaviour
             optionSlots[selectedIndex].Select();
     }
 
-    void Navigate(int dir)
+    public void SetSelected(int index)
     {
         optionSlots[selectedIndex].SetHighlighted(false);
-        selectedIndex = (selectedIndex + dir + optionSlots.Length) % optionSlots.Length;
+        selectedIndex = index;
         FocusSelected();
+    }
+
+    void Navigate(int dir)
+    {
+        SetSelected((selectedIndex + dir + optionSlots.Length) % optionSlots.Length);
     }
 
     void FocusSelected()

@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class UpgradeOptionUI : MonoBehaviour
+public class UpgradeOptionUI : MonoBehaviour, IPointerEnterHandler
 {
     public Text nameText;
     public Text descriptionText;
@@ -10,10 +11,12 @@ public class UpgradeOptionUI : MonoBehaviour
     public GameObject selectionBorder;
 
     UpgradeData currentUpgrade;
+    int myIndex;
 
-    public void Setup(UpgradeData upgrade)
+    public void Setup(UpgradeData upgrade, int index)
     {
         currentUpgrade = upgrade;
+        myIndex = index;
 
         nameText.text = upgrade.upgradeName;
         descriptionText.text = upgrade.description;
@@ -21,6 +24,11 @@ public class UpgradeOptionUI : MonoBehaviour
 
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(OnClick);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UpgradeUI.Instance.SetSelected(myIndex);
     }
 
     public void SetHighlighted(bool on)
