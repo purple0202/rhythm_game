@@ -7,6 +7,7 @@ public class UpgradeOptionUI : MonoBehaviour
     public Text descriptionText;
     public Image icon;
     public Button button;
+    public GameObject selectionBorder;
 
     UpgradeData currentUpgrade;
 
@@ -22,9 +23,12 @@ public class UpgradeOptionUI : MonoBehaviour
         button.onClick.AddListener(OnClick);
     }
 
-    void OnClick()
+    public void SetHighlighted(bool on)
     {
-        Debug.Log("Button Clicked!");
-        UpgradeUI.Instance.SelectUpgrade(currentUpgrade);
+        if (selectionBorder != null) selectionBorder.SetActive(on);
     }
+
+    public void Select() => UpgradeUI.Instance.SelectUpgrade(currentUpgrade);
+
+    void OnClick() => Select();
 }
