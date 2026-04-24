@@ -1,0 +1,2225 @@
+fileFormatVersion: 2
+guid: 5e21cae09b84b1e408d12cf42c0e6510
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -146384201961741922
+    second: test_ranged_enemy_0
+  - first:
+      213: -4699305083029064327
+    second: test_ranged_enemy_1
+  - first:
+      213: 8054164432623462440
+    second: test_ranged_enemy_2
+  - first:
+      213: -6100624301041761810
+    second: test_ranged_enemy_3
+  - first:
+      213: -7410495509726176090
+    second: test_ranged_enemy_4
+  - first:
+      213: -4896141991938721605
+    second: test_ranged_enemy_5
+  - first:
+      213: 6626423024738289893
+    second: test_ranged_enemy_6
+  - first:
+      213: -8862378053687883860
+    second: test_ranged_enemy_7
+  - first:
+      213: 1376075014948386972
+    second: test_ranged_enemy_8
+  - first:
+      213: 1721346945132101964
+    second: test_ranged_enemy_9
+  - first:
+      213: -2562996603899522960
+    second: test_ranged_enemy_10
+  - first:
+      213: 3825711352273245846
+    second: test_ranged_enemy_11
+  - first:
+      213: 8956251343597314244
+    second: test_ranged_enemy_12
+  - first:
+      213: 8937079868054330627
+    second: test_ranged_enemy_13
+  - first:
+      213: 4424125416477460664
+    second: test_ranged_enemy_14
+  - first:
+      213: -977622566558568582
+    second: test_ranged_enemy_15
+  - first:
+      213: 1977502253527153985
+    second: test_ranged_enemy_16
+  - first:
+      213: -4657663775864838107
+    second: test_ranged_enemy_17
+  - first:
+      213: 3705296128084796200
+    second: test_ranged_enemy_18
+  - first:
+      213: -843184417081243009
+    second: test_ranged_enemy_19
+  - first:
+      213: 7977943066681106593
+    second: test_ranged_enemy_20
+  - first:
+      213: 7827605414149086115
+    second: test_ranged_enemy_21
+  - first:
+      213: 2053458281288060204
+    second: test_ranged_enemy_22
+  - first:
+      213: -1552037330515675359
+    second: test_ranged_enemy_23
+  - first:
+      213: -76903560436193134
+    second: test_ranged_enemy_24
+  - first:
+      213: -6113346187356671324
+    second: test_ranged_enemy_25
+  - first:
+      213: 1832428746830887318
+    second: test_ranged_enemy_26
+  - first:
+      213: -4692057872045657552
+    second: test_ranged_enemy_27
+  - first:
+      213: 1509137191948896156
+    second: test_ranged_enemy_28
+  - first:
+      213: -7004099775100042186
+    second: test_ranged_enemy_29
+  - first:
+      213: -3935190568996556550
+    second: test_ranged_enemy_30
+  - first:
+      213: 7781108865792697340
+    second: test_ranged_enemy_31
+  - first:
+      213: -7505945349829562782
+    second: test_ranged_enemy_32
+  - first:
+      213: 4941240323955678115
+    second: test_ranged_enemy_33
+  - first:
+      213: 3213730825940480079
+    second: test_ranged_enemy_34
+  - first:
+      213: 6994179202497820616
+    second: test_ranged_enemy_35
+  - first:
+      213: 5129466398161551083
+    second: test_ranged_enemy_36
+  - first:
+      213: 5257888574336526475
+    second: test_ranged_enemy_37
+  - first:
+      213: 5790447469419027045
+    second: test_ranged_enemy_38
+  - first:
+      213: 2791024452483615091
+    second: test_ranged_enemy_39
+  - first:
+      213: -8881134192572084217
+    second: test_ranged_enemy_40
+  - first:
+      213: 6548799466209676934
+    second: test_ranged_enemy_41
+  - first:
+      213: -366890280029497493
+    second: test_ranged_enemy_42
+  - first:
+      213: -6953987779132869647
+    second: test_ranged_enemy_43
+  - first:
+      213: 5954857837390347494
+    second: test_ranged_enemy_44
+  - first:
+      213: 1377186226279779912
+    second: test_ranged_enemy_45
+  - first:
+      213: -2966945071705951340
+    second: test_ranged_enemy_46
+  - first:
+      213: 444667660307031707
+    second: test_ranged_enemy_47
+  - first:
+      213: 4935067857088516209
+    second: test_ranged_enemy_48
+  - first:
+      213: 1314652360271544844
+    second: test_ranged_enemy_49
+  - first:
+      213: -2223736696250805648
+    second: test_ranged_enemy_50
+  - first:
+      213: 8776585297065536916
+    second: test_ranged_enemy_51
+  - first:
+      213: 1537626841125536517
+    second: test_ranged_enemy_52
+  - first:
+      213: -8054416580260833516
+    second: test_ranged_enemy_53
+  - first:
+      213: -8155847769337478296
+    second: test_ranged_enemy_54
+  - first:
+      213: 5033055439713642684
+    second: test_ranged_enemy_55
+  - first:
+      213: -5000576879292723081
+    second: test_ranged_enemy_56
+  - first:
+      213: -7141170292925546523
+    second: test_ranged_enemy_57
+  - first:
+      213: -7271170965324119567
+    second: test_ranged_enemy_58
+  - first:
+      213: 3250242089946198638
+    second: test_ranged_enemy_59
+  - first:
+      213: 1248227434839262080
+    second: test_ranged_enemy_60
+  - first:
+      213: 2030533656375868989
+    second: test_ranged_enemy_61
+  - first:
+      213: 7814600475325135010
+    second: test_ranged_enemy_62
+  - first:
+      213: 4501845878494691800
+    second: test_ranged_enemy_63
+  - first:
+      213: 1940103031946688821
+    second: test_ranged_enemy_64
+  - first:
+      213: 542781715816075218
+    second: test_ranged_enemy_65
+  - first:
+      213: 3986487067481367679
+    second: test_ranged_enemy_66
+  - first:
+      213: -859997264518925080
+    second: test_ranged_enemy_67
+  - first:
+      213: -8035212348926450333
+    second: test_ranged_enemy_68
+  - first:
+      213: 3742375252641985015
+    second: test_ranged_enemy_69
+  - first:
+      213: -4952541313122499019
+    second: test_ranged_enemy_70
+  - first:
+      213: -6363053612874926781
+    second: test_ranged_enemy_71
+  - first:
+      213: -1243725181908178897
+    second: test_ranged_enemy_72
+  - first:
+      213: -7514356982077584222
+    second: test_ranged_enemy_73
+  - first:
+      213: -7637947306661640874
+    second: test_ranged_enemy_74
+  - first:
+      213: 4305162473661889886
+    second: test_ranged_enemy_75
+  - first:
+      213: 8090235412208143263
+    second: test_ranged_enemy_76
+  - first:
+      213: 2989533077638742688
+    second: test_ranged_enemy_77
+  - first:
+      213: 8079040709027955715
+    second: test_ranged_enemy_78
+  - first:
+      213: -6300038773341461243
+    second: test_ranged_enemy_79
+  - first:
+      213: -962857822466397889
+    second: test_ranged_enemy_80
+  - first:
+      213: -2406507873357138747
+    second: test_ranged_enemy_81
+  - first:
+      213: 9111827790304335053
+    second: test_ranged_enemy_82
+  - first:
+      213: -7778000503333979732
+    second: test_ranged_enemy_83
+  - first:
+      213: -7762368822732187193
+    second: test_ranged_enemy_84
+  - first:
+      213: 7339482350926604732
+    second: test_ranged_enemy_85
+  - first:
+      213: 5215765354358477577
+    second: test_ranged_enemy_86
+  - first:
+      213: 6178976577719118602
+    second: test_ranged_enemy_87
+  - first:
+      213: 5217075920667685577
+    second: test_ranged_enemy_88
+  - first:
+      213: -5660306922355418882
+    second: test_ranged_enemy_89
+  - first:
+      213: -7016991531877976655
+    second: test_ranged_enemy_90
+  - first:
+      213: -9092593669369894893
+    second: test_ranged_enemy_91
+  - first:
+      213: -4880359829952943187
+    second: test_ranged_enemy_92
+  - first:
+      213: 741137880840811118
+    second: test_ranged_enemy_93
+  - first:
+      213: -5108524846650340717
+    second: test_ranged_enemy_94
+  - first:
+      213: 2903964907062838718
+    second: test_ranged_enemy_95
+  - first:
+      213: -8306998099492468091
+    second: test_ranged_enemy_96
+  - first:
+      213: -4933204956996895604
+    second: test_ranged_enemy_97
+  - first:
+      213: -880197395620279072
+    second: test_ranged_enemy_98
+  - first:
+      213: 2978133476644694519
+    second: test_ranged_enemy_99
+  - first:
+      213: 1280221011528154765
+    second: test_ranged_enemy_100
+  - first:
+      213: -8846765202612820846
+    second: test_ranged_enemy_101
+  - first:
+      213: -4136346751161329467
+    second: test_ranged_enemy_102
+  - first:
+      213: 5786069691074085198
+    second: test_ranged_enemy_103
+  - first:
+      213: 4536371527349452547
+    second: test_ranged_enemy_104
+  - first:
+      213: -2006832577382281175
+    second: test_ranged_enemy_105
+  - first:
+      213: -9145447297130592316
+    second: test_ranged_enemy_106
+  - first:
+      213: -202347961277067805
+    second: test_ranged_enemy_107
+  - first:
+      213: 61011456606713120
+    second: test_ranged_enemy_108
+  - first:
+      213: -7039810796674776256
+    second: test_ranged_enemy_109
+  - first:
+      213: 2830343404803822274
+    second: test_ranged_enemy_110
+  - first:
+      213: 3782104191024701297
+    second: test_ranged_enemy_111
+  - first:
+      213: 8025171951595463760
+    second: test_ranged_enemy_112
+  - first:
+      213: 6351287604206594018
+    second: test_ranged_enemy_113
+  - first:
+      213: 5974271668642821327
+    second: test_ranged_enemy_114
+  - first:
+      213: -3701737999369183573
+    second: test_ranged_enemy_115
+  - first:
+      213: 976477345204579775
+    second: test_ranged_enemy_116
+  - first:
+      213: -3802138053154995157
+    second: test_ranged_enemy_117
+  - first:
+      213: 7839243842898535464
+    second: test_ranged_enemy_118
+  - first:
+      213: -355255174437833983
+    second: test_ranged_enemy_119
+  - first:
+      213: -4678840744273152378
+    second: test_ranged_enemy_120
+  - first:
+      213: 5628306585949627867
+    second: test_ranged_enemy_121
+  - first:
+      213: -539089349943158320
+    second: test_ranged_enemy_122
+  - first:
+      213: 3012515856956959023
+    second: test_ranged_enemy_123
+  - first:
+      213: -3249710790039087389
+    second: test_ranged_enemy_124
+  - first:
+      213: 1593694060944411906
+    second: test_ranged_enemy_125
+  - first:
+      213: -7617792030992265590
+    second: test_ranged_enemy_126
+  - first:
+      213: 1794665993988913432
+    second: test_ranged_enemy_127
+  - first:
+      213: -1488193739297250373
+    second: test_ranged_enemy_128
+  - first:
+      213: 28189305962948714
+    second: test_ranged_enemy_129
+  - first:
+      213: 2089899084272074697
+    second: test_ranged_enemy_130
+  - first:
+      213: 9037679337745544906
+    second: test_ranged_enemy_131
+  - first:
+      213: -347494623418211200
+    second: test_ranged_enemy_132
+  - first:
+      213: -5967321237234329361
+    second: test_ranged_enemy_133
+  - first:
+      213: 4011821283441864377
+    second: test_ranged_enemy_134
+  - first:
+      213: 9126284676173077284
+    second: test_ranged_enemy_135
+  - first:
+      213: 2939452909166736367
+    second: test_ranged_enemy_136
+  - first:
+      213: 3511378193043435536
+    second: test_ranged_enemy_137
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: test_ranged_enemy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9167590850f7fdf0800000000000000
+      internalID: -146384201961741922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_1
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9757ddacce6b8ceb0800000000000000
+      internalID: -4699305083029064327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8286b11f0e326cf60800000000000000
+      internalID: 8054164432623462440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_3
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee14a4c458a365ba0800000000000000
+      internalID: -6100624301041761810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_4
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6acd42da891a82990800000000000000
+      internalID: -7410495509726176090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_5
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb87e989cc86d0cb0800000000000000
+      internalID: -4896141991938721605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_6
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8cef8f1a8c5fb50800000000000000
+      internalID: 6626423024738289893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_7
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 777
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca747b47d12820580800000000000000
+      internalID: -8862378053687883860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98f9427fecc81310800000000000000
+      internalID: 1376075014948386972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c418dcf2de373e710800000000000000
+      internalID: 1721346945132101964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_10
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07059080b286e6cd0800000000000000
+      internalID: -2562996603899522960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_11
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6961d659438a71530800000000000000
+      internalID: 3825711352273245846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_12
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0ab3e052ffa4c70800000000000000
+      internalID: 8956251343597314244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_13
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d5ca01ac2e60c70800000000000000
+      internalID: 8937079868054330627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_14
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b88ae250a6a56d30800000000000000
+      internalID: 4424125416477460664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_15
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 648
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7feed39479ce62f0800000000000000
+      internalID: -977622566558568582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d350482df717b10800000000000000
+      internalID: 1977502253527153985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_17
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5282f542977ac5fb0800000000000000
+      internalID: -4657663775864838107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_18
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823ef1e623bdb6330800000000000000
+      internalID: 3705296128084796200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_19
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a4ab37d386c44f0800000000000000
+      internalID: -843184417081243009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_20
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a061df33f857be60800000000000000
+      internalID: 7977943066681106593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_21
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3abd748d6ad31ac60800000000000000
+      internalID: 7827605414149086115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_22
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d42495d695f7c10800000000000000
+      internalID: 2053458281288060204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_23
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127b77c554e067ae0800000000000000
+      internalID: -1552037330515675359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_24
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298ec368e98ceeef0800000000000000
+      internalID: -76903560436193134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_25
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2fd915808092ba0800000000000000
+      internalID: -6113346187356671324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_26
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699b1139c381e6910800000000000000
+      internalID: 1832428746830887318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_27
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032b427993672eeb0800000000000000
+      internalID: -4692057872045657552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_28
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 519
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97c173c74881f410800000000000000
+      internalID: 1509137191948896156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634c4c52d507cce90800000000000000
+      internalID: -7004099775100042186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_30
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af03e7be6056369c0800000000000000
+      internalID: -3935190568996556550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_31
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf36730994d0cfb60800000000000000
+      internalID: 7781108865792697340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_32
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ee9e7f87685d790800000000000000
+      internalID: -7505945349829562782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_33
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3abd63315efc29440800000000000000
+      internalID: 4941240323955678115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_34
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f40b7ebb827799c20800000000000000
+      internalID: 3213730825940480079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_35
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c7be4c8de0501160800000000000000
+      internalID: 6994179202497820616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_36
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beeb8b513868f2740800000000000000
+      internalID: 5129466398161551083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_37
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88e9e50dc5c7f840800000000000000
+      internalID: 5257888574336526475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_38
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ad7495b4dcb5050800000000000000
+      internalID: 5790447469419027045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_39
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37907b9b3f5bbb620800000000000000
+      internalID: 2791024452483615091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_40
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7005a21918fdfb480800000000000000
+      internalID: -8881134192572084217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_41
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 390
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e02b0ea6202ea50800000000000000
+      internalID: 6548799466209676934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b675c43fb3b88eaf0800000000000000
+      internalID: -366890280029497493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_43
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f3b06c65f87e7f90800000000000000
+      internalID: -6953987779132869647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_44
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec3a9527a7e3a250800000000000000
+      internalID: 5954857837390347494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_45
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e87fe739fbc1310800000000000000
+      internalID: 1377186226279779912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_46
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493fed44d2b43d6d0800000000000000
+      internalID: -2966945071705951340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_47
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9664bf81e6cb2600800000000000000
+      internalID: 444667660307031707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_48
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1709534a112ec7440800000000000000
+      internalID: 4935067857088516209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_49
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c024d193b559e3210800000000000000
+      internalID: 1314652360271544844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_50
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07258f1b143b321e0800000000000000
+      internalID: -2223736696250805648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_51
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49de18cc3d1bcc970800000000000000
+      internalID: 8776585297065536916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_52
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503c46e177fb65510800000000000000
+      internalID: 1537626841125536517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_53
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417598c5bc6f83090800000000000000
+      internalID: -8054416580260833516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_54
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8634a725aab90de80800000000000000
+      internalID: -8155847769337478296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_55
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8aaf2914109d540800000000000000
+      internalID: 5033055439713642684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_56
+      rect:
+        serializedVersion: 2
+        x: 2268
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770d9bd82d16a9ab0800000000000000
+      internalID: -5000576879292723081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_57
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5efb991447775ec90800000000000000
+      internalID: -7141170292925546523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_58
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 261
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f1c8b6088c971b90800000000000000
+      internalID: -7271170965324119567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 132
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e623445d5fd2b1d20800000000000000
+      internalID: 3250242089946198638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_60
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 132
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083cd741d38925110800000000000000
+      internalID: 1248227434839262080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_61
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 132
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e32cc2a97ed2c10800000000000000
+      internalID: 2030533656375868989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_62
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 132
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a87a519ab9037c60800000000000000
+      internalID: 7814600475325135010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_63
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 132
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d18b3589f4c97e30800000000000000
+      internalID: 4501845878494691800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53937dead61acea10800000000000000
+      internalID: 1940103031946688821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_65
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df4bc14819588700800000000000000
+      internalID: 542781715816075218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_66
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f746ae6ddd8d25730800000000000000
+      internalID: 3986487067481367679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_67
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4ba8c5b0da014f0800000000000000
+      internalID: -859997264518925080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_68
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3652867e0f03d7090800000000000000
+      internalID: -8035212348926450333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_69
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f130fdd6769fe330800000000000000
+      internalID: 3742375252641985015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_70
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53603e75ae9054bb0800000000000000
+      internalID: -4952541313122499019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_71
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 345f2d5b374e1b7a0800000000000000
+      internalID: -6363053612874926781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_ranged_enemy_72
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 3
+        width: 122
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28a72e59866dbee0800000000000000
+      internalID: -1243725181908178897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e79221823c50d154d8f63808484887c5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":17.0,"y":7.0},"gridSpriteSize":{"x":122.0,"y":119.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":40.0,"y":10.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      test_ranged_enemy_0: -146384201961741922
+      test_ranged_enemy_1: -4699305083029064327
+      test_ranged_enemy_10: -2562996603899522960
+      test_ranged_enemy_11: 3825711352273245846
+      test_ranged_enemy_12: 8956251343597314244
+      test_ranged_enemy_13: 8937079868054330627
+      test_ranged_enemy_14: 4424125416477460664
+      test_ranged_enemy_15: -977622566558568582
+      test_ranged_enemy_16: 1977502253527153985
+      test_ranged_enemy_17: -4657663775864838107
+      test_ranged_enemy_18: 3705296128084796200
+      test_ranged_enemy_19: -843184417081243009
+      test_ranged_enemy_2: 8054164432623462440
+      test_ranged_enemy_20: 7977943066681106593
+      test_ranged_enemy_21: 7827605414149086115
+      test_ranged_enemy_22: 2053458281288060204
+      test_ranged_enemy_23: -1552037330515675359
+      test_ranged_enemy_24: -76903560436193134
+      test_ranged_enemy_25: -6113346187356671324
+      test_ranged_enemy_26: 1832428746830887318
+      test_ranged_enemy_27: -4692057872045657552
+      test_ranged_enemy_28: 1509137191948896156
+      test_ranged_enemy_29: -7004099775100042186
+      test_ranged_enemy_3: -6100624301041761810
+      test_ranged_enemy_30: -3935190568996556550
+      test_ranged_enemy_31: 7781108865792697340
+      test_ranged_enemy_32: -7505945349829562782
+      test_ranged_enemy_33: 4941240323955678115
+      test_ranged_enemy_34: 3213730825940480079
+      test_ranged_enemy_35: 6994179202497820616
+      test_ranged_enemy_36: 5129466398161551083
+      test_ranged_enemy_37: 5257888574336526475
+      test_ranged_enemy_38: 5790447469419027045
+      test_ranged_enemy_39: 2791024452483615091
+      test_ranged_enemy_4: -7410495509726176090
+      test_ranged_enemy_40: -8881134192572084217
+      test_ranged_enemy_41: 6548799466209676934
+      test_ranged_enemy_42: -366890280029497493
+      test_ranged_enemy_43: -6953987779132869647
+      test_ranged_enemy_44: 5954857837390347494
+      test_ranged_enemy_45: 1377186226279779912
+      test_ranged_enemy_46: -2966945071705951340
+      test_ranged_enemy_47: 444667660307031707
+      test_ranged_enemy_48: 4935067857088516209
+      test_ranged_enemy_49: 1314652360271544844
+      test_ranged_enemy_5: -4896141991938721605
+      test_ranged_enemy_50: -2223736696250805648
+      test_ranged_enemy_51: 8776585297065536916
+      test_ranged_enemy_52: 1537626841125536517
+      test_ranged_enemy_53: -8054416580260833516
+      test_ranged_enemy_54: -8155847769337478296
+      test_ranged_enemy_55: 5033055439713642684
+      test_ranged_enemy_56: -5000576879292723081
+      test_ranged_enemy_57: -7141170292925546523
+      test_ranged_enemy_58: -7271170965324119567
+      test_ranged_enemy_59: 3250242089946198638
+      test_ranged_enemy_6: 6626423024738289893
+      test_ranged_enemy_60: 1248227434839262080
+      test_ranged_enemy_61: 2030533656375868989
+      test_ranged_enemy_62: 7814600475325135010
+      test_ranged_enemy_63: 4501845878494691800
+      test_ranged_enemy_64: 1940103031946688821
+      test_ranged_enemy_65: 542781715816075218
+      test_ranged_enemy_66: 3986487067481367679
+      test_ranged_enemy_67: -859997264518925080
+      test_ranged_enemy_68: -8035212348926450333
+      test_ranged_enemy_69: 3742375252641985015
+      test_ranged_enemy_7: -8862378053687883860
+      test_ranged_enemy_70: -4952541313122499019
+      test_ranged_enemy_71: -6363053612874926781
+      test_ranged_enemy_72: -1243725181908178897
+      test_ranged_enemy_8: 1376075014948386972
+      test_ranged_enemy_9: 1721346945132101964
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

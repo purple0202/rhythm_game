@@ -6,12 +6,16 @@ public class MeleeWeapon : Weapon
     public float goodDamage = 10f;
 
     public float attackRadius = 1.5f;
+    public bool useEffectCollider = true;
     public LayerMask enemyLayer;
 
     public GameObject attackEffectPrefab;
-    public float effectDuration = 0.2f;
+    public float effectOffset = 0.7f;
 
     public float autoDamage = 5f;
+
+    Vector3 gizmoCenter;
+    float gizmoRadius;
 
     public override void PerformAttack(string judgement)
     {
@@ -26,21 +30,41 @@ public class MeleeWeapon : Weapon
         else
             return; // "Bad"
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(
-            transform.position,
-            attackRadius,
-            enemyLayer
-        );
+        PlayerMovement playerMovement = GetComponentInParent<PlayerMovement>();
+        int facing = playerMovement != null ? playerMovement.facingDirection : 1;
+        Vector3 spawnPos = transform.position + new Vector3(effectOffset * facing, 0f, 0f);
 
+        GameObject effect = Instantiate(attackEffectPrefab, spawnPos, Quaternion.identity, transform);
+        if (facing == -1)
+        {
+            Vector3 scale = effect.transform.localScale;
+            scale.x *= -1f;
+            effect.transform.localScale = scale;
+        }
+
+        float radius = attackRadius;
+        if (useEffectCollider)
+        {
+            CircleCollider2D col = effect.GetComponent<CircleCollider2D>();
+            if (col != null)
+                radius = col.bounds.extents.x;
+        }
+
+        gizmoCenter = spawnPos;
+        gizmoRadius = radius;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(spawnPos, radius, enemyLayer);
         foreach (var hit in hits)
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-
             if (enemy != null)
                 enemy.TakeDamage(damage, weaponType);
         }
+    }
 
-        GameObject effect = Instantiate(attackEffectPrefab, transform.position, Quaternion.identity, transform);
-        Destroy(effect, effectDuration);
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1f, 0f, 0f, 0.4f);
+        Gizmos.DrawSphere(gizmoCenter, gizmoRadius);
     }
 }

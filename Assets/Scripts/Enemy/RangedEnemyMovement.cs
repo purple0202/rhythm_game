@@ -42,12 +42,6 @@ public class RangedEnemyMovement : MonoBehaviour
                 break;
 
             case State.Casting:
-                // If the player runs out of range, cancel the cast
-                if (dist > fireRange)
-                {
-                    EnterChasing();
-                    break;
-                }
                 stateTimer -= Time.deltaTime;
                 if (stateTimer <= 0f)
                     Fire();

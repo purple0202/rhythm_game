@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public int facingDirection = 1;
     private Rigidbody2D rb;
     private Vector2 movement;
 
@@ -29,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
+
+        if (movement.x != 0)
+            facingDirection = movement.x > 0 ? 1 : -1;
     }
 
     void FixedUpdate()
