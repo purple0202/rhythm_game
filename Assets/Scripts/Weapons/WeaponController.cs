@@ -48,6 +48,23 @@ public class WeaponController : MonoBehaviour
         {
             SelectWeapon(0);
             OnFirstWeaponEquipped?.Invoke();
+            BeatConductor.Instance.SetParameter("Tutorial Success", 1f);
+            BeatConductor.Instance.SetParameter("Synth 2", 1f);
+            BeatConductor.Instance.SetParameter("Synth 3", 1f);
+            BeatConductor.Instance.SetParameter("Synth 4", 1f);
+        }
+        else if (nextIndex == 1)
+        {
+            BeatConductor.Instance.SetParameter("Weapon 1", 1f);
+            BeatConductor.Instance.SetParameter("Group 2", 1f);
+        }
+        else if (nextIndex == 2)
+        {
+            BeatConductor.Instance.SetParameter("Group 3", 1f);
+        }
+        else if (nextIndex == 3)
+        {
+            BeatConductor.Instance.SetParameter("Group 4", 1f);
         }
 
         if (weaponUI != null)

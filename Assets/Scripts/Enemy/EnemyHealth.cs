@@ -88,6 +88,14 @@ public class EnemyHealth : MonoBehaviour
     {
         FindObjectOfType<LevelSystem>().AddExp(expValue);
         EnemyManager.Instance.UnregisterEnemy(gameObject);
+
+        ExplodingEnemyMovement exploding = GetComponent<ExplodingEnemyMovement>();
+        if (exploding != null)
+        {
+            exploding.OnDeathExplosion();
+            return; // exploding enemy destroys itself after the animation finishes
+        }
+
         Destroy(gameObject);
     }
 }

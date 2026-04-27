@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class BeatConductor : MonoBehaviour
 {
@@ -7,13 +9,13 @@ public class BeatConductor : MonoBehaviour
 
     [Header("References")]
     public BeatmapData beatmap;
-    public AudioSource audioSource;
+    [EventRef] public string musicEvent;
 
     [Header("Song Timing")]
     public float songPosition;
     public float songPositionInBeats;
 
-    private double songStartDSPTime;
+    private EventInstance _eventInstance;
     private float secondsPerBeat;
     private int lastBeatIndex = -1;
 
@@ -23,36 +25,45 @@ public class BeatConductor : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
         secondsPerBeat = 60f / beatmap.bpm;
-        audioSource.clip = beatmap.music;
         beatmap.GenerateBeats();
         StartSong();
     }
 
     void StartSong()
     {
-        double dspTime = AudioSettings.dspTime;
-        double delay = 1.0;
-        songStartDSPTime = dspTime + delay;
-        audioSource.PlayScheduled(songStartDSPTime);
+        _eventInstance = RuntimeManager.CreateInstance(musicEvent);
+        _eventInstance.start();
     }
 
     void Update()
     {
-        double dspTime = AudioSettings.dspTime;
-        songPosition = ((float)(dspTime - songStartDSPTime) + songOffset) % beatmap.songLength;
+        _eventInstance.getTimelinePosition(out int posMs);
+        songPosition = posMs / 1000f + songOffset;
         songPositionInBeats = songPosition / secondsPerBeat;
 
         int currentBeatIndex = Mathf.FloorToInt(songPositionInBeats);
+        if (currentBeatIndex < lastBeatIndex)
+            lastBeatIndex = -1;
         if (currentBeatIndex > lastBeatIndex)
         {
             lastBeatIndex = currentBeatIndex;
             OnBeat?.Invoke();
         }
+    }
+
+    public void SetParameter(string name, float value)
+    {
+        _eventInstance.setParameterByName(name, value);
+    }
+
+    void OnDestroy()
+    {
+        _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _eventInstance.release();
     }
 }
