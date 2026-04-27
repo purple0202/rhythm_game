@@ -5436,11 +5436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a6bbf3f913034e8277d533adce1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatConductor
-  beatmap: {fileID: 11400000, guid: cf9b85006bd904a4382fdde53ed8bc94, type: 2}
   musicEvent: event:/Level Track 1
   songPosition: 0
   songPositionInBeats: 0
-  songOffset: 0.1
+  secondsPerBeat: 0
+  lastBeatTime: 0
+  songOffset: 0
 --- !u!4 &1393058520
 Transform:
   m_ObjectHideFlags: 0
@@ -6489,12 +6490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e3922d1e1e70040b7059a67a579d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputJudge
-  beatmap: {fileID: 11400000, guid: cf9b85006bd904a4382fdde53ed8bc94, type: 2}
   judgementManager: {fileID: 967281673}
   weaponController: {fileID: 249762972}
   perfectWindow: 0.05
   greatWindow: 0.1
   goodWindow: 0.15
+  calibrationOffset: 0
 --- !u!4 &1701270200
 Transform:
   m_ObjectHideFlags: 0

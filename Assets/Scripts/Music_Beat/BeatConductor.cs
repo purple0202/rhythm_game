@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Runtime.InteropServices;
 using FMODUnity;
 using FMOD.Studio;
 
@@ -8,19 +10,25 @@ public class BeatConductor : MonoBehaviour
     public static event System.Action OnBeat;
 
     [Header("References")]
-    public BeatmapData beatmap;
     [EventRef] public string musicEvent;
 
     [Header("Song Timing")]
     public float songPosition;
     public float songPositionInBeats;
-
-    private EventInstance _eventInstance;
-    private float secondsPerBeat;
-    private int lastBeatIndex = -1;
+    public float secondsPerBeat;
+    public float lastBeatTime;
 
     [Header("Offsets")]
     public float songOffset = 0f;
+
+    private EventInstance _eventInstance;
+
+    // Kept as a field to prevent garbage collection
+    private static readonly EVENT_CALLBACK _beatCallback = new EVENT_CALLBACK(BeatEventCallback);
+
+    private volatile bool _beatPending;
+    private volatile int _pendingBeatPositionMs;
+    private volatile float _pendingTempo;
 
     void Awake()
     {
@@ -29,14 +37,8 @@ public class BeatConductor : MonoBehaviour
 
     void Start()
     {
-        secondsPerBeat = 60f / beatmap.bpm;
-        beatmap.GenerateBeats();
-        StartSong();
-    }
-
-    void StartSong()
-    {
         _eventInstance = RuntimeManager.CreateInstance(musicEvent);
+        _eventInstance.setCallback(_beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
         _eventInstance.start();
     }
 
@@ -44,14 +46,15 @@ public class BeatConductor : MonoBehaviour
     {
         _eventInstance.getTimelinePosition(out int posMs);
         songPosition = posMs / 1000f + songOffset;
-        songPositionInBeats = songPosition / secondsPerBeat;
 
-        int currentBeatIndex = Mathf.FloorToInt(songPositionInBeats);
-        if (currentBeatIndex < lastBeatIndex)
-            lastBeatIndex = -1;
-        if (currentBeatIndex > lastBeatIndex)
+        if (secondsPerBeat > 0)
+            songPositionInBeats = songPosition / secondsPerBeat;
+
+        if (_beatPending)
         {
-            lastBeatIndex = currentBeatIndex;
+            _beatPending = false;
+            lastBeatTime = _pendingBeatPositionMs / 1000f + songOffset;
+            secondsPerBeat = 60f / _pendingTempo;
             OnBeat?.Invoke();
         }
     }
@@ -59,6 +62,20 @@ public class BeatConductor : MonoBehaviour
     public void SetParameter(string name, float value)
     {
         _eventInstance.setParameterByName(name, value);
+    }
+
+    [AOT.MonoPInvokeCallback(typeof(EVENT_CALLBACK))]
+    static FMOD.RESULT BeatEventCallback(EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameterPtr)
+    {
+        if (type == EVENT_CALLBACK_TYPE.TIMELINE_BEAT && Instance != null)
+        {
+            var props = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(
+                parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
+            Instance._pendingBeatPositionMs = props.position;
+            Instance._pendingTempo = props.tempo;
+            Instance._beatPending = true;
+        }
+        return FMOD.RESULT.OK;
     }
 
     void OnDestroy()
