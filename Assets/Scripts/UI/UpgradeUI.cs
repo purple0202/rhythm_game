@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +10,10 @@ public class UpgradeUI : MonoBehaviour
     public GameObject panel;
     public UpgradeOptionUI[] optionSlots;
 
+    [Header("Grace Periods")]
+    public float preUIGraceSeconds = 1f;
+    public int postUIGraceBeats = 1;
+
     int selectedIndex;
 
     void Awake()
@@ -19,15 +24,20 @@ public class UpgradeUI : MonoBehaviour
 
     public void Show()
     {
-        panel.SetActive(true);
-
         List<UpgradeData> upgrades =
             UpgradeManager.Instance.GetRandomUpgrades(PlayerStats.Instance);
 
         for (int i = 0; i < optionSlots.Length; i++)
             optionSlots[i].Setup(upgrades[i], i);
 
+        StartCoroutine(PreGraceCoroutine());
+    }
+
+    IEnumerator PreGraceCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(preUIGraceSeconds);
         selectedIndex = 0;
+        panel.SetActive(true);
         FocusSelected();
     }
 
@@ -68,6 +78,16 @@ public class UpgradeUI : MonoBehaviour
     {
         upgrade.Apply(PlayerStats.Instance);
         panel.SetActive(false);
+        StartCoroutine(PostGraceCoroutine());
+    }
+
+    IEnumerator PostGraceCoroutine()
+    {
+        int beatsRemaining = postUIGraceBeats;
+        System.Action onBeat = () => beatsRemaining--;
+        BeatConductor.OnBeat += onBeat;
+        yield return new WaitUntil(() => beatsRemaining <= 0);
+        BeatConductor.OnBeat -= onBeat;
         Time.timeScale = 1f;
     }
 }

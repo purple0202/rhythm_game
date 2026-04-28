@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,10 @@ public class WeaponSelectUI : MonoBehaviour
 
     public GameObject panel;
     public WeaponOptionUI[] optionSlots;
+
+    [Header("Grace Periods")]
+    public float preUIGraceSeconds = 1f;
+    public int postUIGraceBeats = 1;
 
     WeaponController pendingController;
     string pendingFmodParam;
@@ -26,9 +31,14 @@ public class WeaponSelectUI : MonoBehaviour
         for (int i = 0; i < optionSlots.Length; i++)
             optionSlots[i].Setup(weapons[i], i);
 
+        StartCoroutine(PreGraceCoroutine());
+    }
+
+    IEnumerator PreGraceCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(preUIGraceSeconds);
         selectedIndex = 0;
         panel.SetActive(true);
-        Time.timeScale = 0f;
         FocusSelected();
     }
 
@@ -70,6 +80,16 @@ public class WeaponSelectUI : MonoBehaviour
     {
         pendingController.EquipGroupWeapon(weapon, pendingFmodParam, optionIndex + 1);
         panel.SetActive(false);
+        StartCoroutine(PostGraceCoroutine());
+    }
+
+    IEnumerator PostGraceCoroutine()
+    {
+        int beatsRemaining = postUIGraceBeats;
+        System.Action onBeat = () => beatsRemaining--;
+        BeatConductor.OnBeat += onBeat;
+        yield return new WaitUntil(() => beatsRemaining <= 0);
+        BeatConductor.OnBeat -= onBeat;
         Time.timeScale = 1f;
     }
 }

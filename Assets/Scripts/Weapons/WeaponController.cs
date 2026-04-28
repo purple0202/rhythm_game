@@ -68,6 +68,7 @@ public class WeaponController : MonoBehaviour
 
         if (options == null || string.IsNullOrEmpty(fmodParam)) return;
 
+        Time.timeScale = 0f;
         WeaponSelectUI.Instance.Show(options, fmodParam, this);
     }
 

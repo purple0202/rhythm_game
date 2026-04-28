@@ -6,11 +6,22 @@ public class WaveManager : MonoBehaviour
     public int currentWaveIndex = 0;
 
     public Transform player;
-    public BoxCollider2D mapBounds;
 
+    [Header("Map Bounds")]
+    public Renderer backgroundRenderer;
+
+    [Header("Spawn Settings")]
+    public float spawnPadding = 1f;
+
+    private Camera cam;
     private bool waveActive = false;
 
     public static event System.Action OnWaveCleared;
+
+    void Start()
+    {
+        cam = Camera.main;
+    }
 
     void OnEnable()
     {
@@ -27,9 +38,7 @@ public class WaveManager : MonoBehaviour
         if (!waveActive) return;
 
         if (EnemyManager.Instance.AreAllEnemiesDead())
-        {
             NextWave();
-        }
     }
 
     void StartFirstWave()
@@ -59,9 +68,8 @@ public class WaveManager : MonoBehaviour
     {
         currentWaveIndex++;
         if (currentWaveIndex >= 1 && currentWaveIndex <= 3)
-        {
             OnWaveCleared?.Invoke();
-        }
+
         if (currentWaveIndex >= waves.Length)
         {
             Debug.Log("All waves cleared!");
@@ -74,17 +82,26 @@ public class WaveManager : MonoBehaviour
 
     Vector3 GetSpawnPosition()
     {
-        float spawnDistance = Random.Range(8, 15);
-        Vector2 spawnDirection = Random.insideUnitCircle.normalized;
+        Bounds map = backgroundRenderer.bounds;
 
-        Vector3 spawnCenter = player.position + (Vector3)(spawnDirection * spawnDistance);
+        float halfH = cam.orthographicSize + spawnPadding;
+        float halfW = cam.orthographicSize * cam.aspect + spawnPadding;
+        Vector3 camPos = cam.transform.position;
 
-        //HARDCODED FOR NOW FIX!!
-        if (spawnCenter.x < -15) spawnCenter.x = -11;
-        else if (spawnCenter.x > 15) spawnCenter.x = 11;
-        if (spawnCenter.y < -15) spawnCenter.y = -11;
-        else if (spawnCenter.y > 15) spawnCenter.y = 11;
+        // Pick a point just outside one of the four camera edges
+        Vector3 spawnPos;
+        switch (Random.Range(0, 4))
+        {
+            case 0:  spawnPos = new Vector3(Random.Range(camPos.x - halfW, camPos.x + halfW), camPos.y + halfH, 0); break; // top
+            case 1:  spawnPos = new Vector3(Random.Range(camPos.x - halfW, camPos.x + halfW), camPos.y - halfH, 0); break; // bottom
+            case 2:  spawnPos = new Vector3(camPos.x - halfW, Random.Range(camPos.y - halfH, camPos.y + halfH), 0); break; // left
+            default: spawnPos = new Vector3(camPos.x + halfW, Random.Range(camPos.y - halfH, camPos.y + halfH), 0); break; // right
+        }
 
-        return spawnCenter;
+        // Clamp inside map bounds
+        spawnPos.x = Mathf.Clamp(spawnPos.x, map.min.x, map.max.x);
+        spawnPos.y = Mathf.Clamp(spawnPos.y, map.min.y, map.max.y);
+
+        return spawnPos;
     }
 }
