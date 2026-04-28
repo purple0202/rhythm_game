@@ -12,6 +12,12 @@ public class WaveManager : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnPadding = 1f;
+    public float mapInset = 1.5f;
+
+    [Tooltip("Wave size at which enemies use the full map spread.")]
+    public int maxWaveSize = 20;
+    [Tooltip("How far beyond the camera edge enemies can spawn for the smallest wave.")]
+    public float minStripDepth = 2f;
 
     private Camera cam;
     private bool waveActive = false;
@@ -51,11 +57,15 @@ public class WaveManager : MonoBehaviour
     {
         WaveData wave = waves[currentWaveIndex];
 
+        int totalEnemies = 0;
+        foreach (var enemyData in wave.enemies)
+            totalEnemies += enemyData.count;
+
         foreach (var enemyData in wave.enemies)
         {
             for (int i = 0; i < enemyData.count; i++)
             {
-                Vector3 spawnPos = GetSpawnPosition();
+                Vector3 spawnPos = GetSpawnPosition(totalEnemies);
                 GameObject enemy = Instantiate(enemyData.enemyPrefab, spawnPos, Quaternion.identity);
                 EnemyHealth health = enemy.GetComponent<EnemyHealth>();
                 if (health != null)
@@ -80,28 +90,62 @@ public class WaveManager : MonoBehaviour
         StartWave();
     }
 
-    Vector3 GetSpawnPosition()
+    Vector3 GetSpawnPosition(int waveSize)
     {
         Bounds map = backgroundRenderer.bounds;
 
-        float halfH = cam.orthographicSize + spawnPadding;
-        float halfW = cam.orthographicSize * cam.aspect + spawnPadding;
-        Vector3 camPos = cam.transform.position;
+        float insetMinX = map.min.x + mapInset;
+        float insetMaxX = map.max.x - mapInset;
+        float insetMinY = map.min.y + mapInset;
+        float insetMaxY = map.max.y - mapInset;
 
-        // Pick a point just outside one of the four camera edges
-        Vector3 spawnPos;
+        Vector3 camPos = cam.transform.position;
+        float camHalfH = cam.orthographicSize + spawnPadding;
+        float camHalfW = cam.orthographicSize * cam.aspect + spawnPadding;
+
+        float camTop    = camPos.y + camHalfH;
+        float camBottom = camPos.y - camHalfH;
+        float camRight  = camPos.x + camHalfW;
+        float camLeft   = camPos.x - camHalfW;
+
+        // 0 = smallest wave (tight), 1 = maxWaveSize or larger (full spread)
+        float t = Mathf.Clamp01((float)waveSize / maxWaveSize);
+
+        // Depth: how far beyond the camera edge each strip extends
+        float topMax    = Mathf.Lerp(camTop    + minStripDepth, insetMaxY, t);
+        float bottomMin = Mathf.Lerp(camBottom - minStripDepth, insetMinY, t);
+        float rightMax  = Mathf.Lerp(camRight  + minStripDepth, insetMaxX, t);
+        float leftMin   = Mathf.Lerp(camLeft   - minStripDepth, insetMinX, t);
+
+        // Width: how far along the edge enemies can spread (centered on camera)
+        float halfW = Mathf.Lerp(camHalfW, (insetMaxX - insetMinX) * 0.5f, t);
+        float halfH = Mathf.Lerp(camHalfH, (insetMaxY - insetMinY) * 0.5f, t);
+        float xMin = Mathf.Clamp(camPos.x - halfW, insetMinX, insetMaxX);
+        float xMax = Mathf.Clamp(camPos.x + halfW, insetMinX, insetMaxX);
+        float yMin = Mathf.Clamp(camPos.y - halfH, insetMinY, insetMaxY);
+        float yMax = Mathf.Clamp(camPos.y + halfH, insetMinY, insetMaxY);
+
+        float x, y;
         switch (Random.Range(0, 4))
         {
-            case 0:  spawnPos = new Vector3(Random.Range(camPos.x - halfW, camPos.x + halfW), camPos.y + halfH, 0); break; // top
-            case 1:  spawnPos = new Vector3(Random.Range(camPos.x - halfW, camPos.x + halfW), camPos.y - halfH, 0); break; // bottom
-            case 2:  spawnPos = new Vector3(camPos.x - halfW, Random.Range(camPos.y - halfH, camPos.y + halfH), 0); break; // left
-            default: spawnPos = new Vector3(camPos.x + halfW, Random.Range(camPos.y - halfH, camPos.y + halfH), 0); break; // right
+            case 0: // top
+                x = Random.Range(xMin, xMax);
+                y = Random.Range(camTop, topMax);
+                break;
+            case 1: // bottom
+                x = Random.Range(xMin, xMax);
+                y = Random.Range(bottomMin, camBottom);
+                break;
+            case 2: // left
+                x = Random.Range(leftMin, camLeft);
+                y = Random.Range(yMin, yMax);
+                break;
+            default: // right
+                x = Random.Range(camRight, rightMax);
+                y = Random.Range(yMin, yMax);
+                break;
         }
 
-        // Clamp inside map bounds
-        spawnPos.x = Mathf.Clamp(spawnPos.x, map.min.x, map.max.x);
-        spawnPos.y = Mathf.Clamp(spawnPos.y, map.min.y, map.max.y);
-
-        return spawnPos;
+        return new Vector3(x, y, 0);
     }
 }

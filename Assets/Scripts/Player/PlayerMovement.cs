@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public int facingDirection = 1;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private Vector2 movement;
 
     void Start()
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
         //);
 
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (rb == null)
             Debug.LogError("Rigidbody2D not found on " + gameObject.name);
         else
@@ -32,7 +34,11 @@ public class PlayerMovement : MonoBehaviour
         movement.Normalize();
 
         if (movement.x != 0)
+        {
             facingDirection = movement.x > 0 ? 1 : -1;
+            if (spriteRenderer != null)
+                spriteRenderer.flipX = facingDirection == -1;
+        }
     }
 
     void FixedUpdate()
