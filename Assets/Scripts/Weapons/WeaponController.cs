@@ -6,20 +6,28 @@ public class WeaponController : MonoBehaviour
     public static event System.Action OnFirstWeaponEquipped;
 
     public WeaponUI weaponUI;
-    public Weapon FirstWeapon;
-    public Weapon SecondWeapon;
-    public Weapon ThirdWeapon;
-    public Weapon FourthWeapon;
+
+    [Header("First Weapon (fixed)")]
+    public Weapon firstWeapon;
+
+    [Header("Group Weapons (4 options each)")]
+    public Weapon[] group2Weapons;
+    public Weapon[] group3Weapons;
+    public Weapon[] group4Weapons;
 
     private List<Weapon> equippedWeapons = new List<Weapon>();
     private int currentWeaponIndex = -1;
 
     void Awake()
     {
-        Weapon[] allWeapons = { FirstWeapon, SecondWeapon, ThirdWeapon, FourthWeapon };
-        foreach (var w in allWeapons)
-            if (w != null) w.gameObject.SetActive(false);
+        DisableAll(firstWeapon);
+        DisableGroup(group2Weapons);
+        DisableGroup(group3Weapons);
+        DisableGroup(group4Weapons);
     }
+
+    void DisableAll(Weapon w) { if (w != null) w.gameObject.SetActive(false); }
+    void DisableGroup(Weapon[] group) { if (group == null) return; foreach (var w in group) DisableAll(w); }
 
     void Update()
     {
@@ -31,44 +39,50 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4) && equippedWeapons.Count >= 4) SelectWeapon(3);
     }
 
-    public void EquipWeapon()
+    // Called by WeaponBox on pickup
+    public void OpenWeaponSelect()
     {
-        Weapon[] allWeapons = { FirstWeapon, SecondWeapon, ThirdWeapon, FourthWeapon };
-        int nextIndex = equippedWeapons.Count;
+        int nextSlot = equippedWeapons.Count;
 
-        if (nextIndex >= allWeapons.Length) return;
-
-        Weapon toEquip = allWeapons[nextIndex];
-        if (toEquip == null) return;
-
-        bool isFirst = nextIndex == 0;
-        equippedWeapons.Add(toEquip);
-
-        if (isFirst)
+        if (nextSlot == 0)
         {
-            SelectWeapon(0);
-            OnFirstWeaponEquipped?.Invoke();
-            BeatConductor.Instance.SetParameter("Tutorial Success", 1f);
-            BeatConductor.Instance.SetParameter("Synth 2", 1f);
-            BeatConductor.Instance.SetParameter("Synth 3", 1f);
-            BeatConductor.Instance.SetParameter("Synth 4", 1f);
+            EquipFirstWeapon();
+            return;
         }
-        else if (nextIndex == 1)
+
+        Weapon[] options = nextSlot switch
         {
+            1 => group2Weapons,
+            2 => group3Weapons,
+            3 => group4Weapons,
+            _ => null
+        };
+
+        string fmodParam = nextSlot switch
+        {
+            1 => "Group 2",
+            2 => "Group 3",
+            3 => "Group 4",
+            _ => ""
+        };
+
+        if (options == null || string.IsNullOrEmpty(fmodParam)) return;
+
+        WeaponSelectUI.Instance.Show(options, fmodParam, this);
+    }
+
+    // Called by WeaponSelectUI after the player picks an option
+    public void EquipGroupWeapon(Weapon weapon, string fmodParam, int fmodValue)
+    {
+        int slotIndex = equippedWeapons.Count;
+        equippedWeapons.Add(weapon);
+
+        if (slotIndex == 1)
             BeatConductor.Instance.SetParameter("Weapon 1", 1f);
-            BeatConductor.Instance.SetParameter("Group 2", 1f);
-        }
-        else if (nextIndex == 2)
-        {
-            BeatConductor.Instance.SetParameter("Group 3", 1f);
-        }
-        else if (nextIndex == 3)
-        {
-            BeatConductor.Instance.SetParameter("Group 4", 1f);
-        }
 
-        if (weaponUI != null)
-            weaponUI.RefreshUI(equippedWeapons, currentWeaponIndex);
+        BeatConductor.Instance.SetParameter(fmodParam, (float)fmodValue);
+
+        weaponUI?.RefreshUI(equippedWeapons, currentWeaponIndex);
     }
 
     public void PerformAttack(string judgement)
@@ -77,17 +91,32 @@ public class WeaponController : MonoBehaviour
         equippedWeapons[currentWeaponIndex].PerformAttack(judgement);
     }
 
-    void SelectWeapon(int index)
+    public void SelectWeapon(int index)
     {
         if (index < 0 || index >= equippedWeapons.Count) return;
-        Debug.Log("reached!!");
+
         if (currentWeaponIndex >= 0 && currentWeaponIndex < equippedWeapons.Count)
             equippedWeapons[currentWeaponIndex].gameObject.SetActive(false);
 
         currentWeaponIndex = index;
         equippedWeapons[currentWeaponIndex].gameObject.SetActive(true);
 
-        if (weaponUI != null)
-            weaponUI.RefreshUI(equippedWeapons, currentWeaponIndex);
+        weaponUI?.RefreshUI(equippedWeapons, currentWeaponIndex);
+    }
+
+    void EquipFirstWeapon()
+    {
+        if (firstWeapon == null) return;
+
+        equippedWeapons.Add(firstWeapon);
+        SelectWeapon(0);
+        OnFirstWeaponEquipped?.Invoke();
+
+        BeatConductor.Instance.SetParameter("Tutorial Success", 1f);
+        BeatConductor.Instance.SetParameter("Synth 2", 1f);
+        BeatConductor.Instance.SetParameter("Synth 3", 1f);
+        BeatConductor.Instance.SetParameter("Synth 4", 1f);
+
+        weaponUI?.RefreshUI(equippedWeapons, currentWeaponIndex);
     }
 }

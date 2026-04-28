@@ -1,14 +1,15 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UpgradeUI : MonoBehaviour
+public class WeaponSelectUI : MonoBehaviour
 {
-    public static UpgradeUI Instance;
+    public static WeaponSelectUI Instance;
 
     public GameObject panel;
-    public UpgradeOptionUI[] optionSlots;
+    public WeaponOptionUI[] optionSlots;
 
+    WeaponController pendingController;
+    string pendingFmodParam;
     int selectedIndex;
 
     void Awake()
@@ -17,17 +18,17 @@ public class UpgradeUI : MonoBehaviour
         panel.SetActive(false);
     }
 
-    public void Show()
+    public void Show(Weapon[] weapons, string fmodParam, WeaponController controller)
     {
-        panel.SetActive(true);
-
-        List<UpgradeData> upgrades =
-            UpgradeManager.Instance.GetRandomUpgrades(PlayerStats.Instance);
+        pendingController = controller;
+        pendingFmodParam = fmodParam;
 
         for (int i = 0; i < optionSlots.Length; i++)
-            optionSlots[i].Setup(upgrades[i], i);
+            optionSlots[i].Setup(weapons[i], i);
 
         selectedIndex = 0;
+        panel.SetActive(true);
+        Time.timeScale = 0f;
         FocusSelected();
     }
 
@@ -64,9 +65,10 @@ public class UpgradeUI : MonoBehaviour
         optionSlots[selectedIndex].SetHighlighted(true);
     }
 
-    public void SelectUpgrade(UpgradeData upgrade)
+    // Called by WeaponOptionUI — optionIndex is 0-based, FMOD value is 1-based
+    public void SelectWeapon(Weapon weapon, int optionIndex)
     {
-        upgrade.Apply(PlayerStats.Instance);
+        pendingController.EquipGroupWeapon(weapon, pendingFmodParam, optionIndex + 1);
         panel.SetActive(false);
         Time.timeScale = 1f;
     }

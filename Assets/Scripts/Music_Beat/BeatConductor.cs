@@ -21,6 +21,9 @@ public class BeatConductor : MonoBehaviour
     [Header("Offsets")]
     public float songOffset = 0f;
 
+    [Header("Volume")]
+    [Range(0f, 1f)] public float volume = 0.6f;
+
     private EventInstance _eventInstance;
 
     // Kept as a field to prevent garbage collection
@@ -39,6 +42,7 @@ public class BeatConductor : MonoBehaviour
     {
         _eventInstance = RuntimeManager.CreateInstance(musicEvent);
         _eventInstance.setCallback(_beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
+        _eventInstance.setVolume(volume);
         _eventInstance.start();
     }
 
