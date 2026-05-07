@@ -14,6 +14,9 @@ public class MeleeWeapon : Weapon
 
     public float autoDamage = 5f;
 
+    // True while a SlashEffect child is alive (parented to this weapon's transform).
+    public override bool IsAttacking => transform.childCount > 0;
+
     Vector3 gizmoCenter;
     float gizmoRadius;
 

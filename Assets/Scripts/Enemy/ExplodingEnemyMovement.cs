@@ -11,6 +11,11 @@ public class ExplodingEnemyMovement : MonoBehaviour
     public float detectionRange = 5f;
     public float explosionTriggerRange = 1f;
 
+    [Header("Level-Up Push")]
+    [SerializeField] float pushDistance = 1f;
+    [SerializeField] float pushRadius = 5f;
+    [SerializeField] float pushDuration = 0.8f;
+
     [Header("Explosion")]
     public float explosionDamageRadius = 2.5f;
     public float playerDamage = 25f;
@@ -24,6 +29,34 @@ public class ExplodingEnemyMovement : MonoBehaviour
 
     bool hasExploded = false;
     bool isRunning = false;
+
+    void OnEnable()  => LevelSystem.OnLevelUp += OnLevelUp;
+    void OnDisable() => LevelSystem.OnLevelUp -= OnLevelUp;
+
+    void OnLevelUp()
+    {
+        if (player == null || hasExploded) return;
+        float dist = Vector2.Distance(transform.position, player.position);
+        if (dist > pushRadius) return;
+
+        Vector2 dir = ((Vector2)transform.position - (Vector2)player.position).normalized;
+        Vector3 target = transform.position + (Vector3)(dir * pushDistance);
+        StartCoroutine(PushCoroutine(transform.position, target));
+    }
+
+    IEnumerator PushCoroutine(Vector3 from, Vector3 to)
+    {
+        float elapsed = 0f;
+        while (elapsed < pushDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / pushDuration));
+            transform.position = Vector3.Lerp(from, to, t);
+            yield return null;
+        }
+        transform.position = to;
+        if (rb != null) rb.position = to;
+    }
 
     void Start()
     {

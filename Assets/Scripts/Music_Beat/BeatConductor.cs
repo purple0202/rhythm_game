@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Runtime.InteropServices;
 using FMODUnity;
 using FMOD.Studio;
@@ -66,6 +67,29 @@ public class BeatConductor : MonoBehaviour
     public void SetParameter(string name, float value)
     {
         _eventInstance.setParameterByName(name, value);
+    }
+
+    Coroutine _paramFadeCoroutine;
+
+    public void FadeParameter(string name, float target, float duration)
+    {
+        if (_paramFadeCoroutine != null) StopCoroutine(_paramFadeCoroutine);
+        _paramFadeCoroutine = StartCoroutine(FadeParameterCoroutine(name, target, duration));
+    }
+
+    IEnumerator FadeParameterCoroutine(string name, float target, float duration)
+    {
+        _eventInstance.getParameterByName(name, out float current);
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / duration));
+            _eventInstance.setParameterByName(name, Mathf.Lerp(current, target, t));
+            yield return null;
+        }
+        _eventInstance.setParameterByName(name, target);
+        _paramFadeCoroutine = null;
     }
 
     [AOT.MonoPInvokeCallback(typeof(EVENT_CALLBACK))]

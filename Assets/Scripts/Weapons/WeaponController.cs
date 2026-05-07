@@ -16,7 +16,13 @@ public class WeaponController : MonoBehaviour
     public Weapon[] group4Weapons;
 
     private List<Weapon> equippedWeapons = new List<Weapon>();
-    private int currentWeaponIndex = -1;
+
+    // uiWeaponIndex  — what is highlighted in the UI right now (changes immediately).
+    // activeWeaponIndex — which weapon's GameObject is actually SetActive(true).
+    // pendingWeaponIndex — queued switch that waits for the active weapon to finish animating.
+    private int uiWeaponIndex = -1;
+    private int activeWeaponIndex = -1;
+    private int pendingWeaponIndex = -1;
 
     void Awake()
     {
@@ -31,12 +37,51 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        if (equippedWeapons.Count == 0) return;
+        if (equippedWeapons.Count == 0 || uiWeaponIndex < 0) return;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && equippedWeapons.Count >= 1) SelectWeapon(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2) && equippedWeapons.Count >= 2) SelectWeapon(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3) && equippedWeapons.Count >= 3) SelectWeapon(2);
-        if (Input.GetKeyDown(KeyCode.Alpha4) && equippedWeapons.Count >= 4) SelectWeapon(3);
+        // Commit a deferred switch as soon as the active weapon finishes animating.
+        if (pendingWeaponIndex != -1 && !equippedWeapons[activeWeaponIndex].IsAttacking)
+            CommitSwitch(pendingWeaponIndex);
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && equippedWeapons.Count >= 1) RequestSwitch(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2) && equippedWeapons.Count >= 2) RequestSwitch(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3) && equippedWeapons.Count >= 3) RequestSwitch(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4) && equippedWeapons.Count >= 4) RequestSwitch(3);
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0f)
+            RequestSwitch((uiWeaponIndex - 1 + equippedWeapons.Count) % equippedWeapons.Count);
+        else if (scroll < 0f)
+            RequestSwitch((uiWeaponIndex + 1) % equippedWeapons.Count);
+    }
+
+    // UI highlights the new weapon immediately; the actual GameObject swap is
+    // deferred if the current weapon is mid-animation.
+    void RequestSwitch(int index)
+    {
+        if (index < 0 || index >= equippedWeapons.Count) return;
+        if (index == uiWeaponIndex) return;
+
+        uiWeaponIndex = index;
+        weaponUI?.RefreshUI(equippedWeapons, uiWeaponIndex);
+
+        if (activeWeaponIndex < 0 || !equippedWeapons[activeWeaponIndex].IsAttacking)
+            CommitSwitch(index);
+        else
+            pendingWeaponIndex = index;
+    }
+
+    // Does the actual SetActive swap and clears the pending flag.
+    void CommitSwitch(int index)
+    {
+        if (index == activeWeaponIndex) { pendingWeaponIndex = -1; return; }
+
+        if (activeWeaponIndex >= 0 && activeWeaponIndex < equippedWeapons.Count)
+            equippedWeapons[activeWeaponIndex].gameObject.SetActive(false);
+
+        activeWeaponIndex = index;
+        pendingWeaponIndex = -1;
+        equippedWeapons[activeWeaponIndex].gameObject.SetActive(true);
     }
 
     // Called by WeaponBox on pickup
@@ -79,30 +124,22 @@ public class WeaponController : MonoBehaviour
         equippedWeapons.Add(weapon);
 
         if (slotIndex == 1)
+        {
             BeatConductor.Instance.SetParameter("Weapon 1", 1f);
+            BeatConductor.Instance.SetParameter("Synth 2", 1f);
+            BeatConductor.Instance.SetParameter("Synth 3", 1f);
+            BeatConductor.Instance.SetParameter("Synth 4", 1f);
+        }
 
         BeatConductor.Instance.SetParameter(fmodParam, (float)fmodValue);
 
-        weaponUI?.RefreshUI(equippedWeapons, currentWeaponIndex);
+        weaponUI?.RefreshUI(equippedWeapons, uiWeaponIndex);
     }
 
     public void PerformAttack(string judgement)
     {
-        if (currentWeaponIndex < 0 || currentWeaponIndex >= equippedWeapons.Count) return;
-        equippedWeapons[currentWeaponIndex].PerformAttack(judgement);
-    }
-
-    public void SelectWeapon(int index)
-    {
-        if (index < 0 || index >= equippedWeapons.Count) return;
-
-        if (currentWeaponIndex >= 0 && currentWeaponIndex < equippedWeapons.Count)
-            equippedWeapons[currentWeaponIndex].gameObject.SetActive(false);
-
-        currentWeaponIndex = index;
-        equippedWeapons[currentWeaponIndex].gameObject.SetActive(true);
-
-        weaponUI?.RefreshUI(equippedWeapons, currentWeaponIndex);
+        if (activeWeaponIndex < 0 || activeWeaponIndex >= equippedWeapons.Count) return;
+        equippedWeapons[activeWeaponIndex].PerformAttack(judgement);
     }
 
     void EquipFirstWeapon()
@@ -110,7 +147,8 @@ public class WeaponController : MonoBehaviour
         if (firstWeapon == null) return;
 
         equippedWeapons.Add(firstWeapon);
-        SelectWeapon(0);
+        uiWeaponIndex = 0;
+        CommitSwitch(0);
         OnFirstWeaponEquipped?.Invoke();
 
         BeatConductor.Instance.SetParameter("Tutorial Success", 1f);
@@ -118,6 +156,6 @@ public class WeaponController : MonoBehaviour
         BeatConductor.Instance.SetParameter("Synth 3", 1f);
         BeatConductor.Instance.SetParameter("Synth 4", 1f);
 
-        weaponUI?.RefreshUI(equippedWeapons, currentWeaponIndex);
+        weaponUI?.RefreshUI(equippedWeapons, uiWeaponIndex);
     }
 }

@@ -36,6 +36,7 @@ public class WeaponSelectUI : MonoBehaviour
 
     IEnumerator PreGraceCoroutine()
     {
+        BeatConductor.Instance.FadeParameter("Pause Menu", 1f, preUIGraceSeconds);
         yield return new WaitForSecondsRealtime(preUIGraceSeconds);
         selectedIndex = 0;
         panel.SetActive(true);
@@ -85,6 +86,11 @@ public class WeaponSelectUI : MonoBehaviour
 
     IEnumerator PostGraceCoroutine()
     {
+        float resumeDuration = BeatConductor.Instance.secondsPerBeat > 0
+            ? BeatConductor.Instance.secondsPerBeat * postUIGraceBeats
+            : 1f;
+        BeatConductor.Instance.FadeParameter("Pause Menu", 0f, resumeDuration);
+
         int beatsRemaining = postUIGraceBeats;
         System.Action onBeat = () => beatsRemaining--;
         BeatConductor.OnBeat += onBeat;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class MobEnemyMovement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MobEnemyMovement : MonoBehaviour
     [Header("Level-Up Push")]
     [SerializeField] float pushDistance = 1f;
     [SerializeField] float pushRadius = 5f;
+    [SerializeField] float pushDuration = 0.8f;
 
     Vector2 movement;
 
@@ -25,7 +27,22 @@ public class MobEnemyMovement : MonoBehaviour
         if (dist > pushRadius) return;
 
         Vector2 dir = ((Vector2)transform.position - (Vector2)player.position).normalized;
-        rb.position += dir * pushDistance;
+        Vector3 target = transform.position + (Vector3)(dir * pushDistance);
+        StartCoroutine(PushCoroutine(transform.position, target));
+    }
+
+    IEnumerator PushCoroutine(Vector3 from, Vector3 to)
+    {
+        float elapsed = 0f;
+        while (elapsed < pushDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / pushDuration));
+            transform.position = Vector3.Lerp(from, to, t);
+            yield return null;
+        }
+        transform.position = to;
+        rb.position = to;
     }
 
     void Start()

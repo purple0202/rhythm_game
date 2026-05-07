@@ -175,6 +175,9 @@ MonoBehaviour:
   runSpeed: 4
   detectionRange: 5
   explosionTriggerRange: 1
+  pushDistance: 1
+  pushRadius: 2
+  pushDuration: 0.3
   explosionDamageRadius: 2.5
   playerDamage: 25
   enemyDamage: 15

@@ -69,9 +69,33 @@ public class EnemyHealth : MonoBehaviour
 
     void ApplyOutline()
     {
-        if (spriteRenderer == null) return;
+        SpriteOutline outline = GetComponent<SpriteOutline>();
+        if (outline != null)
+        {
+            Material mat = enemyType switch
+            {
+                EnemyType.Blue   => blueMaterial,
+                EnemyType.Red    => redMaterial,
+                EnemyType.Green  => greenMaterial,
+                EnemyType.Yellow => yellowMaterial,
+                _                => null
+            };
+            if (mat != null)
+            {
+                Color c = mat.GetColor("_OutlineColor");
+                Debug.Log($"[Outline] {enemyType} → {mat.name} → {c}");
+                outline.SetColor(c);
+            }
+            else
+            {
+                Debug.Log($"[Outline] {enemyType} → no material assigned");
+            }
+            return;
+        }
 
-        Material mat = enemyType switch
+        // Legacy: material-based outline (rollback path)
+        if (spriteRenderer == null) return;
+        Material legacyMat = enemyType switch
         {
             EnemyType.Blue   => blueMaterial,
             EnemyType.Red    => redMaterial,
@@ -79,9 +103,8 @@ public class EnemyHealth : MonoBehaviour
             EnemyType.Yellow => yellowMaterial,
             _                => null
         };
-
-        if (mat != null)
-            spriteRenderer.material = mat;
+        if (legacyMat != null)
+            spriteRenderer.material = legacyMat;
     }
 
     void Die()

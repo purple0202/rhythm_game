@@ -15,6 +15,12 @@ public class InputJudge : MonoBehaviour
 
     private string pendingJudgement = "Auto";
 
+    void Start()
+    {
+        // Load persisted calibration so it's applied from the very first beat.
+        calibrationOffset = PlayerPrefs.GetFloat(CalibrationUI.PrefKey, 0f) / 1000f;
+    }
+
     void OnEnable()
     {
         BeatConductor.OnBeat += OnBeat;
