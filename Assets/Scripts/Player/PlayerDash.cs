@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerDash : MonoBehaviour
 {
+    public static event System.Action<Vector2, Vector2> OnDashStarted;   // startPos, endPos
+    public static event System.Action                   OnDashCompleted;
+
     [Header("Dash Settings")]
     public float dashDistance = 3f;
     public float dashDuration = 0.2f;
@@ -67,11 +70,13 @@ public class PlayerDash : MonoBehaviour
         isDashing = true;
         currentCharges--;
 
-        playerHealth.SetInvincible(true);
-
         float startTime = Time.time;
         Vector2 startPos = rb.position;
         Vector2 targetPos = startPos + direction * dashDistance;
+
+        OnDashStarted?.Invoke(startPos, targetPos);
+
+        playerHealth.SetInvincible(true);
 
         // Disable collisions with enemies
         Physics2D.IgnoreLayerCollision(
@@ -105,6 +110,8 @@ public class PlayerDash : MonoBehaviour
 
         lastDashTime = Time.time;
         isDashing = false;
+
+        OnDashCompleted?.Invoke();
     }
 
     void RechargeDash()

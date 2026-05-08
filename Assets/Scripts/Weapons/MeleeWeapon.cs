@@ -56,12 +56,15 @@ public class MeleeWeapon : Weapon
         gizmoCenter = spawnPos;
         gizmoRadius = radius;
 
+        float multiplier = (ComboSystem.Instance != null ? ComboSystem.Instance.GetCurrentMultiplier() : 1f)
+                         * (PassiveManager.Instance != null ? PassiveManager.Instance.GetDamageMultiplier() : 1f);
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(spawnPos, radius, enemyLayer);
         foreach (var hit in hits)
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
             if (enemy != null)
-                enemy.TakeDamage(damage, weaponType);
+                enemy.TakeDamage(damage * multiplier, weaponType);
         }
     }
 

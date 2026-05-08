@@ -32,7 +32,11 @@ public class Projectile : MonoBehaviour
             EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
 
             if (enemy != null)
-                enemy.TakeDamage(damage, weaponType);
+            {
+                float multiplier = (ComboSystem.Instance != null ? ComboSystem.Instance.GetCurrentMultiplier() : 1f)
+                                 * (PassiveManager.Instance != null ? PassiveManager.Instance.GetDamageMultiplier() : 1f);
+                enemy.TakeDamage(damage * multiplier, weaponType);
+            }
 
             Destroy(gameObject);
         }

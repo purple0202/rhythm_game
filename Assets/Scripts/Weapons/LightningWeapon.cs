@@ -67,12 +67,14 @@ public class LightningWeapon : Weapon
         // Small delay so the visual lands before damage resolves
         yield return new WaitForSeconds(0.05f);
 
+        float multiplier = (ComboSystem.Instance != null ? ComboSystem.Instance.GetCurrentMultiplier() : 1f)
+                         * (PassiveManager.Instance != null ? PassiveManager.Instance.GetDamageMultiplier() : 1f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(position, radius, enemyLayer);
         foreach (var hit in hits)
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
             if (enemy != null)
-                enemy.TakeDamage(damage, weaponType);
+                enemy.TakeDamage(damage * multiplier, weaponType);
         }
     }
 }

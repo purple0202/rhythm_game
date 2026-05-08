@@ -7,6 +7,9 @@ public class ComboSystem : MonoBehaviour
     [Tooltip("How many beats the player can miss before the combo breaks.")]
     public int forgiveness = 3;
 
+    [Header("Tiers")]
+    public ComboTier[] tiers;
+
     public static event System.Action<int> OnComboChanged;
     public static event System.Action       OnComboReset;
 
@@ -37,6 +40,7 @@ public class ComboSystem : MonoBehaviour
                 break;
 
             case "Auto":
+                if (Time.timeScale == 0f) break;
                 missedBeats++;
                 if (missedBeats > forgiveness)
                     BreakCombo();
@@ -54,4 +58,29 @@ public class ComboSystem : MonoBehaviour
     }
 
     public int GetCombo() => comboCount;
+
+    public ComboTier GetCurrentTier()
+    {
+        if (tiers == null || tiers.Length == 0) return default;
+        ComboTier result = tiers[0];
+        foreach (var tier in tiers)
+            if (comboCount >= tier.minCombo) result = tier;
+        return result;
+    }
+
+    public float GetCurrentMultiplier()
+    {
+        return tiers == null || tiers.Length == 0 ? 1f : GetCurrentTier().damageMultiplier;
+    }
+}
+
+[System.Serializable]
+public struct ComboTier
+{
+    public int   minCombo;
+    public float damageMultiplier;
+    public Color displayColor;
+    [Range(0f, 8f)]
+    public float hdrIntensity;
+    public float emissionRate;
 }

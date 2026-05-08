@@ -58,6 +58,7 @@ public class PauseManager : MonoBehaviour
     {
         if (UpgradeUI.Instance != null && UpgradeUI.Instance.panel.activeSelf) return true;
         if (WeaponSelectUI.Instance != null && WeaponSelectUI.Instance.panel.activeSelf) return true;
+        if (PassiveSelectionUI.Instance != null && PassiveSelectionUI.Instance.panel.activeSelf) return true;
         return false;
     }
 }

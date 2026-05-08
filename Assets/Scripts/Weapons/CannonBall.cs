@@ -28,7 +28,12 @@ public class CannonBall : MonoBehaviour
 
         hitEnemies.Add(collision);
         EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
-        if (enemy != null) enemy.TakeDamage(damage, weaponType);
+        if (enemy != null)
+        {
+            float multiplier = (ComboSystem.Instance != null ? ComboSystem.Instance.GetCurrentMultiplier() : 1f)
+                             * (PassiveManager.Instance != null ? PassiveManager.Instance.GetDamageMultiplier() : 1f);
+            enemy.TakeDamage(damage * multiplier, weaponType);
+        }
         // No Destroy — pierces through all enemies
     }
 }

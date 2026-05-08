@@ -13,19 +13,6 @@ public class ComboUI : MonoBehaviour
     [SerializeField] float punchScale    = 1.35f;
     [SerializeField] float punchDuration = 0.1f;
 
-    [Header("Tiers")]
-    [SerializeField] ComboTier[] tiers;
-
-    [System.Serializable]
-    struct ComboTier
-    {
-        public int   minCombo;
-        public Color baseColor;
-        [Range(1f, 8f)]
-        public float hdrIntensity;   // multiplied into color — values >1 trigger Bloom
-        public float emissionRate;
-    }
-
     void OnEnable()
     {
         ComboSystem.OnComboChanged += HandleComboChanged;
@@ -54,10 +41,8 @@ public class ComboUI : MonoBehaviour
         punchTarget.gameObject.SetActive(true);
         comboText.text = $"x{combo}";
 
-        ComboTier tier = GetTier(combo);
-
-        // HDR color: multiplying above 1 makes Bloom pick this up
-        comboText.color = tier.baseColor * tier.hdrIntensity;
+        ComboTier tier = ComboSystem.Instance.GetCurrentTier();
+        comboText.color = tier.displayColor;
 
         if (flameParticles != null)
         {
@@ -78,14 +63,6 @@ public class ComboUI : MonoBehaviour
     {
         if (flameParticles != null)
             flameParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-    }
-
-    ComboTier GetTier(int combo)
-    {
-        ComboTier result = tiers.Length > 0 ? tiers[0] : default;
-        foreach (var tier in tiers)
-            if (combo >= tier.minCombo) result = tier;
-        return result;
     }
 
     IEnumerator PunchScale()
