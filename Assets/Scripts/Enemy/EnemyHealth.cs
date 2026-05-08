@@ -81,15 +81,7 @@ public class EnemyHealth : MonoBehaviour
                 _                => null
             };
             if (mat != null)
-            {
-                Color c = mat.GetColor("_OutlineColor");
-                Debug.Log($"[Outline] {enemyType} → {mat.name} → {c}");
-                outline.SetColor(c);
-            }
-            else
-            {
-                Debug.Log($"[Outline] {enemyType} → no material assigned");
-            }
+                outline.SetColor(mat.GetColor("_OutlineColor"));
             return;
         }
 

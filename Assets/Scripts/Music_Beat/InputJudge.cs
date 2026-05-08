@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class InputJudge : MonoBehaviour
 {
+    public static event System.Action<string> OnJudgement;
     public JudgementManager judgementManager;
     public WeaponController weaponController;
 
@@ -59,6 +60,7 @@ public class InputJudge : MonoBehaviour
     {
         judgementManager.ShowJudgement(pendingJudgement);
         weaponController.PerformAttack(pendingJudgement);
+        OnJudgement?.Invoke(pendingJudgement);
         pendingJudgement = "Auto";
     }
 }

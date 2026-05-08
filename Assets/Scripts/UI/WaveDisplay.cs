@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class WaveDisplay : MonoBehaviour
 {
     public WaveManager waveManager;
 
-    public Text waveText;
+    public TextMeshProUGUI waveText;
     //public Slider expBar;
 
     void Update()
