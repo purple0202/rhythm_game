@@ -22,6 +22,7 @@ public class CrowdsurfEffect : PassiveEffect
         if (playerDash == null) return;
         originalDashDistance = playerDash.dashDistance;
         originalDashDuration = playerDash.dashDuration;
+        NotifyActiveState(false);
     }
 
     void Update()
@@ -30,7 +31,10 @@ public class CrowdsurfEffect : PassiveEffect
         isSurrounded = CheckSurrounded();
 
         if (isSurrounded != wasSurrounded)
+        {
             ApplyDashBonuses(isSurrounded);
+            NotifyActiveState(isSurrounded);
+        }
     }
 
     bool CheckSurrounded()

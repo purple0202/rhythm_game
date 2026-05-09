@@ -42,9 +42,10 @@ public class PassiveManager : MonoBehaviour
         {
             if (b.data != data) continue;
             equippedPassives.Add(data);
+            b.effect.data = data;
             b.effect.enabled = true;
-            b.effect.OnActivate();
-            OnPassiveEquipped?.Invoke(data);
+            OnPassiveEquipped?.Invoke(data);  // spawn icon first
+            b.effect.OnActivate();             // then activate so NotifyActiveState finds the icon
             return;
         }
     }

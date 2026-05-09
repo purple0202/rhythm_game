@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   enemies:
   - enemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
-    count: 10
+    count: 300
     enemyType: 1
   - enemyPrefab: {fileID: 4892905095964804760, guid: 74b55ec6f6a588a4fb86f4a734d529f2, type: 3}
     count: 0
     enemyType: 0
   - enemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
-    count: 5
+    count: 200
     enemyType: 2
   - enemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
     count: 5

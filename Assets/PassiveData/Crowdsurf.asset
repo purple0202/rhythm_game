@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3052c1e769c6b2943b4926b365b8b0c8, type: 3}
+  m_Name: Crowdsurf
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveData
+  passiveName: Crowdsurf
+  description: Gain extra damage, dash speed, dash distance when surrounded by enemies
+  icon: {fileID: 6167304759078495374, guid: 40b36265077b1b04f8d7585e5a5b5b76, type: 3}
