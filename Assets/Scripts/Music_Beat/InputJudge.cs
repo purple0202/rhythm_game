@@ -34,6 +34,7 @@ public class InputJudge : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
         if (Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0))
             CheckInput();
     }
@@ -46,21 +47,38 @@ public class InputJudge : MonoBehaviour
         float beatPhase = Mathf.Repeat(BeatConductor.Instance.songPosition - BeatConductor.Instance.lastBeatTime - calibrationOffset, spb);
         float closest = Mathf.Min(beatPhase, spb - beatPhase);
 
+        string judgement;
         if (closest <= perfectWindow)
-            pendingJudgement = "Perfect";
+            judgement = "Perfect";
         else if (closest <= greatWindow)
-            pendingJudgement = "Good";
+            judgement = "Good";
         else
-            pendingJudgement = "Bad";
+            judgement = "Bad";
 
-        Debug.Log($"[InputJudge] {pendingJudgement} | diff: {closest * 1000f:F1}ms | spb: {spb * 1000f:F1}ms");
+        Debug.Log($"[InputJudge] {judgement} | diff: {closest * 1000f:F1}ms | spb: {spb * 1000f:F1}ms");
+
+        // Fire attack immediately on input — OnJudgement before PerformAttack so
+        // passives that set PendingAttackBonus (e.g. JohnCageSilence) do so in time.
+        judgementManager.ShowJudgement(judgement);
+        OnJudgement?.Invoke(judgement);
+        weaponController.PerformAttack(judgement);
+
+        // Mark as consumed so OnBeat skips it
+        pendingJudgement = "Consumed";
     }
 
     void OnBeat()
     {
+        if (pendingJudgement == "Consumed")
+        {
+            pendingJudgement = "Auto";
+            return;
+        }
+
+        // Auto — no input was made this beat
         judgementManager.ShowJudgement(pendingJudgement);
-        weaponController.PerformAttack(pendingJudgement);
         OnJudgement?.Invoke(pendingJudgement);
+        weaponController.PerformAttack(pendingJudgement);
         pendingJudgement = "Auto";
     }
 }

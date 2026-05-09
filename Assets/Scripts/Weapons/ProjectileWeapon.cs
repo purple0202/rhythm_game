@@ -4,8 +4,13 @@ public class ProjectileWeapon : Weapon
 {
     public GameObject projectilePrefab;
     public int projectileCount = 1;
+    public float autoDamage = 5f;
 
     public float searchRadius = 10f;
+
+    public override float GetAutoDamage() => autoDamage;
+    public override float GetDamageForJudgement(string j) =>
+        j == "Bad" ? 0f : projectilePrefab != null ? projectilePrefab.GetComponent<Projectile>()?.damage ?? 0f : 0f;
 
     public override void PerformAttack(string judgement)
     {
@@ -22,6 +27,7 @@ public class ProjectileWeapon : Weapon
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Projectile p = proj.GetComponent<Projectile>();
             p.weaponType = weaponType;
+            p.damage += PassiveManager.Instance != null ? PassiveManager.Instance.PendingAttackBonus : 0f;
             p.SetDirection((target.position - transform.position).normalized);
         }
     }

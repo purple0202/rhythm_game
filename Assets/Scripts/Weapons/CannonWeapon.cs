@@ -58,6 +58,10 @@ public class CannonWeapon : Weapon
             aimDirection = input.normalized;
     }
 
+    public override float GetAutoDamage() => autoDamage;
+    public override float GetDamageForJudgement(string j) =>
+        j == "Perfect" ? perfectDamage : j == "Good" ? goodDamage : j == "Auto" ? autoDamage : 0f;
+
     public override void PerformAttack(string judgement)
     {
         if (judgement == "Bad") return;
@@ -72,7 +76,7 @@ public class CannonWeapon : Weapon
         {
             ball.weaponType = weaponType;
             ball.SetDirection(aimDirection);
-            ball.damage = damage;
+            ball.damage = damage + (PassiveManager.Instance != null ? PassiveManager.Instance.PendingAttackBonus : 0f);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class WeaponController : MonoBehaviour
 {
     public static event System.Action OnFirstWeaponEquipped;
+    public static event System.Action<float, EnemyType> OnAttackFired;
 
     public WeaponUI weaponUI;
 
@@ -139,7 +140,40 @@ public class WeaponController : MonoBehaviour
     public void PerformAttack(string judgement)
     {
         if (activeWeaponIndex < 0 || activeWeaponIndex >= equippedWeapons.Count) return;
-        equippedWeapons[activeWeaponIndex].PerformAttack(judgement);
+
+        Weapon weapon = equippedWeapons[activeWeaponIndex];
+
+        if (judgement == "Auto" && JohnCageSilenceEffect.IsActive)
+        {
+            JohnCageSilenceEffect.Instance.AccumulateDamage(weapon.GetAutoDamage());
+            return;
+        }
+
+        OnAttackFired?.Invoke(weapon.GetDamageForJudgement(judgement), weapon.weaponType);
+        weapon.PerformAttack(judgement);
+
+        if (PassiveManager.Instance != null)
+            PassiveManager.Instance.PendingAttackBonus = 0f;
+    }
+
+    // Called by UnisonEffect on every Nth active hit — briefly activates each
+    // non-active weapon, fires it, then deactivates it once its animation finishes.
+    public void PerformUnisonAttack(string judgement)
+    {
+        for (int i = 0; i < equippedWeapons.Count; i++)
+        {
+            if (i == activeWeaponIndex) continue;
+            StartCoroutine(UnisonFireWeapon(equippedWeapons[i], judgement));
+        }
+    }
+
+    System.Collections.IEnumerator UnisonFireWeapon(Weapon weapon, string judgement)
+    {
+        weapon.gameObject.SetActive(true);
+        weapon.PerformAttack(judgement);
+        yield return new UnityEngine.WaitWhile(() => weapon.IsAttacking);
+        if (equippedWeapons.IndexOf(weapon) != activeWeaponIndex)
+            weapon.gameObject.SetActive(false);
     }
 
     void EquipFirstWeapon()

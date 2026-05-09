@@ -18,6 +18,10 @@ public class LightningWeapon : Weapon
 
     public float autoDamage = 8f;
 
+    public override float GetAutoDamage() => autoDamage;
+    public override float GetDamageForJudgement(string j) =>
+        j == "Perfect" ? perfectDamage : j == "Good" ? goodDamage : j == "Auto" ? autoDamage : 0f;
+
     public override void PerformAttack(string judgement)
     {
         float damage;
@@ -69,12 +73,14 @@ public class LightningWeapon : Weapon
 
         float multiplier = (ComboSystem.Instance != null ? ComboSystem.Instance.GetCurrentMultiplier() : 1f)
                          * (PassiveManager.Instance != null ? PassiveManager.Instance.GetDamageMultiplier() : 1f);
+        float bonus = PassiveManager.Instance != null ? PassiveManager.Instance.PendingAttackBonus : 0f;
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(position, radius, enemyLayer);
         foreach (var hit in hits)
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
             if (enemy != null)
-                enemy.TakeDamage(damage * multiplier, weaponType);
+                enemy.TakeDamage((damage + bonus) * multiplier, weaponType);
         }
     }
 }

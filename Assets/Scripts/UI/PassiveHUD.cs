@@ -36,9 +36,9 @@ public class PassiveHUD : MonoBehaviour
             icon.SetActive(active);
     }
 
-    void OnStackCountChanged(PassiveData data, int count)
+    void OnStackCountChanged(PassiveData data, string text)
     {
         if (icons.TryGetValue(data, out var icon))
-            icon.SetStackCount(count);
+            icon.SetStackCount(text);
     }
 }

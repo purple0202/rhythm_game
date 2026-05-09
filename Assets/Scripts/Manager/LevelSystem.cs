@@ -7,8 +7,11 @@ public class LevelSystem : MonoBehaviour
 
     public float expToNextLevel = 100f;
 
+    public bool xpBlocked = false;
+
     public void AddExp(float amount)
     {
+        if (xpBlocked) return;
         currentExp += amount;
 
         if (currentExp >= expToNextLevel)

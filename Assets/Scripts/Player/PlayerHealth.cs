@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
 
     public static event System.Action<float, float> OnShieldChanged;
+    public static event System.Action               OnDamageTaken;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (amount <= 0f) return;
 
+        OnDamageTaken?.Invoke();
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 

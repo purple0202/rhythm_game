@@ -30,16 +30,16 @@ public class PassiveIconUI : MonoBehaviour
         iconImage.color = active ? activeColor : inactiveColor;
     }
 
-    public void SetStackCount(int count)
+    public void SetStackCount(string text)
     {
-        if (count <= 0)
+        if (string.IsNullOrEmpty(text))
         {
             stackContainer.SetActive(false);
             return;
         }
 
         stackContainer.SetActive(true);
-        stackText.text = count.ToString();
+        stackText.text = text;
         StopAllCoroutines();
         StartCoroutine(PunchScale());
     }

@@ -70,7 +70,11 @@ public class ComboSystem : MonoBehaviour
 
     public float GetCurrentMultiplier()
     {
-        return tiers == null || tiers.Length == 0 ? 1f : GetCurrentTier().damageMultiplier;
+        if (tiers == null || tiers.Length == 0) return 1f;
+        float multiplier = GetCurrentTier().damageMultiplier;
+        if (WhiplashEffect.IsActive)
+            multiplier += WhiplashEffect.Instance.GetExtraMultiplier(comboCount);
+        return multiplier;
     }
 }
 

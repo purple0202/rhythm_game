@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3052c1e769c6b2943b4926b365b8b0c8, type: 3}
+  m_Name: Dead Air
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveData
+  passiveName: Dead Air
+  description: 'Standing still charges bonus damage, movement resets it. '
+  icon: {fileID: -4919229246912159486, guid: e3ef0e9f0cde41c418efedc05c3a5485, type: 3}

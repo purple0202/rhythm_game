@@ -18,6 +18,8 @@ public class PassiveManager : MonoBehaviour
 
     public static event System.Action<PassiveData> OnPassiveEquipped;
 
+    public float PendingAttackBonus;
+
     readonly List<PassiveData> equippedPassives = new();
 
     void Awake() => Instance = this;
