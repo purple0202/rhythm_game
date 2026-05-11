@@ -40,7 +40,7 @@ public class EnemyHealth : MonoBehaviour
         ApplyOutline();
     }
 
-    public void TakeDamage(float damage, EnemyType weaponType = EnemyType.None)
+    public void TakeDamage(float damage, EnemyType weaponType = EnemyType.None, Color? popupColor = null, Vector2 popupOffset = default)
     {
         float multiplier = GetDamageMultiplier(weaponType);
         float trueDamage = damage * multiplier;
@@ -48,8 +48,13 @@ public class EnemyHealth : MonoBehaviour
 
         if (damagePopupPrefab != null)
         {
-            GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-            popup.GetComponent<DamagePopup>().Setup(trueDamage);
+            Vector3 spawnPos = transform.position + (Vector3)popupOffset;
+            GameObject popup = Instantiate(damagePopupPrefab, spawnPos, Quaternion.identity);
+            var dp = popup.GetComponent<DamagePopup>();
+            if (popupColor.HasValue)
+                dp.Setup(trueDamage, popupColor.Value);
+            else
+                dp.Setup(trueDamage);
         }
 
         if (currentHealth <= 0)
@@ -101,6 +106,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        GetComponent<DotReceiver>()?.ClearAll();
         FindObjectOfType<LevelSystem>().AddExp(expValue);
         EnemyManager.Instance.UnregisterEnemy(gameObject);
 

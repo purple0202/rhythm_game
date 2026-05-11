@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 066d8cebcb16cf249a8861219fa405ba, type: 3}
-  m_Name: Speed UP
+  m_Name: Roadie
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: Speed up
-  description: some testing description
-  icon: {fileID: 3573036208370857778, guid: a57c6082a30e11d449537a1e3255eecf, type: 3}
-  requiresWeapon: 0
-  requiredWeaponName: 
-  damageMultiplier: 0
-  moveSpeedMultiplier: 1.1
-  extraProjectiles: 0
+  upgradeName: Roadie
+  description: Reduce dash cooldown by 0.2s
+  icon: {fileID: 5559340508167217122, guid: 60c10bfca30cb2c44adebed607a98201, type: 3}
+  enabled: 1

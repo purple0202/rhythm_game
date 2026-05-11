@@ -15,7 +15,8 @@ public class TapDancerEffect : PassiveEffect
 
     PlayerMovement playerMovement;
     SpriteRenderer playerSprite;
-    float originalMoveSpeed;
+    float baseSpeed;
+    float currentSpeedBonus;
     int   maxStacks;
     int   stackCount;
     int   beatsRemaining;
@@ -23,10 +24,10 @@ public class TapDancerEffect : PassiveEffect
 
     public override void OnActivate()
     {
-        playerMovement    = GetComponent<PlayerMovement>();
-        playerSprite      = GetComponentInChildren<SpriteRenderer>();
-        originalMoveSpeed = playerMovement != null ? playerMovement.moveSpeed : 5f;
-        maxStacks         = Mathf.FloorToInt((originalMoveSpeed * maxSpeedMultiplier - originalMoveSpeed) / speedPerPerfect);
+        playerMovement = GetComponent<PlayerMovement>();
+        playerSprite   = GetComponentInChildren<SpriteRenderer>();
+        baseSpeed      = PlayerStats.Instance != null ? PlayerStats.Instance.baseMoveSpeed : 5f;
+        maxStacks      = Mathf.FloorToInt(baseSpeed * (maxSpeedMultiplier - 1f) / speedPerPerfect);
 
         InputJudge.OnJudgement += OnJudgement;
         BeatConductor.OnBeat   += OnBeat;
@@ -74,15 +75,18 @@ public class TapDancerEffect : PassiveEffect
 
     void ApplyBonus()
     {
-        if (playerMovement == null) return;
-        float maxSpeed = originalMoveSpeed * maxSpeedMultiplier;
-        playerMovement.moveSpeed = Mathf.Min(originalMoveSpeed + stackCount * speedPerPerfect, maxSpeed);
+        if (PlayerStats.Instance == null) return;
+        float maxBonus = baseSpeed * (maxSpeedMultiplier - 1f);
+        float newBonus = Mathf.Min(stackCount * speedPerPerfect, maxBonus);
+        PlayerStats.Instance.bonusMoveSpeed += newBonus - currentSpeedBonus;
+        currentSpeedBonus = newBonus;
     }
 
     void RemoveBonus()
     {
-        if (playerMovement == null) return;
-        playerMovement.moveSpeed = originalMoveSpeed;
+        if (PlayerStats.Instance == null) return;
+        PlayerStats.Instance.bonusMoveSpeed -= currentSpeedBonus;
+        currentSpeedBonus = 0f;
     }
 
     void StartGhostTrail()

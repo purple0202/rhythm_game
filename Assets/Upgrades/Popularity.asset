@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 066d8cebcb16cf249a8861219fa405ba, type: 3}
-  m_Name: Projectile UP
+  m_Name: Popularity
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: AFDAf
-  description: ASFDF
-  icon: {fileID: -1807952311658961679, guid: f58fb3ade27e2de42815a177991e2153, type: 3}
-  requiresWeapon: 0
-  requiredWeaponName: 
-  damageMultiplier: 1
-  moveSpeedMultiplier: 1
-  extraProjectiles: 0
+  upgradeName: Popularity
+  description: Spawn 10% more enemies.
+  icon: {fileID: -5018506650262160734, guid: 67571a741fcf8354dbbd64a55fb5df95, type: 3}
+  enabled: 1

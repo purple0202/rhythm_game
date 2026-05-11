@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 066d8cebcb16cf249a8861219fa405ba, type: 3}
-  m_Name: Projectile UP 2
+  m_Name: Jukebox
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: ASDASD
-  description: DFSSDFDS
-  icon: {fileID: -4461996033406915884, guid: 09044245af9af2f4a8b12112e0a660ae, type: 3}
-  requiresWeapon: 0
-  requiredWeaponName: 
-  damageMultiplier: 1
-  moveSpeedMultiplier: 1
-  extraProjectiles: 0
+  upgradeName: Jukebox
+  description: Gain 1 reroll for levelup upgrades (Max 3)
+  icon: {fileID: -8405413478619695685, guid: 0512eb3f28dae9144b9dd2d10ed2ddeb, type: 3}
+  enabled: 1

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Projectile : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Projectile : MonoBehaviour
     public float lifetime = 3f;
 
     public EnemyType weaponType = EnemyType.None;
+    public List<DotType> dotApplications = new();
 
     private Vector2 direction;
 
@@ -36,6 +38,11 @@ public class Projectile : MonoBehaviour
                 float multiplier = (ComboSystem.Instance != null ? ComboSystem.Instance.GetCurrentMultiplier() : 1f)
                                  * (PassiveManager.Instance != null ? PassiveManager.Instance.GetDamageMultiplier() : 1f);
                 enemy.TakeDamage(damage * multiplier, weaponType);
+                if (dotApplications.Count > 0)
+                {
+                    DotReceiver dr = collision.GetComponent<DotReceiver>();
+                    if (dr != null) foreach (var dot in dotApplications) dr.Apply(dot);
+                }
             }
 
             Destroy(gameObject);

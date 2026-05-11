@@ -58,25 +58,31 @@ public class CannonWeapon : Weapon
             aimDirection = input.normalized;
     }
 
-    public override float GetAutoDamage() => autoDamage;
+    public override float GetAutoDamage() => autoDamage + AutoDamageBonus;
     public override float GetDamageForJudgement(string j) =>
-        j == "Perfect" ? perfectDamage : j == "Good" ? goodDamage : j == "Auto" ? autoDamage : 0f;
+        j == "Perfect" ? perfectDamage + PerfectDamageBonus + ActiveDamageBonus :
+        j == "Good"    ? goodDamage    + GoodDamageBonus    + ActiveDamageBonus :
+        j == "Auto"    ? autoDamage    + AutoDamageBonus : 0f;
 
     public override void PerformAttack(string judgement)
     {
         if (judgement == "Bad") return;
         if (cannonballPrefab == null) return;
 
-        float damage = judgement == "Perfect" ? perfectDamage :
-                       judgement == "Good"    ? goodDamage    : autoDamage;
+        float damage = judgement == "Perfect" ? perfectDamage + PerfectDamageBonus + ActiveDamageBonus :
+                       judgement == "Good"    ? goodDamage    + GoodDamageBonus    + ActiveDamageBonus :
+                                               autoDamage     + AutoDamageBonus;
 
         GameObject proj = Instantiate(cannonballPrefab, transform.position, Quaternion.identity);
         CannonBall ball = proj.GetComponent<CannonBall>();
         if (ball != null)
         {
             ball.weaponType = weaponType;
+            ball.dotApplications = new System.Collections.Generic.List<DotType>(dotApplications);
             ball.SetDirection(aimDirection);
             ball.damage = damage + (PassiveManager.Instance != null ? PassiveManager.Instance.PendingAttackBonus : 0f);
+            float sz = SizeBonus;
+            if (sz > 0f) proj.transform.localScale = Vector3.one * (1f + sz * 0.1f);
         }
     }
 }

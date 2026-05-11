@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5219695323595758108}
   - component: {fileID: 9127490132826735809}
   - component: {fileID: 6490938586683253413}
+  - component: {fileID: -7844173908439478015}
   m_Layer: 7
   m_Name: ExplodingEnemy
   m_TagString: Enemy
@@ -226,3 +227,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7844173908439478015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125438171725845442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbd7d5f0e75b154db9b0ab0d24c5d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DotReceiver
+  fireConfig:
+    damagePerTick: 4
+    maxTicks: 5
+    tintColor: {r: 1, g: 0.35, b: 0.05, a: 1}
+    popupColor: {r: 1, g: 0.2, b: 0.05, a: 1}
+  electricConfig:
+    damagePerTick: 2
+    maxTicks: 5
+    tintColor: {r: 0.4, g: 0.6, b: 1, a: 1}
+    popupColor: {r: 0.3, g: 0.5, b: 1, a: 1}
+  electricSlowPercent: 0.3
+  slowMultiplier: 1

@@ -118,7 +118,9 @@ public class PlayerDash : MonoBehaviour
     {
         if (currentCharges >= maxCharges) return;
 
-        if (Time.time >= lastDashTime + dashCooldown)
+        float reduction = PlayerStats.Instance != null ? PlayerStats.Instance.dashCooldownReduction : 0f;
+        float effectiveCooldown = Mathf.Max(0.1f, dashCooldown - reduction);
+        if (Time.time >= lastDashTime + effectiveCooldown)
         {
             currentCharges++;
             lastDashTime = Time.time;

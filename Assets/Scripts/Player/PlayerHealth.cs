@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        maxHealth = player_stats.maxHealth;
+        maxHealth = player_stats.TotalMaxHealth;
         currentHealth = maxHealth;
 
         if (healthBar != null)
@@ -39,10 +39,30 @@ public class PlayerHealth : MonoBehaviour
         OnShieldChanged?.Invoke(currentShield, maxHealth);
     }
 
+    // Called by Sound Engineer upgrade to update max health mid-run.
+    public void RefreshMaxHealth()
+    {
+        float newMax = player_stats.TotalMaxHealth;
+        float delta  = newMax - maxHealth;
+        maxHealth     = newMax;
+        currentHealth = Mathf.Clamp(currentHealth + delta, 1f, maxHealth);
+        healthBar?.SetMaxHealth(maxHealth);
+        healthBar?.SetHealth(currentHealth);
+    }
+
+    public void Heal(float amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0f, maxHealth);
+        healthBar?.SetHealth(currentHealth);
+    }
+
     public void TakeDamage(float amount)
     {
         if (isInvincible) return;
         if (Time.time < lastDamageTime + damageCooldown) return;
+
+        float reduction = PlayerStats.Instance != null ? PlayerStats.Instance.damageReductionPercent : 0f;
+        amount *= 1f - Mathf.Clamp01(reduction / 100f);
 
         lastDamageTime = Time.time;
 

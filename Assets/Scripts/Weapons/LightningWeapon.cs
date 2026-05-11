@@ -18,29 +18,32 @@ public class LightningWeapon : Weapon
 
     public float autoDamage = 8f;
 
-    public override float GetAutoDamage() => autoDamage;
+    public override float GetAutoDamage() => autoDamage + AutoDamageBonus;
     public override float GetDamageForJudgement(string j) =>
-        j == "Perfect" ? perfectDamage : j == "Good" ? goodDamage : j == "Auto" ? autoDamage : 0f;
+        j == "Perfect" ? perfectDamage + PerfectDamageBonus + ActiveDamageBonus :
+        j == "Good"    ? goodDamage    + GoodDamageBonus    + ActiveDamageBonus :
+        j == "Auto"    ? autoDamage    + AutoDamageBonus : 0f;
 
     public override void PerformAttack(string judgement)
     {
         float damage;
         float radius;
 
+        float sizeMult = 1f + SizeBonus * 0.1f;
         if (judgement == "Perfect")
         {
-            damage = perfectDamage;
-            radius = strikeRadius + perfectRadiusBonus;
+            damage = perfectDamage + PerfectDamageBonus + ActiveDamageBonus;
+            radius = (strikeRadius + perfectRadiusBonus) * sizeMult;
         }
         else if (judgement == "Good")
         {
-            damage = goodDamage;
-            radius = strikeRadius;
+            damage = goodDamage + GoodDamageBonus + ActiveDamageBonus;
+            radius = strikeRadius * sizeMult;
         }
         else if (judgement == "Auto")
         {
-            damage = autoDamage;
-            radius = strikeRadius;
+            damage = autoDamage + AutoDamageBonus;
+            radius = strikeRadius * sizeMult;
         }
         else return; // "Bad"
 
@@ -80,7 +83,10 @@ public class LightningWeapon : Weapon
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
             if (enemy != null)
+            {
                 enemy.TakeDamage((damage + bonus) * multiplier, weaponType);
+                ApplyDots(hit.gameObject);
+            }
         }
     }
 }

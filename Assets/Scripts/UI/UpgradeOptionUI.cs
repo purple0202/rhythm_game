@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class UpgradeOptionUI : MonoBehaviour, IPointerEnterHandler
 {
-    public Text nameText;
-    public Text descriptionText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descriptionText;
     public Image icon;
     public Button button;
     public GameObject selectionBorder;
@@ -18,9 +19,13 @@ public class UpgradeOptionUI : MonoBehaviour, IPointerEnterHandler
         currentUpgrade = upgrade;
         myIndex = index;
 
-        nameText.text = upgrade.upgradeName;
+        bool valid = upgrade != null;
+        gameObject.SetActive(valid);
+        if (!valid) return;
+
+        nameText.text        = upgrade.upgradeName;
         descriptionText.text = upgrade.description;
-        icon.sprite = upgrade.icon;
+        icon.sprite          = upgrade.icon;
 
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(OnClick);

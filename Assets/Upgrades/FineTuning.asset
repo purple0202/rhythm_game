@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 066d8cebcb16cf249a8861219fa405ba, type: 3}
-  m_Name: Projectile UP 1
+  m_Name: FineTuning
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: DSGFSFDGSDF
-  description: ASDASD
-  icon: {fileID: 2723829106284865888, guid: 0801e69413fa54a48af744b92501e390, type: 3}
-  requiresWeapon: 0
-  requiredWeaponName: 
-  damageMultiplier: 1
-  moveSpeedMultiplier: 1
-  extraProjectiles: 0
+  upgradeName: Fine Tuning
+  description: Adds +1 damage to active(good, perfect) attacks
+  icon: {fileID: -5010340172990460451, guid: 7b6e9336eeddf4c4c828c2990d323fd6, type: 3}
+  enabled: 1

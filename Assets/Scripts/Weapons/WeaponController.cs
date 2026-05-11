@@ -17,6 +17,7 @@ public class WeaponController : MonoBehaviour
     public Weapon[] group4Weapons;
 
     private List<Weapon> equippedWeapons = new List<Weapon>();
+    public IReadOnlyList<Weapon> EquippedWeapons => equippedWeapons;
 
     // uiWeaponIndex  — what is highlighted in the UI right now (changes immediately).
     // activeWeaponIndex — which weapon's GameObject is actually SetActive(true).

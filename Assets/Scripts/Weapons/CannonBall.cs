@@ -8,6 +8,7 @@ public class CannonBall : MonoBehaviour
     public float lifetime = 4f;
 
     public EnemyType weaponType = EnemyType.None;
+    public List<DotType> dotApplications = new();
 
     private Vector2 direction;
     private HashSet<Collider2D> hitEnemies = new HashSet<Collider2D>();
@@ -33,6 +34,11 @@ public class CannonBall : MonoBehaviour
             float multiplier = (ComboSystem.Instance != null ? ComboSystem.Instance.GetCurrentMultiplier() : 1f)
                              * (PassiveManager.Instance != null ? PassiveManager.Instance.GetDamageMultiplier() : 1f);
             enemy.TakeDamage(damage * multiplier, weaponType);
+            if (dotApplications.Count > 0)
+            {
+                DotReceiver dr = collision.GetComponent<DotReceiver>();
+                if (dr != null) foreach (var dot in dotApplications) dr.Apply(dot);
+            }
         }
         // No Destroy — pierces through all enemies
     }

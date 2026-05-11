@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5742016348395041784}
   - component: {fileID: -2438289490178202847}
   - component: {fileID: 4516802701354672541}
+  - component: {fileID: 7102241541150502929}
   m_Layer: 7
   m_Name: MobEnemy
   m_TagString: Enemy
@@ -246,3 +247,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteOutline
   outlineScale: 1.1
   silhouetteMaterial: {fileID: 2100000, guid: 2443591245b69e040bbe63580b0960f9, type: 2}
+--- !u!114 &7102241541150502929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398283090820756673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbd7d5f0e75b154db9b0ab0d24c5d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DotReceiver
+  fireConfig:
+    damagePerTick: 4
+    maxTicks: 5
+    tintColor: {r: 1, g: 0.35, b: 0.05, a: 1}
+    popupColor: {r: 1, g: 0.2, b: 0.05, a: 1}
+  electricConfig:
+    damagePerTick: 2
+    maxTicks: 5
+    tintColor: {r: 0.4, g: 0.6, b: 1, a: 1}
+    popupColor: {r: 0.3, g: 0.5, b: 1, a: 1}
+  electricSlowPercent: 0.3
+  slowMultiplier: 1

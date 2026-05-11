@@ -43,6 +43,12 @@ public class DamagePopup : MonoBehaviour
         damageText.text = Mathf.RoundToInt(damage).ToString();
     }
 
+    public void Setup(float damage, Color color)
+    {
+        damageText.text  = Mathf.RoundToInt(damage).ToString();
+        damageText.color = color;
+    }
+
     void Update()
     {
         elapsed += Time.deltaTime;

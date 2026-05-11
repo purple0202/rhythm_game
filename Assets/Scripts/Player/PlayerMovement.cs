@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement * moveSpeed;
+        float speed = PlayerStats.Instance != null ? PlayerStats.Instance.TotalMoveSpeed : moveSpeed;
+rb.linearVelocity = movement * speed;
     }
 }

@@ -9,6 +9,7 @@ public class MobEnemyMovement : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     Animator animator;
+    DotReceiver dotReceiver;
 
     [Header("Level-Up Push")]
     [SerializeField] float pushDistance = 1f;
@@ -47,10 +48,11 @@ public class MobEnemyMovement : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb = GetComponent<Rigidbody2D>();
+        player        = GameObject.FindGameObjectWithTag("Player").transform;
+        rb            = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        animator      = GetComponent<Animator>();
+        dotReceiver   = GetComponent<DotReceiver>();
 
         if (animator != null)
             animator.Play(0, 0, Random.value);
@@ -61,7 +63,8 @@ public class MobEnemyMovement : MonoBehaviour
         if (player == null) return;
 
         movement = (player.position - transform.position).normalized;
-        rb.linearVelocity = movement * moveSpeed;
+        float slow = dotReceiver != null ? dotReceiver.slowMultiplier : 1f;
+        rb.linearVelocity = movement * moveSpeed * slow;
 
         if (movement.x != 0)
             spriteRenderer.flipX = movement.x < 0;

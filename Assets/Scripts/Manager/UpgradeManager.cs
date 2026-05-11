@@ -1,34 +1,65 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager Instance;
 
-    public List<UpgradeData> allUpgrades;
+    [System.Serializable]
+    public struct UpgradeBinding
+    {
+        public UpgradeData   data;
+        public UpgradeEffect effect;
+    }
 
-    public int optionsToShow = 4;
+    public UpgradeBinding[] bindings;
+    public int optionsToShow  = 4;
+    public int totalRerolls   = 0;
+    public int rerollsAvailable = 0;
+
+    public void ResetRerolls() => rerollsAvailable = totalRerolls;
+
+    readonly Dictionary<UpgradeData, int> appliedCounts = new();
 
     void Awake()
     {
         Instance = this;
+        // Let effects know which data asset they belong to so IsStackable can call GetAppliedCount.
+        foreach (var b in bindings)
+            if (b.effect != null) b.effect.data = b.data;
     }
 
-    public List<UpgradeData> GetAvailableUpgrades(PlayerStats player)
+    public void Apply(UpgradeData data)
     {
-        return allUpgrades
-            .Where(upgrade => upgrade.CanApply(player))
-            .ToList();
+        foreach (var b in bindings)
+        {
+            if (b.data != data) continue;
+            b.effect.Apply();
+            appliedCounts[data] = GetAppliedCount(data) + 1;
+            return;
+        }
     }
 
-    public List<UpgradeData> GetRandomUpgrades(PlayerStats player)
-    {
-        List<UpgradeData> valid = GetAvailableUpgrades(player);
+    public int GetAppliedCount(UpgradeData data) =>
+        appliedCounts.TryGetValue(data, out int c) ? c : 0;
 
-        return valid
-            .OrderBy(x => Random.value)
-            .Take(optionsToShow)
-            .ToList();
+    public List<UpgradeData> GetRandomOptions()
+    {
+        var available = new List<UpgradeData>();
+        foreach (var b in bindings)
+        {
+            if (!b.data.enabled) continue;
+            if (b.effect.IsStackable || GetAppliedCount(b.data) == 0)
+                available.Add(b.data);
+        }
+
+        for (int i = available.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (available[i], available[j]) = (available[j], available[i]);
+        }
+
+        int count = Mathf.Min(optionsToShow, available.Count);
+        return available.GetRange(0, count);
     }
 }

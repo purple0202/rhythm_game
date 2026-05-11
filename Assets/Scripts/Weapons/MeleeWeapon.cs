@@ -15,9 +15,11 @@ public class MeleeWeapon : Weapon
     public float autoDamage = 5f;
 
     // True while a SlashEffect child is alive (parented to this weapon's transform).
-    public override float GetAutoDamage() => autoDamage;
+    public override float GetAutoDamage() => autoDamage + AutoDamageBonus;
     public override float GetDamageForJudgement(string j) =>
-        j == "Perfect" ? perfectDamage : j == "Good" ? goodDamage : j == "Auto" ? autoDamage : 0f;
+        j == "Perfect" ? perfectDamage + PerfectDamageBonus + ActiveDamageBonus :
+        j == "Good"    ? goodDamage    + GoodDamageBonus    + ActiveDamageBonus :
+        j == "Auto"    ? autoDamage    + AutoDamageBonus : 0f;
     public override bool IsAttacking => transform.childCount > 0;
 
     Vector3 gizmoCenter;
@@ -28,27 +30,28 @@ public class MeleeWeapon : Weapon
         float damage;
 
         if (judgement == "Perfect")
-            damage = perfectDamage;
+            damage = perfectDamage + PerfectDamageBonus + ActiveDamageBonus;
         else if (judgement == "Good")
-            damage = goodDamage;
+            damage = goodDamage + GoodDamageBonus + ActiveDamageBonus;
         else if (judgement == "Auto")
-            damage = autoDamage;
+            damage = autoDamage + AutoDamageBonus;
         else
             return; // "Bad"
 
         PlayerMovement playerMovement = GetComponentInParent<PlayerMovement>();
         int facing = playerMovement != null ? playerMovement.facingDirection : 1;
-        Vector3 spawnPos = transform.position + new Vector3(effectOffset * facing, 0f, 0f);
+
+        // Shift spawn point outward and scale the visual with size bonus.
+        float sizeMult = 1f + SizeBonus * 0.1f;
+        Vector3 spawnPos = transform.position + new Vector3(effectOffset * facing * sizeMult, 0f, 0f);
 
         GameObject effect = Instantiate(attackEffectPrefab, spawnPos, Quaternion.identity, transform);
-        if (facing == -1)
-        {
-            Vector3 scale = effect.transform.localScale;
-            scale.x *= -1f;
-            effect.transform.localScale = scale;
-        }
+        Vector3 effectScale = Vector3.one * sizeMult;
+        if (facing == -1) effectScale.x *= -1f;
+        effect.transform.localScale = effectScale;
 
-        float radius = attackRadius;
+        // col.bounds already reflects the scaled transform, so no extra multiply needed.
+        float radius = attackRadius * sizeMult;
         if (useEffectCollider)
         {
             CircleCollider2D col = effect.GetComponent<CircleCollider2D>();
@@ -68,7 +71,10 @@ public class MeleeWeapon : Weapon
         {
             EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
             if (enemy != null)
+            {
                 enemy.TakeDamage((damage + bonus) * multiplier, weaponType);
+                ApplyDots(hit.gameObject);
+            }
         }
     }
 

@@ -56,14 +56,16 @@ public class WaveManager : MonoBehaviour
     void StartWave()
     {
         WaveData wave = waves[currentWaveIndex];
+        float mult = PlayerStats.Instance != null ? PlayerStats.Instance.enemySpawnMultiplier : 1f;
 
         int totalEnemies = 0;
         foreach (var enemyData in wave.enemies)
-            totalEnemies += enemyData.count;
+            totalEnemies += Mathf.RoundToInt(enemyData.count * mult);
 
         foreach (var enemyData in wave.enemies)
         {
-            for (int i = 0; i < enemyData.count; i++)
+            int count = Mathf.RoundToInt(enemyData.count * mult);
+            for (int i = 0; i < count; i++)
             {
                 Vector3 spawnPos = GetSpawnPosition(totalEnemies);
                 GameObject enemy = Instantiate(enemyData.enemyPrefab, spawnPos, Quaternion.identity);
