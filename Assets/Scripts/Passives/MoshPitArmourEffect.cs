@@ -29,7 +29,7 @@ public class MoshPitArmourEffect : PassiveEffect
 
     void Update()
     {
-        if (playerHealth.currentShield <= 0f) return;
+        if (playerHealth == null || playerHealth.currentShield <= 0f) return;
         playerHealth.AddShield(-decayPerSecond * Time.deltaTime);
     }
 }

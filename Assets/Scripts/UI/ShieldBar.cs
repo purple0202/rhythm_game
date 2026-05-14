@@ -3,8 +3,14 @@ using UnityEngine.UI;
 
 public class ShieldBar : MonoBehaviour
 {
-    public Slider slider;
-    public CanvasGroup canvasGroup;
+    Slider slider;
+    CanvasGroup canvasGroup;
+
+    void Awake()
+    {
+        slider = GetComponent<Slider>();
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
 
     void OnEnable()  => PlayerHealth.OnShieldChanged += OnShieldChanged;
     void OnDisable() => PlayerHealth.OnShieldChanged -= OnShieldChanged;
