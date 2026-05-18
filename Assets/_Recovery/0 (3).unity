@@ -238,69 +238,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24981510}
   m_CullTransparentMesh: 1
---- !u!1 &30316080
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 30316081}
-  - component: {fileID: 30316082}
-  m_Layer: 6
-  m_Name: ThrowDaggerWeapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &30316081
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30316080}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &30316082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30316080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af34c94627736a409d966f1be9ac709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ThrowDaggerWeapon
-  weaponName: Throw Dagger
-  description: 
-  icon: {fileID: 6294907298625672267, guid: 89035ac7dc2f617428ebde98308326be, type: 3}
-  weaponType: 0
-  dotApplications: 
-  perfectDamage: 25
-  goodDamage: 18
-  autoDamage: 8
-  maxDaggers: 5
-  maxSpread: 3
-  spreadSpacing: 0.4
-  timeBetweenDaggers: 0.08
-  daggerSpeed: 15
-  volleyRange: 8
-  autoSpeed: 10
-  autoRange: 4
-  perfectPressBonus: 1.2
-  perfectReleaseBonus: 1.2
-  daggerPrefab: {fileID: 3875204070045316213, guid: e599f6f06924b754484e3394711966b5, type: 3}
 --- !u!1 &55110488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,9 +1497,6 @@ Transform:
   - {fileID: 147559563}
   - {fileID: 852885438}
   - {fileID: 1850212834}
-  - {fileID: 438472375}
-  - {fileID: 30316081}
-  - {fileID: 1865853690}
   m_Father: {fileID: 1408611453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &249762972
@@ -1581,9 +1515,9 @@ MonoBehaviour:
   firstWeapon: {fileID: 1370067888}
   group2Weapons:
   - {fileID: 1591903762}
-  - {fileID: 30316082}
-  - {fileID: 1865853691}
-  - {fileID: 438472376}
+  - {fileID: 109454095}
+  - {fileID: 2065259684}
+  - {fileID: 256691382}
   group3Weapons:
   - {fileID: 520855288}
   - {fileID: 1542941830}
@@ -3563,64 +3497,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426975833}
   m_CullTransparentMesh: 1
---- !u!1 &438472374
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 438472375}
-  - component: {fileID: 438472376}
-  m_Layer: 6
-  m_Name: LandmineWeapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &438472375
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438472374}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &438472376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438472374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650547326a6898a40ab2573ec77f6b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LandMineWeapon
-  weaponName: 
-  description: 
-  icon: {fileID: 5885316480913629841, guid: 86b99e0d0d1e194479f791411faac961, type: 3}
-  weaponType: 0
-  dotApplications: 
-  perfectDamage: 30
-  goodDamage: 20
-  autoDamage: 10
-  fixedRadius: 3
-  detectionRange: 12
-  explosionRadius: 1
-  lifetimeBeats: 4
-  maxMines: 20
-  landMinePrefab: {fileID: 3277919169580945156, guid: 57d0e9d44665a8244ad9f9fe7862670e, type: 3}
 --- !u!1 &442359463
 GameObject:
   m_ObjectHideFlags: 0
@@ -21997,72 +21873,6 @@ RectTransform:
   m_AnchoredPosition: {x: 114, y: -4}
   m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1865853689
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1865853690}
-  - component: {fileID: 1865853691}
-  m_Layer: 6
-  m_Name: BlackholeWeapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1865853690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865853689}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1865853691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865853689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8665ff5b0abbe747b917cadc22024f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BlackHoleWeapon
-  weaponName: Black hole weapon
-  description: Creates a black hole on max charge
-  icon: {fileID: 5305743364714375323, guid: bea325422cef495489bb7ba5af460d77, type: 3}
-  weaponType: 0
-  dotApplications: 
-  baseDamage: 15
-  damagePerBeat: 10
-  autoDamage: 8
-  maxChargeLevel: 5
-  baseProjectileScale: 0.3
-  scalePerBeat: 0.5
-  previewDistance: 1
-  projectileSpeed: 10
-  projectileRange: 8
-  blackHoleDamagePerBeat: 5
-  blackHoleLifetimeBeats: 4
-  blackHolePullForce: 3
-  perfectPressBonus: 1.2
-  perfectReleaseBonus: 1.2
-  projectilePrefab: {fileID: 2975306107273021792, guid: 3edbd1cabc34389479b7f7cf6924f0a9, type: 3}
-  autoProjectilePrefab: {fileID: 2975306107273021792, guid: 3edbd1cabc34389479b7f7cf6924f0a9, type: 3}
-  blackHolePrefab: {fileID: 7236189503117919535, guid: c7366dde58de019448721d1d8104aee8, type: 3}
 --- !u!1 &1879435391
 GameObject:
   m_ObjectHideFlags: 0

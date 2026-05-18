@@ -69,6 +69,7 @@ public class InputJudge : MonoBehaviour
 
     void OnBeat()
     {
+        if (Time.timeScale == 0f) return;
         if (pendingJudgement == "Consumed")
         {
             pendingJudgement = "Auto";

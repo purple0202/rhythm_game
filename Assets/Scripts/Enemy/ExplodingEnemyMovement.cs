@@ -27,8 +27,14 @@ public class ExplodingEnemyMovement : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
 
-    bool hasExploded = false;
-    bool isRunning = false;
+    bool    hasExploded = false;
+    bool    isRunning   = false;
+    Vector2 pullVelocity;
+
+    public void SetPull(Vector2 center, float force)
+    {
+        pullVelocity = ((Vector2)center - (Vector2)transform.position).normalized * force;
+    }
 
     void OnEnable()  => LevelSystem.OnLevelUp += OnLevelUp;
     void OnDisable() => LevelSystem.OnLevelUp -= OnLevelUp;
@@ -38,19 +44,25 @@ public class ExplodingEnemyMovement : MonoBehaviour
         if (player == null || hasExploded) return;
         float dist = Vector2.Distance(transform.position, player.position);
         if (dist > pushRadius) return;
-
-        Vector2 dir = ((Vector2)transform.position - (Vector2)player.position).normalized;
-        Vector3 target = transform.position + (Vector3)(dir * pushDistance);
-        StartCoroutine(PushCoroutine(transform.position, target));
+        Push(player.position, pushDistance, pushDuration);
     }
 
-    IEnumerator PushCoroutine(Vector3 from, Vector3 to)
+    public void Push(Vector2 origin, float distance, float duration)
+    {
+        if (hasExploded) return;
+        Vector2 dir = ((Vector2)transform.position - origin).normalized;
+        if (dir == Vector2.zero) dir = Vector2.up;
+        Vector3 target = transform.position + (Vector3)(dir * distance);
+        StartCoroutine(PushCoroutine(transform.position, target, duration));
+    }
+
+    IEnumerator PushCoroutine(Vector3 from, Vector3 to, float duration)
     {
         float elapsed = 0f;
-        while (elapsed < pushDuration)
+        while (elapsed < duration)
         {
             elapsed += Time.unscaledDeltaTime;
-            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / pushDuration));
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / duration));
             transform.position = Vector3.Lerp(from, to, t);
             yield return null;
         }
@@ -100,7 +112,8 @@ public class ExplodingEnemyMovement : MonoBehaviour
         }
 
         Vector2 dir = ((Vector2)player.position - (Vector2)transform.position).normalized;
-        rb.linearVelocity = dir * (isRunning ? runSpeed : walkSpeed);
+        rb.linearVelocity = dir * (isRunning ? runSpeed : walkSpeed) + pullVelocity;
+        pullVelocity = Vector2.zero;
 
         if (animator != null)
             animator.SetBool("IsRunning", isRunning);

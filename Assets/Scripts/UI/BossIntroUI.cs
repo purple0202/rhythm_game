@@ -40,6 +40,7 @@ public class BossIntroUI : MonoBehaviour
     [SerializeField] float textWidth = 1400f;
     [SerializeField] float textLeftScale = 1f;
     [SerializeField] float textRightScale = 0.5f;
+    [SerializeField] float textHeightBonus = 0f;
 
     [Header("Portrait")]
     [SerializeField] float portraitSpriteScale = 6f;
@@ -145,8 +146,9 @@ public class BossIntroUI : MonoBehaviour
         if (bossNameText == null) return;
         var taper = bossNameText.GetComponent<TaperedText>()
                     ?? bossNameText.gameObject.AddComponent<TaperedText>();
-        taper.leftScale  = textLeftScale;
-        taper.rightScale = textRightScale;
+        taper.leftScale    = textLeftScale;
+        taper.rightScale   = textRightScale;
+        taper.heightBonus  = textHeightBonus;
     }
 
     void ArrangeSiblings()
