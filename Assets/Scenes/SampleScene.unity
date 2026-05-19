@@ -1321,6 +1321,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0bf7c8e2b8a00c47b70f88ee3ebed32, type: 3}
+--- !u!1 &194370329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194370330}
+  - component: {fileID: 194370331}
+  m_Layer: 6
+  m_Name: OrbitalWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &194370330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194370329}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194370331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194370329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f710a56f6a2cd63458e9faa3977faf7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OrbitalWeapon
+  weaponName: OrbitalWeapon
+  description: 
+  icon: {fileID: 2198800849679415779, guid: b04788714ab00bd40a4d62bc7bc73e11, type: 3}
+  weaponType: 0
+  dotApplications: 
+  orbitalPrefab: {fileID: 8141118019695648423, guid: 76bff07dacba3ff48881de31c2d6ec02, type: 3}
+  orbitRadius: 2
+  hitCooldown: 0.4
+  autoDamage: 5
+  goodDamage: 8
+  perfectDamage: 12
+  orbitRotationSpeed: 360
+  selfRotationSpeed: 720
+  perfectDegrees: 90
+  goodDegrees: 60
+  badDegrees: 0
+  autoDegrees: 30
 --- !u!1 &195904970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1624,8 @@ Transform:
   - {fileID: 438472375}
   - {fileID: 30316081}
   - {fileID: 1865853690}
+  - {fileID: 1064784289}
+  - {fileID: 194370330}
   m_Father: {fileID: 1408611453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &249762972
@@ -1581,8 +1644,8 @@ MonoBehaviour:
   firstWeapon: {fileID: 1370067888}
   group2Weapons:
   - {fileID: 1591903762}
-  - {fileID: 30316082}
-  - {fileID: 1865853691}
+  - {fileID: 1064784290}
+  - {fileID: 194370331}
   - {fileID: 438472376}
   group3Weapons:
   - {fileID: 520855288}
@@ -9802,6 +9865,65 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1064784288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1064784289}
+  - component: {fileID: 1064784290}
+  m_Layer: 6
+  m_Name: RicochetWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1064784289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064784288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1064784290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064784288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35962ddd3a9666499e4b17607eb322a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RicochetWeapon
+  weaponName: RicochetWeapon
+  description: 
+  icon: {fileID: 8140016777679934723, guid: 04cbbcbb9ec18d741a9b156042d57ee4, type: 3}
+  weaponType: 0
+  dotApplications: 
+  projectilePrefab: {fileID: 123588703803313027, guid: faaf70b21049efc4f89497326208f74e, type: 3}
+  firstHitDamage: 12
+  bounceDamage: 8
+  autoDamage: 6
+  maxBounces: 3
+  chainRange: 3
+  travelSpeed: 14
+  perfectBonusBounces: 2
+  perfectBonusFirstHitDamage: 5
+  perfectBonusBounceDamage: 3
 --- !u!1 &1066886806
 GameObject:
   m_ObjectHideFlags: 0
