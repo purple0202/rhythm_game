@@ -1077,63 +1077,6 @@ MonoBehaviour:
   returnSpeed: 12
   allowDoubleDamage: 1
   boomerangPrefab: {fileID: 5636625830515380675, guid: 2c779bb1661f12d42acada0465014a3d, type: 3}
---- !u!1 &147559562
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 147559563}
-  - component: {fileID: 147559564}
-  m_Layer: 6
-  m_Name: CannonModeWeapon 4-2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &147559563
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147559562}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &147559564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147559562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdfcb05a1ba66bf48a64e74e09ab5ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CannonWeapon
-  weaponName: 4-2
-  description: Group 4 Weapon 2
-  icon: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
-  weaponType: 4
-  dotApplications: 
-  perfectDamage: 60
-  goodDamage: 40
-  autoDamage: 20
-  cannonballPrefab: {fileID: 7296252839968887923, guid: 610d9a4e24eaa9448bcb66020f489af6, type: 3}
-  playerMovement: {fileID: 1408611454}
-  playerDash: {fileID: 1408611462}
-  playerRenderer: {fileID: 1408611452}
-  tankSprite: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
 --- !u!1 &182221374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,23 +1552,20 @@ Transform:
   - {fileID: 1370067887}
   - {fileID: 1591903761}
   - {fileID: 109454094}
-  - {fileID: 1809749882}
-  - {fileID: 1066886807}
-  - {fileID: 256691381}
-  - {fileID: 520855287}
-  - {fileID: 1542941829}
-  - {fileID: 1187142647}
-  - {fileID: 1747650588}
-  - {fileID: 2065259683}
-  - {fileID: 1959190489}
-  - {fileID: 147559563}
-  - {fileID: 852885438}
-  - {fileID: 1850212834}
-  - {fileID: 438472375}
   - {fileID: 30316081}
   - {fileID: 1865853690}
   - {fileID: 1064784289}
+  - {fileID: 520855287}
+  - {fileID: 2065259683}
+  - {fileID: 438472375}
+  - {fileID: 1158368918}
+  - {fileID: 1959190489}
   - {fileID: 194370330}
+  - {fileID: 1173448041}
+  - {fileID: 1656382205}
+  - {fileID: 1697141202}
+  - {fileID: 348457945}
+  - {fileID: 527073587}
   m_Father: {fileID: 1408611453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &249762972
@@ -1644,19 +1584,19 @@ MonoBehaviour:
   firstWeapon: {fileID: 1370067888}
   group2Weapons:
   - {fileID: 1591903762}
-  - {fileID: 1064784290}
-  - {fileID: 194370331}
-  - {fileID: 438472376}
+  - {fileID: 1697141203}
+  - {fileID: 348457946}
+  - {fileID: 527073588}
   group3Weapons:
   - {fileID: 520855288}
-  - {fileID: 1542941830}
-  - {fileID: 1187142648}
-  - {fileID: 1747650589}
+  - {fileID: 438472376}
+  - {fileID: 2065259684}
+  - {fileID: 1865853691}
   group4Weapons:
   - {fileID: 1959190490}
-  - {fileID: 147559564}
-  - {fileID: 852885439}
-  - {fileID: 1850212835}
+  - {fileID: 1173448042}
+  - {fileID: 1656382206}
+  - {fileID: 194370331}
 --- !u!1 &253874363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,59 +1716,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253874363}
   m_CullTransparentMesh: 1
---- !u!1 &256691380
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 256691381}
-  - component: {fileID: 256691382}
-  m_Layer: 6
-  m_Name: ProjectileWeapon 2-4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &256691381
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256691380}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &256691382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256691380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4482ccc14dc726e4ba8dbc3b9603e02b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileWeapon
-  weaponName: 2-4
-  description: Group 2 Weapon 4
-  icon: {fileID: 3596760738653520485, guid: dc6ba86f411097d48ba07a7723b11cbe, type: 3}
-  weaponType: 2
-  dotApplications: 
-  projectilePrefab: {fileID: 7631923689842374535, guid: 26137a8143a22ad4191413ab337fd832, type: 3}
-  projectileCount: 1
-  autoDamage: 5
-  searchRadius: 10
 --- !u!1 &306055992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,6 +2292,64 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0bf7c8e2b8a00c47b70f88ee3ebed32, type: 3}
+--- !u!1 &348457944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348457945}
+  - component: {fileID: 348457946}
+  m_Layer: 6
+  m_Name: CycloneWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348457945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348457944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &348457946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348457944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b40b71af436e845a7c7305077063e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CycloneWeapon
+  weaponName: Cyclone
+  description: 
+  icon: {fileID: -6114667886102034842, guid: 3a3ef60d94133c547923c9433c4371a6, type: 3}
+  weaponType: 0
+  dotApplications: 
+  damage: 10
+  lifetimeBeats: 10
+  maxGrowthTaps: 3
+  baseScale: 1
+  badScaleChange: -0.3
+  goodScaleChange: 0.3
+  perfectScaleChange: 0.5
+  maxCyclones: 3
+  cyclonePrefab: {fileID: 1520608469681407075, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
 --- !u!1 &351702672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4685,6 +4630,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522397844}
   m_CullTransparentMesh: 1
+--- !u!1 &527073586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527073587}
+  - component: {fileID: 527073588}
+  m_Layer: 6
+  m_Name: LaserWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527073587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527073586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527073588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527073586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a54c61dcd8fa8478edc610bbc1e6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaserBeamWeapon
+  weaponName: Laser Beam
+  description: 
+  icon: {fileID: -4953920071871310961, guid: 26073833ed0bd3b40bb85968c990878c, type: 3}
+  weaponType: 0
+  dotApplications: 
+  baseDamage: 2
+  damagePerPerfect: 1
+  perfectPressBonus: 2
+  goodPressBonus: 1
+  badPressBonus: 0
+  laserWidth: 0.8
+  laserPrefab: {fileID: 8639868321787382137, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &537123359
 GameObject:
   m_ObjectHideFlags: 0
@@ -7651,63 +7655,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &852885437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 852885438}
-  - component: {fileID: 852885439}
-  m_Layer: 6
-  m_Name: CannonModeWeapon 4-3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &852885438
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852885437}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &852885439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852885437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdfcb05a1ba66bf48a64e74e09ab5ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CannonWeapon
-  weaponName: 4-3
-  description: Group 4 Weapon 3
-  icon: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
-  weaponType: 4
-  dotApplications: 
-  perfectDamage: 60
-  goodDamage: 40
-  autoDamage: 20
-  cannonballPrefab: {fileID: 7296252839968887923, guid: 610d9a4e24eaa9448bcb66020f489af6, type: 3}
-  playerMovement: {fileID: 1408611454}
-  playerDash: {fileID: 1408611462}
-  playerRenderer: {fileID: 1408611452}
-  tankSprite: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
 --- !u!1 &856422834
 GameObject:
   m_ObjectHideFlags: 0
@@ -9924,59 +9871,6 @@ MonoBehaviour:
   perfectBonusBounces: 2
   perfectBonusFirstHitDamage: 5
   perfectBonusBounceDamage: 3
---- !u!1 &1066886806
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1066886807}
-  - component: {fileID: 1066886808}
-  m_Layer: 6
-  m_Name: ProjectileWeapon 2-3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1066886807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066886806}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1066886808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066886806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4482ccc14dc726e4ba8dbc3b9603e02b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileWeapon
-  weaponName: 2-3
-  description: Group 2 Weapon 3
-  icon: {fileID: 3596760738653520485, guid: dc6ba86f411097d48ba07a7723b11cbe, type: 3}
-  weaponType: 2
-  dotApplications: 
-  projectilePrefab: {fileID: 7631923689842374535, guid: 26137a8143a22ad4191413ab337fd832, type: 3}
-  projectileCount: 1
-  autoDamage: 5
-  searchRadius: 10
 --- !u!1 &1071011321
 GameObject:
   m_ObjectHideFlags: 0
@@ -10613,7 +10507,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 100}
   m_EdgeRadius: 0
---- !u!1 &1187142646
+--- !u!1 &1158368917
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10621,22 +10515,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1187142647}
-  - component: {fileID: 1187142648}
+  - component: {fileID: 1158368918}
+  - component: {fileID: 1158368919}
   m_Layer: 6
-  m_Name: LightningWeapon 3-3
+  m_Name: LightningBoltWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1187142647
+--- !u!4 &1158368918
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187142646}
+  m_GameObject: {fileID: 1158368917}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -10645,33 +10539,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 249762971}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1187142648
+--- !u!114 &1158368919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187142646}
+  m_GameObject: {fileID: 1158368917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3aefc6641d7224a9490c848d95271c, type: 3}
+  m_Script: {fileID: 11500000, guid: c080d84b7bb7d7c4ea009507fff36c09, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LightningWeapon
-  weaponName: 3-3
-  description: Group 3 Weapon 3
-  icon: {fileID: 7980029341427962936, guid: 6b4e77e322962a34f97548b28e809dd5, type: 3}
-  weaponType: 3
+  m_EditorClassIdentifier: Assembly-CSharp::LightningBoltWeapon
+  weaponName: LightningBoltWeapon
+  description: 
+  icon: {fileID: 4469683779360254436, guid: f4f1038cb859a0c4b8cb58318760f345, type: 3}
+  weaponType: 0
   dotApplications: 
-  perfectDamage: 20
+  perfectDamage: 18
   goodDamage: 12
-  strikeRadius: 1.5
-  perfectRadiusBonus: 0.5
+  autoDamage: 6
+  spreadDamage: 8
+  autoSpreadDamage: 4
+  baseSpreadRadius: 4
+  perfectSpreadBonus: 2
+  goodSpreadBonus: 1
+  searchRadius: 20
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  strikeEffectPrefab: {fileID: 1008662300852731096, guid: e1c7445f12b4106438f9921d49a2b5f5, type: 3}
-  effectDuration: 0.4
-  autoDamage: 8
+  primaryEffectPrefab: {fileID: 0}
+  spreadEffectPrefab: {fileID: 0}
+  effectDuration: 0.3
+--- !u!1 &1173448040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173448041}
+  - component: {fileID: 1173448042}
+  m_Layer: 6
+  m_Name: GhostWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173448041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173448040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1173448042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173448040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a3fe394d1464546853fb994770469e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostWeapon
+  weaponName: GhostWeapon
+  description: 
+  icon: {fileID: -1807952311658961679, guid: f58fb3ade27e2de42815a177991e2153, type: 3}
+  weaponType: 0
+  dotApplications: 
+  ghostPrefab: {fileID: 4855846021083099416, guid: 0ed5a1a624275c34b9f9d593ff868a7c, type: 3}
+  projectilePrefab: {fileID: 9027033922028316672, guid: 93dbc00a13103b0438157f24009b983e, type: 3}
+  searchRadius: 20
+  autoDamage: 3
+  goodBonus: 5
+  perfectBonus: 8
+  hoverOffset: {x: 1, y: 1}
+  followSpeed: 5
+  bobSpeed: 2
+  bobAmount: 0.2
 --- !u!1 &1213409093
 GameObject:
   m_ObjectHideFlags: 0
@@ -19129,65 +19087,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537007859}
   m_CullTransparentMesh: 1
---- !u!1 &1542941828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1542941829}
-  - component: {fileID: 1542941830}
-  m_Layer: 6
-  m_Name: LightningWeapon 3-2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1542941829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542941828}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542941830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542941828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3aefc6641d7224a9490c848d95271c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LightningWeapon
-  weaponName: 3-2
-  description: Group 3 Weapon 2
-  icon: {fileID: 7980029341427962936, guid: 6b4e77e322962a34f97548b28e809dd5, type: 3}
-  weaponType: 3
-  dotApplications: 
-  perfectDamage: 20
-  goodDamage: 12
-  strikeRadius: 1.5
-  perfectRadiusBonus: 0.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  strikeEffectPrefab: {fileID: 1008662300852731096, guid: e1c7445f12b4106438f9921d49a2b5f5, type: 3}
-  effectDuration: 0.4
-  autoDamage: 8
 --- !u!1 &1555397815
 GameObject:
   m_ObjectHideFlags: 0
@@ -20685,6 +20584,66 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 100}
   m_EdgeRadius: 0
+--- !u!1 &1656382204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656382205}
+  - component: {fileID: 1656382206}
+  m_Layer: 6
+  m_Name: TurretWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1656382205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656382204}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656382206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656382204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a480c521703d3124099177a55f980845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TurretWeapon
+  weaponName: TurretWeapon
+  description: 
+  icon: {fileID: 546372738478838189, guid: eb60309bbd7ca934a81269366f56ee21, type: 3}
+  weaponType: 0
+  dotApplications: 
+  turretPrefab: {fileID: 1793814787257820036, guid: 638a6762ba9233946b2afb8db2720c3e, type: 3}
+  projectilePrefab: {fileID: 7631923689842374535, guid: 26137a8143a22ad4191413ab337fd832, type: 3}
+  maxTurrets: 3
+  chargeBeats: 4
+  lifetimeBeats: 8
+  turretMaxHealth: 100
+  searchRadius: 20
+  baseDamage: 10
+  goodBonus: 5
+  perfectBonus: 10
+  autoDamage: 6
 --- !u!1 &1664068155
 GameObject:
   m_ObjectHideFlags: 0
@@ -20822,6 +20781,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664068155}
   m_CullTransparentMesh: 1
+--- !u!1 &1697141201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697141202}
+  - component: {fileID: 1697141203}
+  m_Layer: 6
+  m_Name: ShotgunWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697141202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697141201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 249762971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1697141203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697141201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc6b6c9ff0297b4c94109302b13bdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShotgunWeapon
+  weaponName: Shotgun
+  description: Shotgun
+  icon: {fileID: 8656949381249833661, guid: 925582a0ea9def64aba008a124da618c, type: 3}
+  weaponType: 0
+  dotApplications: 
+  perfectMainDamage: 40
+  goodMainDamage: 25
+  autoMainDamage: 15
+  perfectSubDamage: 15
+  goodSubDamage: 10
+  autoSubDamage: 6
+  innerAngle: 12
+  outerAngle: 24
+  projectilePrefab: {fileID: 7631923689842374535, guid: a5848a0ceed6c5647ad75b49434cd206, type: 3}
+  subProjectileScale: 0.6
+  pelletLifetime: 0.3
 --- !u!1 &1701270198
 GameObject:
   m_ObjectHideFlags: 0
@@ -21166,65 +21185,120 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721318791}
   m_CullTransparentMesh: 1
---- !u!1 &1747650587
-GameObject:
+--- !u!1001 &1733936053
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1747650588}
-  - component: {fileID: 1747650589}
-  m_Layer: 6
-  m_Name: LightningWeapon 3-4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1747650588
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747650587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1747650589
-MonoBehaviour:
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 978625250087771075, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_Name
+      value: WeaponBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+--- !u!1001 &1745923382
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747650587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3aefc6641d7224a9490c848d95271c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LightningWeapon
-  weaponName: 3-4
-  description: Group 3 Weapon 4
-  icon: {fileID: 7980029341427962936, guid: 6b4e77e322962a34f97548b28e809dd5, type: 3}
-  weaponType: 3
-  dotApplications: 
-  perfectDamage: 20
-  goodDamage: 12
-  strikeRadius: 1.5
-  perfectRadiusBonus: 0.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  strikeEffectPrefab: {fileID: 1008662300852731096, guid: e1c7445f12b4106438f9921d49a2b5f5, type: 3}
-  effectDuration: 0.4
-  autoDamage: 8
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 978625250087771075, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_Name
+      value: WeaponBox (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344962059747699210, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd1598ab6d0802641aada87b6284e52b, type: 3}
 --- !u!1 &1755668925
 GameObject:
   m_ObjectHideFlags: 0
@@ -21569,59 +21643,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &1809749881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1809749882}
-  - component: {fileID: 1809749883}
-  m_Layer: 6
-  m_Name: ProjectileWeapon 2-2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1809749882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809749881}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1809749883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809749881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4482ccc14dc726e4ba8dbc3b9603e02b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileWeapon
-  weaponName: 2-2
-  description: Group 2 Weapon 2
-  icon: {fileID: 3596760738653520485, guid: dc6ba86f411097d48ba07a7723b11cbe, type: 3}
-  weaponType: 2
-  dotApplications: 
-  projectilePrefab: {fileID: 7631923689842374535, guid: 26137a8143a22ad4191413ab337fd832, type: 3}
-  projectileCount: 1
-  autoDamage: 5
-  searchRadius: 10
 --- !u!1 &1826048375
 GameObject:
   m_ObjectHideFlags: 0
@@ -21920,63 +21941,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1850212833
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1850212834}
-  - component: {fileID: 1850212835}
-  m_Layer: 6
-  m_Name: CannonModeWeapon 4-4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1850212834
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850212833}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249762971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1850212835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850212833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdfcb05a1ba66bf48a64e74e09ab5ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CannonWeapon
-  weaponName: 4-4
-  description: Group 4 Weapon 4
-  icon: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
-  weaponType: 4
-  dotApplications: 
-  perfectDamage: 60
-  goodDamage: 40
-  autoDamage: 20
-  cannonballPrefab: {fileID: 7296252839968887923, guid: 610d9a4e24eaa9448bcb66020f489af6, type: 3}
-  playerMovement: {fileID: 1408611454}
-  playerDash: {fileID: 1408611462}
-  playerRenderer: {fileID: 1408611452}
-  tankSprite: {fileID: 7322800184218746407, guid: df07f2068f6519740a9f3c5427238a4e, type: 3}
 --- !u!1 &1860865137
 GameObject:
   m_ObjectHideFlags: 0
@@ -25534,6 +25498,124 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0bf7c8e2b8a00c47b70f88ee3ebed32, type: 3}
+--- !u!1001 &7941180382999933755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.44752
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.25339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169556101494442501, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639868321787382137, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+      propertyPath: m_Name
+      value: LaserPrefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cdf6b39f6c1aa74da362ceedd9dbda8, type: 3}
+--- !u!1001 &8063744688444545803
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.49774
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.30509
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396589181055338833, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520608469681407075, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_Name
+      value: CycloneProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621130807102767615, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 742b3a57b06c635439363987416a9fbc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -25559,4 +25641,8 @@ SceneRoots:
   - {fileID: 2114602258}
   - {fileID: 856422838}
   - {fileID: 182221375}
+  - {fileID: 1733936053}
+  - {fileID: 1745923382}
   - {fileID: 1781202258}
+  - {fileID: 8063744688444545803}
+  - {fileID: 7941180382999933755}

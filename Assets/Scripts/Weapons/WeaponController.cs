@@ -51,10 +51,30 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4) && equippedWeapons.Count >= 4) RequestSwitch(3);
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (scroll > 0f)
-            RequestSwitch((uiWeaponIndex - 1 + equippedWeapons.Count) % equippedWeapons.Count);
-        else if (scroll < 0f)
-            RequestSwitch((uiWeaponIndex + 1) % equippedWeapons.Count);
+        if (scroll > 0f)      RequestSwitch(PrevNonPassive(uiWeaponIndex));
+        else if (scroll < 0f) RequestSwitch(NextNonPassive(uiWeaponIndex));
+    }
+
+    int NextNonPassive(int from)
+    {
+        int count = equippedWeapons.Count;
+        for (int i = 1; i < count; i++)
+        {
+            int idx = (from + i) % count;
+            if (!equippedWeapons[idx].IsPassive) return idx;
+        }
+        return from;
+    }
+
+    int PrevNonPassive(int from)
+    {
+        int count = equippedWeapons.Count;
+        for (int i = 1; i < count; i++)
+        {
+            int idx = (from - i + count) % count;
+            if (!equippedWeapons[idx].IsPassive) return idx;
+        }
+        return from;
     }
 
     // UI highlights the new weapon immediately; the actual GameObject swap is
@@ -62,6 +82,7 @@ public class WeaponController : MonoBehaviour
     void RequestSwitch(int index)
     {
         if (index < 0 || index >= equippedWeapons.Count) return;
+        if (equippedWeapons[index].IsPassive) return;
         if (index == uiWeaponIndex) return;
 
         uiWeaponIndex = index;
@@ -78,7 +99,8 @@ public class WeaponController : MonoBehaviour
     {
         if (index == activeWeaponIndex) { pendingWeaponIndex = -1; return; }
 
-        if (activeWeaponIndex >= 0 && activeWeaponIndex < equippedWeapons.Count)
+        if (activeWeaponIndex >= 0 && activeWeaponIndex < equippedWeapons.Count
+            && !equippedWeapons[activeWeaponIndex].IsPassive)
             equippedWeapons[activeWeaponIndex].gameObject.SetActive(false);
 
         activeWeaponIndex = index;
@@ -135,6 +157,9 @@ public class WeaponController : MonoBehaviour
 
         BeatConductor.Instance.SetParameter(fmodParam, (float)fmodValue);
 
+        if (weapon.IsPassive)
+            weapon.gameObject.SetActive(true);
+
         weaponUI?.RefreshUI(equippedWeapons, uiWeaponIndex);
     }
 
@@ -152,6 +177,9 @@ public class WeaponController : MonoBehaviour
 
         OnAttackFired?.Invoke(weapon.GetDamageForJudgement(judgement), weapon.weaponType);
         weapon.PerformAttack(judgement);
+
+        foreach (var w in equippedWeapons)
+            if (w.IsPassive) w.PerformAttack(judgement);
 
         if (PassiveManager.Instance != null)
             PassiveManager.Instance.PendingAttackBonus = 0f;

@@ -8,6 +8,8 @@ public abstract class Weapon : MonoBehaviour
     public Sprite icon;
     public EnemyType weaponType = EnemyType.None;
 
+    public virtual bool IsPassive => false;
+
     public abstract void PerformAttack(string judgement);
 
     public virtual float GetAutoDamage() => 0f;

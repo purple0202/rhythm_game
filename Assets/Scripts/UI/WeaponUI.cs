@@ -24,7 +24,8 @@ public class WeaponUI : MonoBehaviour
                 hasWeapon ? equippedWeapons[i].icon : null,
                 hasWeapon ? equippedWeapons[i].weaponType : EnemyType.None
             );
-            weaponSlots[i].SetSelected(hasWeapon && i == selectedIndex);
+            bool isPassive = hasWeapon && equippedWeapons[i].IsPassive;
+            weaponSlots[i].SetSelected(hasWeapon && (i == selectedIndex || isPassive));
         }
     }
 }

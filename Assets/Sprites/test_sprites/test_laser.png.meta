@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f58fb3ade27e2de42815a177991e2153
+guid: 26073833ed0bd3b40bb85968c990878c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1807952311658961679
-    second: test_character_0
+      213: -4953920071871310961
+    second: test_laser_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1200
+  spritePixelsToUnits: 350
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: test_character_0
+      name: test_laser_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 667
-        height: 480
+        y: 351
+        width: 840
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f4a8b493fcd8e6e0800000000000000
-      internalID: -1807952311658961679
+      spriteID: f83de6e01f3204bb0800000000000000
+      internalID: -4953920071871310961
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2a36de639fa5a2940b37df172d131cbf
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      test_character_0: -1807952311658961679
+      test_laser_0: -4953920071871310961
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

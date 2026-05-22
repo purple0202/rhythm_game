@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool IsLocked = false;
+
     public float moveSpeed = 5f;
     public int facingDirection = 1;
     private Rigidbody2D rb;
@@ -43,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (IsLocked) { rb.linearVelocity = Vector2.zero; return; }
         float speed = PlayerStats.Instance != null ? PlayerStats.Instance.TotalMoveSpeed : moveSpeed;
-rb.linearVelocity = movement * speed;
+        rb.linearVelocity = movement * speed;
     }
 }

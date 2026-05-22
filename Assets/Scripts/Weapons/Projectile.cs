@@ -4,11 +4,11 @@ using System.Collections.Generic;
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
-    public float damage = 10f;
     public float lifetime = 3f;
 
-    public EnemyType weaponType = EnemyType.None;
-    public List<DotType> dotApplications = new();
+    [HideInInspector] public float damage = 10f;
+    [HideInInspector] public EnemyType weaponType = EnemyType.None;
+    [HideInInspector] public List<DotType> dotApplications = new();
 
     private Vector2 direction;
 
