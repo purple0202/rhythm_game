@@ -134,8 +134,9 @@ public class PuppetBossIntroUI : MonoBehaviour
         var pivot = MakePivot(cfg);
         MakeRope(pivot, cfg.ropeLength);
         var propImg = MakePropImage(pivot, sprite, cfg.spriteSize, cfg.ropeLength);
-        propImg.AddComponent<Shadow>().effectColor = shadowColor;
-        propImg.GetComponent<Shadow>().effectDistance = shadowOffset;
+        var shadow = propImg.gameObject.AddComponent<Shadow>();
+        shadow.effectColor = shadowColor;
+        shadow.effectDistance = shadowOffset;
         return pivot;
     }
 
