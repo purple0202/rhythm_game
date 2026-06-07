@@ -5,6 +5,8 @@ public class EnemyHealth : MonoBehaviour
     [Header("Health Settings")]
     public float maxHealth = 20f;
     private float currentHealth;
+    public float CurrentHealth => currentHealth;
+    public System.Action onDeath;
     public int expValue = 10;
 
     [Header("Type")]
@@ -25,10 +27,14 @@ public class EnemyHealth : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
+
     void Start()
     {
-        EnemyManager.Instance.RegisterEnemy(gameObject);
-        currentHealth = maxHealth;
+        EnemyManager.Instance?.RegisterEnemy(gameObject);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         ApplyOutline();
@@ -106,6 +112,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        onDeath?.Invoke();
         GetComponent<DotReceiver>()?.ClearAll();
         FindObjectOfType<LevelSystem>().AddExp(expValue);
         EnemyManager.Instance.UnregisterEnemy(gameObject);

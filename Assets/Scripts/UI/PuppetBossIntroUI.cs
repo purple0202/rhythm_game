@@ -13,10 +13,10 @@ public class PuppetBossIntroUI : MonoBehaviour
     public class PropConfig
     {
         public Sprite sprite;
-        public Vector2 pivotPos;        // canvas-space point where rope attaches (near top)
+        public Vector2 pivotPos;
         public float ropeLength = 250f;
-        public float restAngle = 0f;    // final resting tilt of the pivot
-        public float swingFromAngle = 75f; // start angle: positive = from right, negative = from left
+        public float restAngle = 0f;
+        public float swingFromAngle = 75f;
         public float swingDelay = 0f;
         public float swingDuration = 0.75f;
         public Vector2 spriteSize = new Vector2(120f, 120f);
@@ -42,6 +42,7 @@ public class PuppetBossIntroUI : MonoBehaviour
     [Header("Rope")]
     [SerializeField] Color ropeColor = new Color(0.35f, 0.2f, 0.05f, 1f);
     [SerializeField] float ropeWidth = 6f;
+    [SerializeField] int ropeSegments = 5;
 
     [Header("Shadow")]
     [SerializeField] Vector2 shadowOffset = new Vector2(12f, -12f);
@@ -49,6 +50,10 @@ public class PuppetBossIntroUI : MonoBehaviour
 
     [Header("Backdrop")]
     [SerializeField] Color backdropColor = new Color(0.05f, 0.05f, 0.15f, 0.88f);
+
+    [Header("Pendulum Physics")]
+    [SerializeField] float swingOvershoot = 0.25f;
+    [SerializeField] float overshootDecay = 0.45f;
 
     [Header("Idle Sway")]
     [SerializeField] float swayAmplitude = 4f;
@@ -61,6 +66,7 @@ public class PuppetBossIntroUI : MonoBehaviour
     Image backdrop;
     List<RectTransform> pivots = new List<RectTransform>();
     List<float> restAngles = new List<float>();
+    List<List<RectTransform>> ropeSegmentGroups = new List<List<RectTransform>>();
     Sequence activeSequence;
     Action pendingOnComplete;
     bool waitingForInput;
@@ -127,13 +133,16 @@ public class PuppetBossIntroUI : MonoBehaviour
             if (p != null) Destroy(p.gameObject);
         pivots.Clear();
         restAngles.Clear();
+        ropeSegmentGroups.Clear();
     }
 
     RectTransform SpawnProp(PropConfig cfg, Sprite sprite)
     {
         var pivot = MakePivot(cfg);
-        MakeRope(pivot, cfg.ropeLength);
-        var propImg = MakePropImage(pivot, sprite, cfg.spriteSize, cfg.ropeLength);
+        float segLen = cfg.ropeLength / Mathf.Max(1, ropeSegments);
+        var (end, segs) = MakeRopeChain(pivot, cfg.ropeLength);
+        ropeSegmentGroups.Add(segs);
+        var propImg = MakePropImage(end, sprite, cfg.spriteSize, segLen);
         var shadow = propImg.gameObject.AddComponent<Shadow>();
         shadow.effectColor = shadowColor;
         shadow.effectDistance = shadowOffset;
@@ -143,18 +152,21 @@ public class PuppetBossIntroUI : MonoBehaviour
     RectTransform SpawnSign(PropConfig cfg, string bossName)
     {
         var pivot = MakePivot(cfg);
-        MakeRope(pivot, cfg.ropeLength);
+        float segLen = cfg.ropeLength / Mathf.Max(1, ropeSegments);
+        var (end, segs) = MakeRopeChain(pivot, cfg.ropeLength);
+        ropeSegmentGroups.Add(segs);
 
         var signGO = new GameObject("Sign");
-        signGO.transform.SetParent(pivot, false);
+        signGO.transform.SetParent(end, false);
         var signImg = signGO.AddComponent<Image>();
         signImg.sprite = signSprite;
         signImg.type = Image.Type.Simple;
         signImg.raycastTarget = false;
         var signRt = signGO.GetComponent<RectTransform>();
         signRt.pivot = new Vector2(0.5f, 1f);
+        signRt.anchorMin = signRt.anchorMax = new Vector2(0.5f, 1f);
         signRt.sizeDelta = signSize;
-        signRt.anchoredPosition = new Vector2(0f, -cfg.ropeLength);
+        signRt.anchoredPosition = new Vector2(0f, -segLen);
         var signShadow = signGO.AddComponent<Shadow>();
         signShadow.effectColor = shadowColor;
         signShadow.effectDistance = shadowOffset;
@@ -187,21 +199,34 @@ public class PuppetBossIntroUI : MonoBehaviour
         return rt;
     }
 
-    void MakeRope(Transform parent, float length)
+    (Transform end, List<RectTransform> segs) MakeRopeChain(Transform parent, float length)
     {
-        var go = new GameObject("Rope");
-        go.transform.SetParent(parent, false);
-        var img = go.AddComponent<Image>();
-        img.sprite = null;
-        img.color = ropeColor;
-        img.raycastTarget = false;
-        var rt = go.GetComponent<RectTransform>();
-        rt.pivot = new Vector2(0.5f, 1f);
-        rt.sizeDelta = new Vector2(ropeWidth, length);
-        rt.anchoredPosition = Vector2.zero;
+        var segs = new List<RectTransform>();
+        int n = Mathf.Max(1, ropeSegments);
+        float segLen = length / n;
+        Transform current = parent;
+
+        for (int i = 0; i < n; i++)
+        {
+            var go = new GameObject($"RopeSeg{i}");
+            go.transform.SetParent(current, false);
+            var img = go.AddComponent<Image>();
+            img.sprite = null;
+            img.color = ropeColor;
+            img.raycastTarget = false;
+            var rt = go.GetComponent<RectTransform>();
+            rt.pivot = new Vector2(0.5f, 1f);
+            rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 1f);
+            rt.sizeDelta = new Vector2(ropeWidth, segLen);
+            rt.anchoredPosition = i == 0 ? Vector2.zero : new Vector2(0f, -segLen);
+            segs.Add(rt);
+            current = rt;
+        }
+
+        return (current, segs);
     }
 
-    Image MakePropImage(Transform parent, Sprite sprite, Vector2 size, float ropeLength)
+    Image MakePropImage(Transform parent, Sprite sprite, Vector2 size, float offset)
     {
         var go = new GameObject("Prop");
         go.transform.SetParent(parent, false);
@@ -210,8 +235,9 @@ public class PuppetBossIntroUI : MonoBehaviour
         img.raycastTarget = false;
         var rt = go.GetComponent<RectTransform>();
         rt.pivot = new Vector2(0.5f, 1f);
+        rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 1f);
         rt.sizeDelta = size;
-        rt.anchoredPosition = new Vector2(0f, -ropeLength);
+        rt.anchoredPosition = new Vector2(0f, -offset);
         return img;
     }
 
@@ -225,21 +251,41 @@ public class PuppetBossIntroUI : MonoBehaviour
         {
             var cfg = decorativeProps[i];
             seq.Insert(0.2f + cfg.swingDelay,
-                pivots[i].DOLocalRotate(Vector3.forward * cfg.restAngle, cfg.swingDuration, RotateMode.Fast)
-                    .SetEase(Ease.OutElastic).SetUpdate(true));
+                BuildPendulumTween(pivots[i], cfg.swingFromAngle, cfg.restAngle, cfg.swingDuration));
         }
 
         int bossIdx = decorativeProps.Length;
         seq.Insert(0.2f + bossProp.swingDelay,
-            pivots[bossIdx].DOLocalRotate(Vector3.forward * bossProp.restAngle, bossProp.swingDuration, RotateMode.Fast)
-                .SetEase(Ease.OutElastic).SetUpdate(true));
+            BuildPendulumTween(pivots[bossIdx], bossProp.swingFromAngle, bossProp.restAngle, bossProp.swingDuration));
 
         int signIdx = bossIdx + 1;
         seq.Insert(0.2f + signProp.swingDelay,
-            pivots[signIdx].DOLocalRotate(Vector3.forward * signProp.restAngle, signProp.swingDuration, RotateMode.Fast)
-                .SetEase(Ease.OutElastic).SetUpdate(true));
+            BuildPendulumTween(pivots[signIdx], signProp.swingFromAngle, signProp.restAngle, signProp.swingDuration));
 
         return seq;
+    }
+
+    Sequence BuildPendulumTween(RectTransform pivot, float startAngle, float restAngle, float duration)
+    {
+        float travel = startAngle - restAngle;
+        float o1 = travel * swingOvershoot;
+        float o2 = o1 * overshootDecay;
+        float o3 = o2 * overshootDecay;
+
+        float t1 = duration * 0.52f;
+        float t2 = duration * 0.24f;
+        float t3 = duration * 0.14f;
+        float t4 = duration * 0.10f;
+
+        return DOTween.Sequence().SetUpdate(true)
+            .Append(pivot.DOLocalRotate(Vector3.forward * (restAngle - o1), t1, RotateMode.Fast)
+                .SetEase(Ease.InOutSine).SetUpdate(true))
+            .Append(pivot.DOLocalRotate(Vector3.forward * (restAngle + o2), t2, RotateMode.Fast)
+                .SetEase(Ease.InOutSine).SetUpdate(true))
+            .Append(pivot.DOLocalRotate(Vector3.forward * (restAngle - o3), t3, RotateMode.Fast)
+                .SetEase(Ease.InOutSine).SetUpdate(true))
+            .Append(pivot.DOLocalRotate(Vector3.forward * restAngle, t4, RotateMode.Fast)
+                .SetEase(Ease.OutSine).SetUpdate(true));
     }
 
     void StartIdleSway()
@@ -260,6 +306,8 @@ public class PuppetBossIntroUI : MonoBehaviour
 
     void Update()
     {
+        FlexRopes();
+
         if (!Input.anyKeyDown) return;
 
         if (activeSequence != null && activeSequence.IsActive())
@@ -272,6 +320,24 @@ public class PuppetBossIntroUI : MonoBehaviour
         {
             waitingForInput = false;
             PlayOutro();
+        }
+    }
+
+    void FlexRopes()
+    {
+        for (int p = 0; p < pivots.Count && p < ropeSegmentGroups.Count; p++)
+        {
+            if (pivots[p] == null) continue;
+            var segs = ropeSegmentGroups[p];
+            if (segs == null || segs.Count == 0) continue;
+
+            float raw = pivots[p].localEulerAngles.z;
+            float A = raw > 180f ? raw - 360f : raw;
+            int N = segs.Count;
+
+            segs[0].localEulerAngles = new Vector3(0f, 0f, -A * (N - 1f) / N);
+            for (int i = 1; i < N; i++)
+                segs[i].localEulerAngles = new Vector3(0f, 0f, A / N);
         }
     }
 

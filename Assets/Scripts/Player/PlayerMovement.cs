@@ -35,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
 
+        if (PlayerDebuffManager.Instance != null && PlayerDebuffManager.Instance.IsConfused)
+            movement = -movement;
+
         if (movement.x != 0)
         {
             facingDirection = movement.x > 0 ? 1 : -1;
@@ -47,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsLocked) { rb.linearVelocity = Vector2.zero; return; }
         float speed = PlayerStats.Instance != null ? PlayerStats.Instance.TotalMoveSpeed : moveSpeed;
+        if (PlayerDebuffManager.Instance != null && PlayerDebuffManager.Instance.IsSlowed)
+            speed *= PlayerDebuffManager.Instance.SlowMultiplier;
         rb.linearVelocity = movement * speed;
     }
 }

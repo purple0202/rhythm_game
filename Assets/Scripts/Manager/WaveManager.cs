@@ -67,7 +67,10 @@ public class WaveManager : MonoBehaviour
             int count = Mathf.RoundToInt(enemyData.count * mult);
             for (int i = 0; i < count; i++)
             {
-                Vector3 spawnPos = GetSpawnPosition(totalEnemies);
+                bool isMiniboss = enemyData.enemyPrefab.GetComponent<MinibossController>() != null;
+                Vector3 spawnPos = isMiniboss
+                    ? new Vector3(cam.transform.position.x, cam.transform.position.y, 0f)
+                    : GetSpawnPosition(totalEnemies);
                 GameObject enemy = Instantiate(enemyData.enemyPrefab, spawnPos, Quaternion.identity);
                 EnemyHealth health = enemy.GetComponent<EnemyHealth>();
                 if (health != null)

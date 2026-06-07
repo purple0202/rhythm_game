@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     float lastDamageTime;
     bool isInvincible = false;
+    public bool IsInvincible => isInvincible;
 
     public HealthBar healthBar;
 
