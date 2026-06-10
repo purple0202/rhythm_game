@@ -18,10 +18,10 @@ public class BossParryManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        InputJudge.OnJudgement += OnJudgement;
+        InputJudge.OnParryInput += OnParryInput;
     }
 
-    void OnDestroy() => InputJudge.OnJudgement -= OnJudgement;
+    void OnDestroy() => InputJudge.OnParryInput -= OnParryInput;
 
     public void OpenWindow(BossProjectile projectile, float windowBeats, EnemyHealth bossHealth, float parryDamage)
     {
@@ -36,9 +36,9 @@ public class BossParryManager : MonoBehaviour
         // TODO: audio cue — "parry incoming" sound
     }
 
-    void OnJudgement(string judgement)
+    void OnParryInput()
     {
-        if (!windowOpen || judgement == "Auto") return;
+        if (!windowOpen) return;
 
         if (Time.unscaledTime <= windowEndTime && activeProjectile != null)
         {

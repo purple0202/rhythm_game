@@ -3,6 +3,7 @@ using UnityEngine;
 public class InputJudge : MonoBehaviour
 {
     public static event System.Action<string> OnJudgement;
+    public static event System.Action OnParryInput;
     public JudgementManager judgementManager;
     public WeaponController weaponController;
 
@@ -37,6 +38,8 @@ public class InputJudge : MonoBehaviour
         if (Time.timeScale == 0f) return;
         if (Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0))
             CheckInput();
+        if (Input.GetKeyDown(KeyCode.O) || Input.GetMouseButtonDown(1))
+            OnParryInput?.Invoke();
     }
 
     void CheckInput()
