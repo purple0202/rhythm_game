@@ -47,7 +47,7 @@ public class BossChannelVolleyAttack : BossAttack
             float speed = dist / Spb();
 
             var go = Instantiate(projectilePrefab, bossTransform.position, Quaternion.identity);
-            go.transform.right = dir;
+            go.transform.up = -dir;
 
             var proj = go.GetComponent<BossProjectile>();
             if (proj != null)
@@ -65,6 +65,13 @@ public class BossChannelVolleyAttack : BossAttack
         }
 
         // Clean up any orbitals that weren't launched (e.g. if player died mid-attack)
+        foreach (var o in orbitals)
+            if (o != null) Destroy(o);
+        orbitals.Clear();
+    }
+
+    void OnDestroy()
+    {
         foreach (var o in orbitals)
             if (o != null) Destroy(o);
         orbitals.Clear();

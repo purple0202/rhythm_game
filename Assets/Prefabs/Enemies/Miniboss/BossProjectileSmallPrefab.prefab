@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 808257764244646929}
   - component: {fileID: 6632422945752825363}
   - component: {fileID: -892977045368533953}
+  - component: {fileID: 8636248924647699574}
   m_Layer: 0
   m_Name: BossProjectileSmallPrefab
   m_TagString: Untagged
@@ -209,3 +210,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossProjectile
   damage: 0
   isParriable: 0
+--- !u!95 &8636248924647699574
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465048316302798380}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7aed573d0b25ca40a759eba96837fc5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

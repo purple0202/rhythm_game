@@ -9,6 +9,10 @@ public class BossParryManager : MonoBehaviour
     public static event System.Action OnParrySuccess;
     public static event System.Action OnParryFail;
 
+    [SerializeField] GameObject parryForecastPrefab;
+    [SerializeField] GameObject parrySuccessPrefab;
+    [SerializeField] float forecastSpawnOffsetY = 1f;
+
     BossProjectile activeProjectile;
     EnemyHealth activeBossHealth;
     float activeParryDamage;
@@ -23,6 +27,10 @@ public class BossParryManager : MonoBehaviour
 
     void OnDestroy() => InputJudge.OnParryInput -= OnParryInput;
 
+    // Called at the moment a parriable projectile is fired.
+    // bossHealth.transform is used as the forecast spawn position.
+    // windowBeats should equal the projectile's travel time so the window
+    // expires exactly when the projectile reaches the player.
     public void OpenWindow(BossProjectile projectile, float windowBeats, EnemyHealth bossHealth, float parryDamage)
     {
         activeProjectile = projectile;
@@ -31,6 +39,14 @@ public class BossParryManager : MonoBehaviour
         float spb = BeatConductor.Instance != null ? BeatConductor.Instance.secondsPerBeat : 0.5f;
         windowEndTime = Time.unscaledTime + windowBeats * spb;
         windowOpen = true;
+
+        // Forecast spawns on the boss — plays to completion regardless of outcome.
+        // This gives the player exactly windowBeats to react after seeing the flash.
+        if (parryForecastPrefab != null && bossHealth != null)
+        {
+            Vector3 spawnPos = bossHealth.transform.position + Vector3.up * forecastSpawnOffsetY;
+            Instantiate(parryForecastPrefab, spawnPos, Quaternion.identity);
+        }
 
         BossHUD.Instance?.ShowParryNotice();
         // TODO: audio cue — "parry incoming" sound
@@ -42,10 +58,12 @@ public class BossParryManager : MonoBehaviour
 
         if (Time.unscaledTime <= windowEndTime && activeProjectile != null)
         {
+            if (parrySuccessPrefab != null)
+                Instantiate(parrySuccessPrefab, activeProjectile.transform.position, Quaternion.identity);
             Destroy(activeProjectile.gameObject);
             activeBossHealth?.TakeDamage(activeParryDamage);
             OnParrySuccess?.Invoke();
-            // TODO: parry success VFX + audio
+            // TODO: audio cue — parry success sound
             Debug.Log("PARRY SUCCESS!");
         }
 
