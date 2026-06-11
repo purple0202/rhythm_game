@@ -39,7 +39,8 @@ Transform:
   m_LocalPosition: {x: 0.54272, y: 0.17739, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1239098080523029057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7604880809732204321
@@ -216,8 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossProjectileAttack
   cooldownBeats: 2
   startGrid: 0
-  projectilePrefab: {fileID: 3465048316302798380, guid: 25c1cbdf4394cc2458a83a54ab1c85cb, type: 3}
-  projectileSpeed: 8
+  projectilePrefab: {fileID: 5673322968140803010, guid: 25c1cbdf4394cc2458a83a54ab1c85cb, type: 3}
+  projectileSpeed: 4
   damage: 10
   phase2BurstCount: 3
 --- !u!114 &9024769152322958308
@@ -234,11 +235,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossCircleAOEAttack
   cooldownBeats: 2
   startGrid: 0
-  circleIndicatorPrefab: {fileID: 9051932639146662394, guid: 6b01a2cef30ded34eb203b0eda6ce896, type: 3}
+  circleIndicatorPrefab: {fileID: 4190567674063789850, guid: fd8de7ba23644544a8e51a8d224d1456, type: 3}
   damage: 15
-  circleRadius: 1.5
+  circleRadius: 1
   circleCount: 5
-  forecastBeats: 0.5
+  stepDistance: 2
+  forecastBeats: 1
   phase2ForecastBeats: 0.25
   phase2RadiusGrowthPerStep: 0.35
 --- !u!114 &1885639178264435951
@@ -299,7 +301,12 @@ MonoBehaviour:
   damage: 35
   parryDamage: 25
   chargeBeats: 3
-  chargeVisual: {fileID: 0}
+  chargeVisual: {fileID: 1239098080523029057}
+  chargeMinScale: 0.3
+  chargeMaxScale: 1
+  chargeAnimator: {fileID: 5077672687605994218}
+  chargeRenderer: {fileID: 5977575779664759764}
+  fireFrameSprite: {fileID: 4981934096615926861, guid: f2aec70f4b03ac24dba6640c4622494e, type: 3}
 --- !u!114 &5312984247092960339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,5 +326,119 @@ MonoBehaviour:
   damage: 20
   parryDamage: 15
   channelBeats: 6
-  orbitRadius: 1.2
+  orbitRadius: 2
   orbitSpeed: 180
+--- !u!1 &1442303204508586832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239098080523029057}
+  - component: {fileID: 5977575779664759764}
+  - component: {fileID: 5077672687605994218}
+  m_Layer: 7
+  m_Name: BossChargeVisual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239098080523029057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442303204508586832}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.024, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4477374194338929459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5977575779664759764
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442303204508586832}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &5077672687605994218
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442303204508586832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26d2a24eaf8983b45a2d53fffdbae42b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

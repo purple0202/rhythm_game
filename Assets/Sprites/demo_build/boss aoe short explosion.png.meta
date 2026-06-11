@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 5316d6fa094c4ec4d86f9dbb7c3378d1
+guid: e1dd84a249258f545a039c6efdb008e4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8863002934876052051
-    second: boss-orbit-effect_0
-  - first:
-      213: -7283081055336796179
-    second: boss-orbit-effect_1
-  - first:
-      213: -1304134387119044858
-    second: boss-orbit-effect_2
-  - first:
-      213: -301500678641297258
-    second: boss-orbit-effect_3
-  - first:
-      213: 4704481632660437149
-    second: boss-orbit-effect_4
+      213: -4626797877437820760
+    second: boss aoe short explosion_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss-orbit-effect_0
+      name: boss aoe short explosion_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,96 +128,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da5e777f9c9400580800000000000000
-      internalID: -8863002934876052051
+      spriteID: 8a099c328df4acfb0800000000000000
+      internalID: -4626797877437820760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-orbit-effect_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: defe54a1e5c4dea90800000000000000
-      internalID: -7283081055336796179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-orbit-effect_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 607c56c3fa8c6ede0800000000000000
-      internalID: -1304134387119044858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-orbit-effect_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 698db0eeabad0dbf0800000000000000
-      internalID: -301500678641297258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-orbit-effect_4
+      name: boss aoe short explosion_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d9833179e1da94140800000000000000
-      internalID: 4704481632660437149
+      spriteID: e12495e83bb77f64094b03d4888bef11
+      internalID: -1321481691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss aoe short explosion_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31bf4eacba335cc40aef52409b36a093
+      internalID: 1687602341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss aoe short explosion_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7222d491b382d41b092ee9e32764a9
+      internalID: 1942069557
       vertices: []
       indices: 
       edges: []
@@ -238,7 +204,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3e590e71bca29e344abc5aaa767b0e21
+    spriteID: 577416ae1b7b9324c86885d0a1d65637
     internalID: 0
     vertices: []
     indices: 
@@ -248,13 +214,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      boss-orbit-effect_0: -8863002934876052051
-      boss-orbit-effect_1: -7283081055336796179
-      boss-orbit-effect_2: -1304134387119044858
-      boss-orbit-effect_3: -301500678641297258
-      boss-orbit-effect_4: 4704481632660437149
+      boss aoe short explosion_0: -4626797877437820760
+      boss aoe short explosion_1: -1321481691
+      boss aoe short explosion_2: 1687602341
+      boss aoe short explosion_3: 1942069557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,122 +1,54 @@
 using UnityEngine;
 using System.Collections;
 
-// Spawned by BossCircleAOEAttack. Shows a forecast circle that fills like a clock,
-// then spawns a separate explosion effect. The indicator itself does no damage.
+// Spawned by BossCircleAOEAttack. Plays the forecast animation synced to the beat,
+// deals damage, then transitions directly into the explosion animation on the same object.
 public class BossCircleIndicator : MonoBehaviour
 {
-    [Header("Visual")]
-    [SerializeField] Color outlineColor = new Color(1f, 0.2f, 0.2f, 0.8f);
-    [SerializeField] Color fillColor    = new Color(1f, 0.2f, 0.2f, 0.35f);
-    [SerializeField] float outlineWidth = 0.08f;
-    [SerializeField] float fillWidth    = 0.3f;
-    [SerializeField] int segments = 64;
-
-    [Header("Explosion")]
-    [SerializeField] GameObject explosionPrefab;  // assign BossExplosionPrefab here
-    [SerializeField] float lingerDuration = 0.4f; // how long the indicator stays after triggering
+    [Header("Animation")]
+    [SerializeField] Animator animator;
+    [SerializeField] AnimationClip forecastClip;
+    [SerializeField] AnimationClip explosionClip;
+    [SerializeField] string explodeTrigger = "Explode";
 
     float damage;
     float radius;
-
-    LineRenderer outlineLine;
-    LineRenderer fillLine;
 
     public void Init(float damage, float radius)
     {
         this.damage = damage;
         this.radius = radius;
-        BuildOutline();
-        BuildFillArc();
+        transform.localScale = Vector3.one * radius * 2f;
     }
 
     public void Begin(float forecastBeats, float spb)
     {
-        StartCoroutine(ForecastAndExplode(forecastBeats * spb));
+        StartCoroutine(Run(forecastBeats * spb));
     }
 
-    // --- Visual setup ---
-
-    void BuildOutline()
+    IEnumerator Run(float forecastTime)
     {
-        var go = new GameObject("Outline");
-        go.transform.SetParent(transform, false);
+        if (animator != null && forecastClip != null && forecastClip.length > 0f)
+            animator.speed = forecastClip.length / forecastTime;
 
-        outlineLine = go.AddComponent<LineRenderer>();
-        outlineLine.useWorldSpace = false;
-        outlineLine.loop = true;
-        outlineLine.positionCount = segments;
-        outlineLine.startWidth = outlineWidth;
-        outlineLine.endWidth = outlineWidth;
-        outlineLine.startColor = outlineColor;
-        outlineLine.endColor = outlineColor;
-        outlineLine.material = new Material(Shader.Find("Sprites/Default"));
-        outlineLine.sortingOrder = 4;
+        yield return new WaitForSeconds(forecastTime);
 
-        for (int i = 0; i < segments; i++)
+        // Deal damage at the exact moment the explosion starts
+        var hits = Physics2D.OverlapCircleAll(transform.position, radius);
+        foreach (var col in hits)
+            if (col.CompareTag("Player"))
+                col.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+
+        // Snap to explosion animation at natural speed
+        if (animator != null)
         {
-            float angle = i * Mathf.PI * 2f / segments;
-            outlineLine.SetPosition(i, new Vector3(
-                Mathf.Cos(angle) * radius,
-                Mathf.Sin(angle) * radius, 0f));
-        }
-    }
-
-    void BuildFillArc()
-    {
-        var go = new GameObject("Fill");
-        go.transform.SetParent(transform, false);
-
-        fillLine = go.AddComponent<LineRenderer>();
-        fillLine.useWorldSpace = false;
-        fillLine.loop = false;
-        fillLine.positionCount = 0;
-        fillLine.startWidth = fillWidth;
-        fillLine.endWidth = fillWidth;
-        fillLine.startColor = fillColor;
-        fillLine.endColor = fillColor;
-        fillLine.material = new Material(Shader.Find("Sprites/Default"));
-        fillLine.sortingOrder = 3;
-    }
-
-    void UpdateFillArc(float t)
-    {
-        int count = Mathf.Max(2, Mathf.RoundToInt(t * segments));
-        fillLine.positionCount = count;
-
-        float innerRadius = radius - fillWidth * 0.5f;
-        for (int i = 0; i < count; i++)
-        {
-            float angle = (float)i / (segments - 1) * Mathf.PI * 2f * t;
-            fillLine.SetPosition(i, new Vector3(
-                Mathf.Cos(angle) * innerRadius,
-                Mathf.Sin(angle) * innerRadius, 0f));
-        }
-    }
-
-    // --- Forecast + trigger ---
-
-    IEnumerator ForecastAndExplode(float forecastTime)
-    {
-        float elapsed = 0f;
-        while (elapsed < forecastTime)
-        {
-            elapsed += Time.deltaTime;
-            UpdateFillArc(Mathf.Clamp01(elapsed / forecastTime));
-            yield return null;
+            animator.speed = 1f;
+            animator.SetTrigger(explodeTrigger);
         }
 
-        TriggerExplosion();
+        float explosionDuration = explosionClip != null ? explosionClip.length : 0.4f;
+        yield return new WaitForSeconds(explosionDuration);
 
-        // Indicator lingers briefly after triggering, then disappears
-        yield return new WaitForSeconds(lingerDuration);
         Destroy(gameObject);
-    }
-
-    void TriggerExplosion()
-    {
-        if (explosionPrefab == null) return;
-        var go = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        go.GetComponent<BossExplosion>()?.Init(damage, radius);
     }
 }

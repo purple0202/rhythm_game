@@ -14,7 +14,7 @@ public class BossProjectileAttack : BossAttack
     [SerializeField] int phase2BurstCount = 3;
 
     protected override bool CanActivateInternal(bool isPhase2) =>
-        projectilePrefab != null && player != null;
+        projectilePrefab != null;
 
     protected override IEnumerator ExecuteAttack()
     {

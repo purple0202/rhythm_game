@@ -83,12 +83,7 @@ public class BossRing : MonoBehaviour
             var debuff = PlayerDebuffManager.Instance;
             if (debuff == null) continue;
 
-            if (isPhase2)
-                debuff.ApplyBoth(debuffDuration);
-            else if (Random.value < 0.5f)
-                debuff.ApplySlow(debuffDuration);
-            else
-                debuff.ApplyConfusion(debuffDuration);
+            debuff.ApplySlow(debuffDuration);
         }
     }
 }

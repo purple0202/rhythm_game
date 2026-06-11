@@ -4,7 +4,8 @@ using UnityEngine;
 // Handles the actual AOE damage — the indicator itself is just visual.
 public class BossExplosion : MonoBehaviour
 {
-    [SerializeField] float lifetime = 0.4f;
+    [SerializeField] Animator explosionAnimator;
+    [SerializeField] float fallbackLifetime = 0.4f;
 
     public void Init(float damage, float radius)
     {
@@ -17,7 +18,14 @@ public class BossExplosion : MonoBehaviour
                 col.GetComponent<PlayerHealth>()?.TakeDamage(damage);
         }
 
-        // TODO: explosion VFX / sound here
+        float lifetime = fallbackLifetime;
+        if (explosionAnimator != null)
+        {
+            var clips = explosionAnimator.runtimeAnimatorController?.animationClips;
+            if (clips != null && clips.Length > 0 && clips[0].length > 0f)
+                lifetime = clips[0].length;
+        }
+
         Destroy(gameObject, lifetime);
     }
 }

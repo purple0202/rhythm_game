@@ -1,22 +1,52 @@
 fileFormatVersion: 2
-guid: 5316d6fa094c4ec4d86f9dbb7c3378d1
+guid: 96153688016a20d4db09a609647258f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8863002934876052051
-    second: boss-orbit-effect_0
+      213: -5909612598107675436
+    second: demo boss charge effect-Recovered_0
   - first:
-      213: -7283081055336796179
-    second: boss-orbit-effect_1
+      213: 2891131762899696626
+    second: demo boss charge effect-Recovered_1
   - first:
-      213: -1304134387119044858
-    second: boss-orbit-effect_2
+      213: -893910013250912542
+    second: demo boss charge effect-Recovered_2
   - first:
-      213: -301500678641297258
-    second: boss-orbit-effect_3
+      213: -2195434823175500027
+    second: demo boss charge effect-Recovered_3
   - first:
-      213: 4704481632660437149
-    second: boss-orbit-effect_4
+      213: -5279920281879578995
+    second: demo boss charge effect-Recovered_4
+  - first:
+      213: -4895006006867255407
+    second: demo boss charge effect-Recovered_5
+  - first:
+      213: -7429935624002476285
+    second: demo boss charge effect-Recovered_6
+  - first:
+      213: -2225596188763770468
+    second: demo boss charge effect-Recovered_7
+  - first:
+      213: -846277417468302111
+    second: demo boss charge effect-Recovered_8
+  - first:
+      213: 4572113111465235265
+    second: demo boss charge effect-Recovered_9
+  - first:
+      213: -5028044990849203940
+    second: demo boss charge effect-Recovered_10
+  - first:
+      213: 861822029347636564
+    second: demo boss charge effect-Recovered_11
+  - first:
+      213: -3294546019732340537
+    second: demo boss charge effect-Recovered_12
+  - first:
+      213: 1537458382765515468
+    second: demo boss charge effect-Recovered_13
+  - first:
+      213: -7054747023428641911
+    second: demo boss charge effect-Recovered_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,10 +90,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,13 +155,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss-orbit-effect_0
+      name: demo boss charge effect-Recovered_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,86 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da5e777f9c9400580800000000000000
-      internalID: -8863002934876052051
+      spriteID: 4d46e9907a6dcfda0800000000000000
+      internalID: -5909612598107675436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-orbit-effect_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: defe54a1e5c4dea90800000000000000
-      internalID: -7283081055336796179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-orbit-effect_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 607c56c3fa8c6ede0800000000000000
-      internalID: -1304134387119044858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-orbit-effect_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 698db0eeabad0dbf0800000000000000
-      internalID: -301500678641297258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-orbit-effect_4
+      name: demo boss charge effect-Recovered_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +192,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9833179e1da94140800000000000000
-      internalID: 4704481632660437149
+      spriteID: 2fb3c7e350d5f1820800000000000000
+      internalID: 2891131762899696626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demo boss charge effect-Recovered_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eeb30f34913893f0800000000000000
+      internalID: -893910013250912542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demo boss charge effect-Recovered_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f0a1509af3881e0800000000000000
+      internalID: -2195434823175500027
       vertices: []
       indices: 
       edges: []
@@ -238,7 +246,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3e590e71bca29e344abc5aaa767b0e21
+    spriteID: d9ba7d85944e7394e900a9410d968d8c
     internalID: 0
     vertices: []
     indices: 
@@ -248,13 +256,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      boss-orbit-effect_0: -8863002934876052051
-      boss-orbit-effect_1: -7283081055336796179
-      boss-orbit-effect_2: -1304134387119044858
-      boss-orbit-effect_3: -301500678641297258
-      boss-orbit-effect_4: 4704481632660437149
+      demo boss charge effect-Recovered_0: -5909612598107675436
+      demo boss charge effect-Recovered_1: 2891131762899696626
+      demo boss charge effect-Recovered_2: -893910013250912542
+      demo boss charge effect-Recovered_3: -2195434823175500027
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

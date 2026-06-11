@@ -10,7 +10,14 @@ public class BossChargedProjectileAttack : BossAttack
     [SerializeField] float damage = 35f;
     [SerializeField] float parryDamage = 25f;
     [SerializeField] int chargeBeats = 3;
-    [SerializeField] Transform chargeVisual;   // child object that scales up during charge
+
+    [Header("Charge Visual")]
+    [SerializeField] Transform chargeVisual;
+    [SerializeField] float chargeMinScale = 0.3f;
+    [SerializeField] float chargeMaxScale = 1f;
+    [SerializeField] Animator chargeAnimator;
+    [SerializeField] SpriteRenderer chargeRenderer;
+    [SerializeField] Sprite fireFrameSprite;
 
     public override bool IsParryable => true;
 
@@ -19,19 +26,34 @@ public class BossChargedProjectileAttack : BossAttack
 
     protected override IEnumerator ExecuteAttack()
     {
-        // Charge up — visual grows each beat
+        if (chargeVisual != null)
+            chargeVisual.localScale = Vector3.zero;
+
+        if (chargeAnimator != null)
+        {
+            chargeAnimator.enabled = true;
+            chargeAnimator.Play(0, -1, 0f);
+        }
+
+        // Snap to a larger scale on each beat
         for (int i = 0; i < chargeBeats; i++)
         {
             float t = (i + 1f) / chargeBeats;
             if (chargeVisual != null)
-                chargeVisual.localScale = Vector3.one * t;
+                chargeVisual.localScale = Vector3.one * Mathf.Lerp(chargeMinScale, chargeMaxScale, t);
             yield return WaitBeats(1f);
         }
 
-        if (chargeVisual != null)
-            chargeVisual.localScale = Vector3.zero;
+        // Switch to fire-flash frame
+        if (chargeAnimator != null) chargeAnimator.enabled = false;
+        if (chargeRenderer != null && fireFrameSprite != null)
+            chargeRenderer.sprite = fireFrameSprite;
 
-        if (player == null || projectilePrefab == null) yield break;
+        if (player == null || projectilePrefab == null)
+        {
+            if (chargeVisual != null) chargeVisual.localScale = Vector3.zero;
+            yield break;
+        }
 
         // Fire — speed calculated so it reaches the player in exactly 1 beat
         Vector2 dir = (player.position - bossTransform.position).normalized;
@@ -53,7 +75,11 @@ public class BossChargedProjectileAttack : BossAttack
 
         // TODO: "PARRY!" visual + audio notice
 
-        // Wait 1 beat (travel time) before attack is considered complete
-        yield return WaitBeats(1f);
+        // Hold fire-flash for 1/4 beat, then hide
+        yield return WaitBeats(0.25f);
+        if (chargeVisual != null) chargeVisual.localScale = Vector3.zero;
+
+        // Wait remaining travel time before attack is considered complete (total = 1 beat)
+        yield return WaitBeats(0.75f);
     }
 }
