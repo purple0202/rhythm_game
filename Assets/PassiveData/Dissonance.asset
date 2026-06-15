@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Dissonance
   description: Gain bonus damage temporarily after taking damage.
-  icon: {fileID: -9077215083947254518, guid: e74046d4bc0b13e448fa438e96e99a42, type: 3}
+  icon: {fileID: -8862002227465981090, guid: ea93eb3ae01f0c54e9d0b91c15bed42e, type: 3}

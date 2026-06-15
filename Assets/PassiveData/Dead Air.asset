@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Dead Air
   description: 'Standing still charges bonus damage, movement resets it. '
-  icon: {fileID: -4919229246912159486, guid: e3ef0e9f0cde41c418efedc05c3a5485, type: 3}
+  icon: {fileID: 5107156668595184411, guid: b9ffa6eb390c1f64994a1fc05304c4e8, type: 3}

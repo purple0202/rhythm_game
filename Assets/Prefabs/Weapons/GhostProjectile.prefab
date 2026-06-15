@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4623898245022377409, guid: 6b5ead2227eba354886e86cd661e8ed4, type: 3}
+  m_Sprite: {fileID: 1972387392570436912, guid: 1e37121a9bb793d42ab927c49a42d7f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   speed: 10
-  damage: 10
   lifetime: 3
+  damage: 10
   weaponType: 0
   dotApplications: 

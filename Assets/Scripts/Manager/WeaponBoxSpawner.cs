@@ -8,27 +8,38 @@ public class WeaponBoxSpawner : MonoBehaviour
     [Header("Spawn Settings")]
     public float spawnOffsetX = 2f;
 
-    void Start()
-    {
-        SpawnBox();
-    }
+    [Header("Box Data")]
+    public WeaponDropData dropData;
+    public WeaponGroupData[] groupPool;
 
-    void OnEnable()
-    {
-        WaveManager.OnWaveCleared += SpawnBox;
-    }
+    int boxesSpawned;
 
-    void OnDisable()
-    {
-        WaveManager.OnWaveCleared -= SpawnBox;
-    }
+    void Start() => SpawnBox();
+
+    void OnEnable() => WaveManager.OnWaveCleared += SpawnBox;
+    void OnDisable() => WaveManager.OnWaveCleared -= SpawnBox;
 
     void SpawnBox()
     {
         GameObject player = GameObject.FindWithTag("Player");
         if (player == null) return;
 
+        WeaponBoxData boxData;
+        if (boxesSpawned == 0)
+        {
+            boxData = dropData;
+        }
+        else
+        {
+            if (groupPool == null || groupPool.Length == 0) return;
+            boxData = groupPool[Random.Range(0, groupPool.Length)];
+        }
+
+        if (boxData == null) return;
+        boxesSpawned++;
+
         Vector3 spawnPos = player.transform.position + new Vector3(spawnOffsetX, 0f, 0f);
-        Instantiate(weaponBoxPrefab, spawnPos, Quaternion.identity);
+        GameObject go = Instantiate(weaponBoxPrefab, spawnPos, Quaternion.identity);
+        go.GetComponent<WeaponBox>().Initialize(boxData);
     }
 }

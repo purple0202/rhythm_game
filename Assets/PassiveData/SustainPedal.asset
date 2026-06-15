@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Sustain Pedal
   description: Combo forgiveness window is doubled.
-  icon: {fileID: 3196745101164713136, guid: 319db272fac1fda4fb4d11e2c3471f3f, type: 3}
+  icon: {fileID: -6633837697040105550, guid: 166e6496f6c10de419c92f04fbe6162f, type: 3}

@@ -1,20 +1,26 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class WeaponColourGroup
+{
+    public string groupId;
+    public Weapon[] weapons;
+}
+
 public class WeaponController : MonoBehaviour
 {
     public static event System.Action OnFirstWeaponEquipped;
+    public static event System.Action<int> OnWeaponSwitched;
     public static event System.Action<float, EnemyType> OnAttackFired;
 
     public WeaponUI weaponUI;
 
-    [Header("First Weapon (fixed)")]
+    [Header("First Weapon (fixed — red box drop)")]
     public Weapon firstWeapon;
 
-    [Header("Group Weapons (4 options each)")]
-    public Weapon[] group2Weapons;
-    public Weapon[] group3Weapons;
-    public Weapon[] group4Weapons;
+    [Header("Colour Groups")]
+    public WeaponColourGroup[] colourGroups;
 
     private List<Weapon> equippedWeapons = new List<Weapon>();
     public IReadOnlyList<Weapon> EquippedWeapons => equippedWeapons;
@@ -29,9 +35,9 @@ public class WeaponController : MonoBehaviour
     void Awake()
     {
         DisableAll(firstWeapon);
-        DisableGroup(group2Weapons);
-        DisableGroup(group3Weapons);
-        DisableGroup(group4Weapons);
+        if (colourGroups != null)
+            foreach (var group in colourGroups)
+                DisableGroup(group?.weapons);
     }
 
     void DisableAll(Weapon w) { if (w != null) w.gameObject.SetActive(false); }
@@ -106,26 +112,31 @@ public class WeaponController : MonoBehaviour
         activeWeaponIndex = index;
         pendingWeaponIndex = -1;
         equippedWeapons[activeWeaponIndex].gameObject.SetActive(true);
+        OnWeaponSwitched?.Invoke(activeWeaponIndex);
     }
 
-    // Called by WeaponBox on pickup
-    public void OpenWeaponSelect()
+    // Called by WeaponDropData (red box) — equips firstWeapon directly, no UI
+    public void EquipDirect()
+    {
+        if (equippedWeapons.Count > 0 || firstWeapon == null) return;
+
+        equippedWeapons.Add(firstWeapon);
+        uiWeaponIndex = 0;
+        CommitSwitch(0);
+        OnFirstWeaponEquipped?.Invoke();
+
+        BeatConductor.Instance.SetParameter("Tutorial Success", 1f);
+        BeatConductor.Instance.SetParameter("Synth 2", 1f);
+        BeatConductor.Instance.SetParameter("Synth 3", 1f);
+        BeatConductor.Instance.SetParameter("Synth 4", 1f);
+
+        weaponUI?.RefreshUI(equippedWeapons, uiWeaponIndex);
+    }
+
+    // Called by WeaponGroupData (coloured box) — opens selection UI for the matching colour group
+    public void OpenGroupSelect(string groupId)
     {
         int nextSlot = equippedWeapons.Count;
-
-        if (nextSlot == 0)
-        {
-            EquipFirstWeapon();
-            return;
-        }
-
-        Weapon[] options = nextSlot switch
-        {
-            1 => group2Weapons,
-            2 => group3Weapons,
-            3 => group4Weapons,
-            _ => null
-        };
 
         string fmodParam = nextSlot switch
         {
@@ -135,10 +146,13 @@ public class WeaponController : MonoBehaviour
             _ => ""
         };
 
-        if (options == null || string.IsNullOrEmpty(fmodParam)) return;
+        if (string.IsNullOrEmpty(fmodParam) || colourGroups == null) return;
+
+        WeaponColourGroup group = System.Array.Find(colourGroups, g => g.groupId == groupId);
+        if (group == null || group.weapons == null || group.weapons.Length == 0) return;
 
         Time.timeScale = 0f;
-        WeaponSelectUI.Instance.Show(options, fmodParam, this);
+        WeaponSelectUI.Instance.Show(group.weapons, fmodParam, this);
     }
 
     // Called by WeaponSelectUI after the player picks an option
@@ -205,20 +219,4 @@ public class WeaponController : MonoBehaviour
             weapon.gameObject.SetActive(false);
     }
 
-    void EquipFirstWeapon()
-    {
-        if (firstWeapon == null) return;
-
-        equippedWeapons.Add(firstWeapon);
-        uiWeaponIndex = 0;
-        CommitSwitch(0);
-        OnFirstWeaponEquipped?.Invoke();
-
-        BeatConductor.Instance.SetParameter("Tutorial Success", 1f);
-        BeatConductor.Instance.SetParameter("Synth 2", 1f);
-        BeatConductor.Instance.SetParameter("Synth 3", 1f);
-        BeatConductor.Instance.SetParameter("Synth 4", 1f);
-
-        weaponUI?.RefreshUI(equippedWeapons, uiWeaponIndex);
-    }
 }

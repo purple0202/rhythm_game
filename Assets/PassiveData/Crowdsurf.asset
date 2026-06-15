@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Crowdsurf
   description: Gain extra damage, dash speed, dash distance when surrounded by enemies
-  icon: {fileID: 6167304759078495374, guid: 40b36265077b1b04f8d7585e5a5b5b76, type: 3}
+  icon: {fileID: 3690655002670517627, guid: 143dfce9683a97b43a2bd24dd485cfe6, type: 3}

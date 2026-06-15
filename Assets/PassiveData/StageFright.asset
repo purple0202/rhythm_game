@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Stage Fright
   description: Gain bonus attack damage when enemies are close by.
-  icon: {fileID: 6297970203089301048, guid: ee49eabbdd818ec4d9bfe9e54847f63c, type: 3}
+  icon: {fileID: -8376235236554896461, guid: c00c1761eddb2004db3519a97814abf1, type: 3}

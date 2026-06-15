@@ -8,11 +8,14 @@ using UnityEngine;
 /// </summary>
 public class BeatMarkerLane : MonoBehaviour
 {
+    public static BeatMarkerLane Instance { get; private set; }
+
     [Header("References")]
     [SerializeField] BeatmapData beatmap;
     [SerializeField] RectTransform markersParent;
     [SerializeField] RectTransform judgmentZone;
     [SerializeField] GameObject markerPrefab;
+    [SerializeField] GameObject parryMarkerPrefab;
 
     [Header("Timing")]
     [Tooltip("How many beats ahead of the judgment zone markers are visible.")]
@@ -32,6 +35,8 @@ public class BeatMarkerLane : MonoBehaviour
 
     Camera cam;
     RectTransform rt;
+
+    void Awake() => Instance = this;
 
     void Start()
     {
@@ -118,7 +123,21 @@ public class BeatMarkerLane : MonoBehaviour
         transform.position = desired;
     }
 
+    public void SpawnParryMarker(float songPositionAtImpact)
+    {
+        if (parryMarkerPrefab == null) return;
+        float spb = BeatConductor.Instance.secondsPerBeat > 0
+            ? BeatConductor.Instance.secondsPerBeat
+            : beatmap.SecondsPerBeat;
+        float pixelsPerSecond = travelPixels / (lookAheadBeats * spb);
+        float now = BeatConductor.Instance.songPosition;
+        Spawn(parryMarkerPrefab, songPositionAtImpact, now, pixelsPerSecond);
+    }
+
     void Spawn(float beatTime, float now, float pixelsPerSecond)
+        => Spawn(markerPrefab, beatTime, now, pixelsPerSecond);
+
+    void Spawn(GameObject prefab, float beatTime, float now, float pixelsPerSecond)
     {
         GameObject go = Instantiate(markerPrefab, markersParent);
 

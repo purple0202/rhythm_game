@@ -48,7 +48,8 @@ public class BossParryManager : MonoBehaviour
             Instantiate(parryForecastPrefab, spawnPos, Quaternion.identity);
         }
 
-        BossHUD.Instance?.ShowParryNotice();
+        if (BeatMarkerLane.Instance != null && BeatConductor.Instance != null)
+            BeatMarkerLane.Instance.SpawnParryMarker(BeatConductor.Instance.songPosition + windowBeats * spb);
         // TODO: audio cue — "parry incoming" sound
     }
 

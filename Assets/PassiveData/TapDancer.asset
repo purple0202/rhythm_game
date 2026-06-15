@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Tap Dancer
   description: Gain a small amount of move speed on every perfect attack.
-  icon: {fileID: 1791806875578204935, guid: f34f435e8040a6e428b9d8168068836a, type: 3}
+  icon: {fileID: -5254672790835770071, guid: 1e19a21fdb74c3544b74ae7bd6bb778d, type: 3}

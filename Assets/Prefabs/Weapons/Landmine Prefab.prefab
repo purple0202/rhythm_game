@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5885316480913629841, guid: 86b99e0d0d1e194479f791411faac961, type: 3}
+  m_Sprite: {fileID: 4138754562316617203, guid: 91853d816e2134b4b872c0a98af80376, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,3 +151,6 @@ MonoBehaviour:
   speedMultiplier: 8
   minGlideSpeed: 0.5
   snapThreshold: 0.05
+  flyingSprite: {fileID: 4138754562316617203, guid: 91853d816e2134b4b872c0a98af80376, type: 3}
+  activatedSprite: {fileID: 5261583966030764873, guid: 22e2841eda9a23e47a00569787a3cc9a, type: 3}
+  spinSpeed: 200

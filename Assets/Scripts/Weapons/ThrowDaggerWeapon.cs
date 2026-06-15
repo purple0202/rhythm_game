@@ -27,6 +27,7 @@ public class ThrowDaggerWeapon : Weapon
 
     [Header("Prefab")]
     public GameObject daggerPrefab;
+    public Sprite[] daggerSprites;
 
     bool    isCharging;
     int     daggerCount;
@@ -133,6 +134,7 @@ public class ThrowDaggerWeapon : Weapon
             Vector2 spawnPos   = (Vector2)playerTr.position + perp * perpOffset;
 
             GameObject go = Instantiate(daggerPrefab, spawnPos, Quaternion.AngleAxis(angle, Vector3.forward));
+            ApplyRandomSprite(go);
             Dagger     d  = go.GetComponent<Dagger>();
             if (d != null)
             {
@@ -163,6 +165,7 @@ public class ThrowDaggerWeapon : Weapon
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 
         GameObject go = Instantiate(daggerPrefab, playerTr.position, Quaternion.AngleAxis(angle, Vector3.forward));
+        ApplyRandomSprite(go);
         Dagger     d  = go.GetComponent<Dagger>();
         if (d == null) return;
 
@@ -172,6 +175,14 @@ public class ThrowDaggerWeapon : Weapon
         d.weaponType      = weaponType;
         d.dotApplications = new List<DotType>(dotApplications);
         d.direction       = aimDirection;
+    }
+
+    void ApplyRandomSprite(GameObject go)
+    {
+        if (daggerSprites == null || daggerSprites.Length == 0) return;
+        SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.sprite = daggerSprites[Random.Range(0, daggerSprites.Length)];
     }
 
     void CancelCharge()

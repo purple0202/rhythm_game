@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Overdrive
   description: Activates a pulse attack on high combo stacks
-  icon: {fileID: 6727532144974576334, guid: 5818361530526d943929816124d198b2, type: 3}
+  icon: {fileID: -7897821831786311892, guid: 0c50283cab0ff4744a6189361657c7c8, type: 3}

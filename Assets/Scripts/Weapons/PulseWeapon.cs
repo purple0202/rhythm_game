@@ -48,11 +48,16 @@ public class PulseWeapon : Weapon
 
         Vector2 center = (GetComponentInParent<PlayerMovement>()?.transform ?? transform).position;
 
-        // Impact effect scaled to match the actual attack radius (see setup guide)
         if (impactEffectPrefab != null)
         {
             GameObject fx = Instantiate(impactEffectPrefab, center, Quaternion.identity);
-            fx.transform.localScale = Vector3.one * radius;
+            SpriteRenderer sr = fx.GetComponentInChildren<SpriteRenderer>();
+            if (sr != null && sr.sprite != null)
+            {
+                float naturalRadius = sr.sprite.rect.width / sr.sprite.pixelsPerUnit * 0.5f;
+                if (naturalRadius > 0f)
+                    fx.transform.localScale = Vector3.one * (radius / naturalRadius);
+            }
             Destroy(fx, impactEffectDuration);
         }
 

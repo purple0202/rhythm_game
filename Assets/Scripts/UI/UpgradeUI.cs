@@ -66,6 +66,9 @@ public class UpgradeUI : MonoBehaviour
             rerollButtonText.text = $"Reroll ({rerolls})";
     }
 
+    [Header("Slide-in")]
+    [SerializeField] float staggerDelay = 0.08f;
+
     IEnumerator PreGraceCoroutine()
     {
         BeatConductor.Instance.FadeParameter("Pause Menu", 1f, preUIGraceSeconds);
@@ -74,6 +77,12 @@ public class UpgradeUI : MonoBehaviour
         panel.SetActive(true);
         RefreshRerollButton();
         FocusSelected();
+
+        for (int i = 0; i < optionSlots.Length; i++)
+        {
+            if (optionSlots[i].gameObject.activeSelf)
+                StartCoroutine(optionSlots[i].SlideIn(i * staggerDelay));
+        }
     }
 
     void Update()

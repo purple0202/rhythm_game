@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelUI : MonoBehaviour
 {
     public LevelSystem levelSystem;
 
-    public Text levelText;
+    public TextMeshProUGUI levelText;
     public Slider expBar;
 
     void Update()

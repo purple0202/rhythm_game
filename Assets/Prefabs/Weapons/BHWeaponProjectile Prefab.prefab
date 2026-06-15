@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5509034079087596836, guid: baa0fbdf90473f747b81f91c15903124, type: 3}
+  m_Sprite: {fileID: -6687852100884409366, guid: f722e5b137d132843bb344f9e0021b08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,7 +144,6 @@ MonoBehaviour:
   damage: 0
   speed: 0
   lifetime: 0
-  direction: {x: 0, y: 0}
   weaponType: 0
   dotApplications: 
   isMaxCharge: 0

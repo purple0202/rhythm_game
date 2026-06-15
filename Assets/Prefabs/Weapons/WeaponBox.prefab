@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3369567594517096007}
   - component: {fileID: 177647726388855828}
   - component: {fileID: 5493183709568867172}
+  - component: {fileID: 5353837243583450275}
   m_Layer: 0
   m_Name: WeaponBox
   m_TagString: Untagged
@@ -151,4 +152,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f901547c10ca0f94d87fd23ae86c03e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponBox
-  weaponPrefab: {fileID: 0}
+--- !u!95 &5353837243583450275
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978625250087771075}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

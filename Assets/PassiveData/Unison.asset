@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Unison
   description: Every 4th active attack, all weapons fire simultaneously.
-  icon: {fileID: 683173510917520621, guid: ee70f2ac0c884a742ae1cac63edfbaba, type: 3}
+  icon: {fileID: 6493947932425146499, guid: 1cc1e27575c783d4992e0f4f9a33db1d, type: 3}

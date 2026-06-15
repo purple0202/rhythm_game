@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveData
   passiveName: Mosh Pit Armour
   description: Gain a decaying shield after dashing.
-  icon: {fileID: 425322319968989915, guid: 14dc8d8fffa5d8c45b3c0d750f3a768f, type: 3}
+  icon: {fileID: 4569188381418093024, guid: 903bd10319225354eb7057e0e6218763, type: 3}

@@ -10,7 +10,6 @@ public class BossHUD : MonoBehaviour
     [SerializeField] GameObject hudPanel;
     [SerializeField] Image healthFill;
     [SerializeField] TMP_Text bossNameText;
-    [SerializeField] BossLane bossLane;
 
     EnemyHealth bossHealth;
     bool loggedNullWarning;
@@ -31,23 +30,16 @@ public class BossHUD : MonoBehaviour
             healthFill.color = TypeToColor(type);
         bossNameText.text = bossName;
 
-        bossLane.ShowLane(patternLength);
         hudPanel.SetActive(true);
     }
 
     public void Hide()
     {
-        bossLane.HideLane();
         hudPanel.SetActive(false);
         bossHealth = null;
     }
 
-    public void SetPattern(int patternLength)
-    {
-        bossLane.SetPattern(patternLength);
-    }
-
-    public void ShowParryNotice() => bossLane?.ShowParryNotice();
+    public void SetPattern(int patternLength) { }
 
     void Update()
     {

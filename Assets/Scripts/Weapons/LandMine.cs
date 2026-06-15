@@ -18,14 +18,24 @@ public class LandMine : MonoBehaviour
     public float minGlideSpeed   = 0.5f;
     public float snapThreshold   = 0.05f;
 
+    [Header("Visuals")]
+    public Sprite flyingSprite;
+    public Sprite activatedSprite;
+    [SerializeField] float spinSpeed = 200f;
+
+    SpriteRenderer   sr;
     CircleCollider2D col;
-    bool landed;
-    int  beatCount;
+    bool  landed;
+    int   beatCount;
+    float startDist = -1f;
 
     void Awake()
     {
         col         = GetComponent<CircleCollider2D>();
         col.enabled = false;
+        sr          = GetComponent<SpriteRenderer>();
+        if (sr != null && flyingSprite != null) sr.sprite = flyingSprite;
+        transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
     }
 
     void Update()
@@ -33,6 +43,13 @@ public class LandMine : MonoBehaviour
         if (landed) return;
 
         float dist = Vector2.Distance(transform.position, target);
+
+        if (startDist < 0f) startDist = dist;
+
+        // spin decelerates proportionally as mine approaches target
+        if (startDist > 0f)
+            transform.Rotate(0f, 0f, spinSpeed * (dist / startDist) * Time.deltaTime);
+
         if (dist < snapThreshold)
         {
             transform.position = target;
@@ -49,6 +66,7 @@ public class LandMine : MonoBehaviour
         landed      = true;
         col.radius  = detectionRadius;
         col.enabled = true;
+        if (sr != null && activatedSprite != null) sr.sprite = activatedSprite;
         BeatConductor.OnBeat += OnBeat;
     }
 
