@@ -26,6 +26,11 @@ public class BossChargedProjectileAttack : BossAttack
 
     protected override IEnumerator ExecuteAttack()
     {
+        // Announce to player lane at charge start so the marker travels the full visible window.
+        // Use lastBeatTime (exact beat boundary) not songPosition (can be mid-beat).
+        if (BeatMarkerLane.Instance != null && BeatConductor.Instance != null)
+            BeatMarkerLane.Instance.SpawnParryMarker(BeatConductor.Instance.lastBeatTime + (chargeBeats + 2) * Spb());
+
         if (chargeVisual != null)
             chargeVisual.localScale = Vector3.zero;
 

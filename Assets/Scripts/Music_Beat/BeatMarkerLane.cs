@@ -58,19 +58,42 @@ public class BeatMarkerLane : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+
         float spb = BeatConductor.Instance.secondsPerBeat > 0
             ? BeatConductor.Instance.secondsPerBeat
             : beatmap.SecondsPerBeat;
 
         float now = BeatConductor.Instance.songPosition;
 
+        // If we're returning from a freeze, now will be ahead of previousSongPosition
+        // by the full pause duration. Resync: clear stale regular markers and snap
+        // nextBeatIndex forward so the spawn loop doesn't iterate through every missed beat.
+        if (now > previousSongPosition + spb)
+        {
+            for (int i = activeMarkers.Count - 1; i >= 0; i--)
+            {
+                var m = activeMarkers[i];
+                if (m == null) { activeMarkers.RemoveAt(i); continue; }
+                if (m.IsParry) continue;
+                Destroy(m.gameObject);
+                activeMarkers.RemoveAt(i);
+            }
+            nextBeatIndex = Mathf.Max(nextBeatIndex, Mathf.FloorToInt((now - beatmap.offset) / spb));
+        }
+
         // If song position jumped backward by more than half a beat, the track looped.
-        // Clear all markers and recalculate the beat index from scratch.
+        // Clear all markers except parry markers still waiting to hit the judgment zone.
         if (now < previousSongPosition - spb * 0.5f)
         {
-            foreach (var m in activeMarkers)
-                if (m != null) Destroy(m.gameObject);
-            activeMarkers.Clear();
+            for (int i = activeMarkers.Count - 1; i >= 0; i--)
+            {
+                var m = activeMarkers[i];
+                if (m == null) { activeMarkers.RemoveAt(i); continue; }
+                if (m.IsParry && m.BeatTime > now) continue;
+                Destroy(m.gameObject);
+                activeMarkers.RemoveAt(i);
+            }
             nextBeatIndex = Mathf.Max(0, Mathf.FloorToInt((now - beatmap.offset) / spb));
         }
         previousSongPosition = now;
@@ -100,7 +123,9 @@ public class BeatMarkerLane : MonoBehaviour
             float x = judgmentX + (m.BeatTime - now) * pixelsPerSecond;
             m.SetX(x);
 
-            if (x < destroyX)
+            // Parry markers are never destroyed before their beat time arrives
+            bool canDestroy = !m.IsParry || m.BeatTime <= now;
+            if (x < destroyX && canDestroy)
             {
                 Destroy(m.gameObject);
                 activeMarkers.RemoveAt(i);
@@ -131,25 +156,23 @@ public class BeatMarkerLane : MonoBehaviour
             : beatmap.SecondsPerBeat;
         float pixelsPerSecond = travelPixels / (lookAheadBeats * spb);
         float now = BeatConductor.Instance.songPosition;
-        Spawn(parryMarkerPrefab, songPositionAtImpact, now, pixelsPerSecond);
+        Spawn(parryMarkerPrefab, songPositionAtImpact, now, pixelsPerSecond, isParry: true);
     }
 
     void Spawn(float beatTime, float now, float pixelsPerSecond)
         => Spawn(markerPrefab, beatTime, now, pixelsPerSecond);
 
-    void Spawn(GameObject prefab, float beatTime, float now, float pixelsPerSecond)
+    void Spawn(GameObject prefab, float beatTime, float now, float pixelsPerSecond, bool isParry = false)
     {
-        GameObject go = Instantiate(markerPrefab, markersParent);
+        GameObject go = Instantiate(prefab, markersParent);
 
-        // Force center anchors and pivot so anchoredPosition is always measured
-        // from the parent's center — the same space as judgmentX.
         RectTransform markerRt = go.GetComponent<RectTransform>();
         markerRt.anchorMin = new Vector2(0.5f, 0.5f);
         markerRt.anchorMax = new Vector2(0.5f, 0.5f);
-        markerRt.pivot    = new Vector2(0.5f, 0.5f);
+        markerRt.pivot     = new Vector2(0.5f, 0.5f);
 
         FlyingBeatMarker marker = go.GetComponent<FlyingBeatMarker>();
-        marker.Init(beatTime);
+        marker.Init(beatTime, isParry);
         marker.SetX(judgmentX + (beatTime - now) * pixelsPerSecond);
         activeMarkers.Add(marker);
     }

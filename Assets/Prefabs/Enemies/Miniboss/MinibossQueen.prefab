@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2156967547455096068}
   - component: {fileID: 3019081952197458813}
   - component: {fileID: 5312984247092960339}
+  - component: {fileID: 387190238701022963}
   m_Layer: 7
   m_Name: MinibossQueen
   m_TagString: Enemy
@@ -177,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9840e3d353e5c41ae4cc7376741c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinibossController
-  bossName: PUNK GIRL
+  bossName: THE QUEEN
   bypassReadyChecks: 1
   phase2Threshold: 0.5
   parryRushChance: 0.5
@@ -241,7 +242,7 @@ MonoBehaviour:
   circleCount: 5
   stepDistance: 2
   forecastBeats: 1
-  phase2ForecastBeats: 0.25
+  phase2ForecastBeats: 1
   phase2RadiusGrowthPerStep: 0.35
 --- !u!114 &1885639178264435951
 MonoBehaviour:
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossChargedProjectileAttack
   cooldownBeats: 2
-  startGrid: 0
+  startGrid: 1
   projectilePrefab: {fileID: 3465048316302798380, guid: 56057b03c55a20e44939d0df6811f707, type: 3}
   damage: 35
   parryDamage: 25
@@ -320,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossChannelVolleyAttack
   cooldownBeats: 2
-  startGrid: 0
+  startGrid: 1
   orbitalPrefab: {fileID: 312057443058882285, guid: 825f1906649f1424d8627bdfc2100a15, type: 3}
   projectilePrefab: {fileID: 3465048316302798380, guid: 97eda62b565c5204c86001261c9174b4, type: 3}
   damage: 20
@@ -328,6 +329,32 @@ MonoBehaviour:
   channelBeats: 6
   orbitRadius: 2
   orbitSpeed: 180
+--- !u!114 &387190238701022963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e935efa7b432b47be0ece7df2ff612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHordeDropAttack
+  cooldownBeats: 2
+  startGrid: 1
+  channelBeats: 4
+  minSites: 3
+  maxSites: 5
+  minDistFromPlayer: 3
+  minDistBetweenSites: 2.5
+  arenaHalfX: 10
+  arenaHalfY: 13
+  shadowPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
+  shadowMaxScale: 1.5
+  mobEnemyPrefab: {fileID: 0}
+  impactVFXPrefab: {fileID: 0}
+  impactVFXDuration: 0.5
 --- !u!1 &1442303204508586832
 GameObject:
   m_ObjectHideFlags: 0

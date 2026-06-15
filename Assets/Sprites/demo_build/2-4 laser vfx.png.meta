@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 02ec5fc5b1f0c274bb7a0f1e9131dd5a
+guid: 73bde673dd973fc4f87153193b4fe8b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6229982343228731216
-    second: beat frame perfect_0
+      213: 8510717485591743781
+    second: 2-4 laser vfx_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: beat frame perfect_0
+      name: 2-4 laser vfx_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 51
-        width: 84
-        height: 27
+        x: 2
+        y: 39
+        width: 126
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 6}
+      border: {x: 10, y: 11, z: 0, w: 11}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b055e21118aa89a0800000000000000
-      internalID: -6229982343228731216
+      spriteID: 52dc66026742c1670800000000000000
+      internalID: 8510717485591743781
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e64010c20b6599041a166418c59897d5
+    spriteID: b2b90c8bc2e2d594bb5d1000d4885e09
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      beat frame perfect_0: -6229982343228731216
+      2-4 laser vfx_0: 8510717485591743781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

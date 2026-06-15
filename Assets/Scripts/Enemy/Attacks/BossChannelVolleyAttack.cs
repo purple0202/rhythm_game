@@ -26,6 +26,15 @@ public class BossChannelVolleyAttack : BossAttack
     {
         orbitals.Clear();
 
+        // Announce all parry beats upfront. Anchor to lastBeatTime (exact beat boundary)
+        // not songPosition (which can be mid-beat), so markers align with the beat grid.
+        if (BeatMarkerLane.Instance != null && BeatConductor.Instance != null)
+        {
+            float anchorBeat = BeatConductor.Instance.lastBeatTime;
+            for (int i = 0; i < channelBeats; i++)
+                BeatMarkerLane.Instance.SpawnParryMarker(anchorBeat + (channelBeats + i + 2) * Spb());
+        }
+
         // Channel phase: one orbital spawns per beat
         for (int i = 0; i < channelBeats; i++)
         {

@@ -3,13 +3,19 @@ using UnityEngine;
 [RequireComponent(typeof(RectTransform))]
 public class FlyingBeatMarker : MonoBehaviour
 {
-    public float BeatTime { get; private set; }
+    float beatTime;
+    public float BeatTime => beatTime;
+    public bool  IsParry  { get; private set; }
 
     RectTransform rt;
 
     void Awake() => rt = GetComponent<RectTransform>();
 
-    public void Init(float beatTime) => BeatTime = beatTime;
+    public void Init(float bt, bool isParry = false)
+    {
+        beatTime = bt;
+        IsParry  = isParry;
+    }
 
     public void SetX(float x)
     {
