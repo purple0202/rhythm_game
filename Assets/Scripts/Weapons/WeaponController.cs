@@ -2,10 +2,17 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
+public class WeaponEntry
+{
+    public Weapon weapon;
+    public int fmodValue;
+}
+
+[System.Serializable]
 public class WeaponColourGroup
 {
     public string groupId;
-    public Weapon[] weapons;
+    public WeaponEntry[] weapons;
 }
 
 public class WeaponController : MonoBehaviour
@@ -41,7 +48,7 @@ public class WeaponController : MonoBehaviour
     }
 
     void DisableAll(Weapon w) { if (w != null) w.gameObject.SetActive(false); }
-    void DisableGroup(Weapon[] group) { if (group == null) return; foreach (var w in group) DisableAll(w); }
+    void DisableGroup(WeaponEntry[] group) { if (group == null) return; foreach (var e in group) DisableAll(e.weapon); }
 
     void Update()
     {
@@ -126,9 +133,8 @@ public class WeaponController : MonoBehaviour
         OnFirstWeaponEquipped?.Invoke();
 
         BeatConductor.Instance.SetParameter("Tutorial Success", 1f);
-        BeatConductor.Instance.SetParameter("Synth 2", 1f);
-        BeatConductor.Instance.SetParameter("Synth 3", 1f);
         BeatConductor.Instance.SetParameter("Synth 4", 1f);
+        BeatConductor.Instance.SetParameter("Synth 5", 1f);
 
         weaponUI?.RefreshUI(equippedWeapons, uiWeaponIndex);
     }
@@ -151,8 +157,11 @@ public class WeaponController : MonoBehaviour
         WeaponColourGroup group = System.Array.Find(colourGroups, g => g.groupId == groupId);
         if (group == null || group.weapons == null || group.weapons.Length == 0) return;
 
+        Weapon[] weapons = System.Array.ConvertAll(group.weapons, e => e.weapon);
+        int[] fmodValues = System.Array.ConvertAll(group.weapons, e => e.fmodValue);
+
         Time.timeScale = 0f;
-        WeaponSelectUI.Instance.Show(group.weapons, fmodParam, this);
+        WeaponSelectUI.Instance.Show(weapons, fmodParam, fmodValues, this);
     }
 
     // Called by WeaponSelectUI after the player picks an option
@@ -165,8 +174,11 @@ public class WeaponController : MonoBehaviour
         {
             BeatConductor.Instance.SetParameter("Weapon 1", 1f);
             BeatConductor.Instance.SetParameter("Synth 2", 1f);
+        }
+
+        if (slotIndex == 2)
+        {
             BeatConductor.Instance.SetParameter("Synth 3", 1f);
-            BeatConductor.Instance.SetParameter("Synth 4", 1f);
         }
 
         BeatConductor.Instance.SetParameter(fmodParam, (float)fmodValue);

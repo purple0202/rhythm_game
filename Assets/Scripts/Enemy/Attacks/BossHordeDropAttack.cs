@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-// Attack 7: Boss channels while shadow indicators grow at 3-5 random arena spots.
+// Attack 7: Boss channels while shadow + reticle indicators appear at 3-5 random arena spots.
+// Shadow grows from zero over the channel. Reticle locks to the spot and slowly rotates.
 // After channeling, a horde enemy slams down on each spot one per beat.
 public class BossHordeDropAttack : BossAttack
 {
@@ -15,13 +16,16 @@ public class BossHordeDropAttack : BossAttack
     [SerializeField] float minDistFromPlayer = 3f;
     [SerializeField] float minDistBetweenSites = 2.5f;
 
-    [Header("Arena Bounds")]
-    [SerializeField] float arenaHalfX = 10f;
-    [SerializeField] float arenaHalfY = 13f;
+    [Header("Screen Bounds")]
+    [SerializeField] float screenEdgeMargin = 1f;
 
     [Header("Shadow")]
     [SerializeField] GameObject shadowPrefab;
     [SerializeField] float shadowMaxScale = 1.5f;
+
+    [Header("Reticle")]
+    [SerializeField] GameObject reticlePrefab;
+    [SerializeField] float reticleRotateSpeed = 45f; // degrees per second
 
     [Header("Drop")]
     [SerializeField] GameObject mobEnemyPrefab;
@@ -38,14 +42,29 @@ public class BossHordeDropAttack : BossAttack
 
         float channelTime = channelBeats * Spb();
 
-        var shadows = new List<Transform>();
+        var shadows  = new List<Transform>();
+        var reticles = new List<Transform>();
+
         foreach (var pos in positions)
         {
-            if (shadowPrefab == null) continue;
-            var s = Instantiate(shadowPrefab, pos, Quaternion.identity).transform;
-            s.localScale = Vector3.zero;
-            shadows.Add(s);
-            StartCoroutine(GrowShadow(s, channelTime));
+            if (shadowPrefab != null)
+            {
+                var s = Instantiate(shadowPrefab, pos, Quaternion.identity).transform;
+                s.localScale = Vector3.zero;
+                var sr = s.GetComponentInChildren<SpriteRenderer>();
+                if (sr != null) sr.sortingOrder = 0;
+                shadows.Add(s);
+                StartCoroutine(GrowShadow(s, channelTime));
+            }
+
+            if (reticlePrefab != null)
+            {
+                var r = Instantiate(reticlePrefab, pos, Quaternion.identity).transform;
+                var sr = r.GetComponentInChildren<SpriteRenderer>();
+                if (sr != null) sr.sortingOrder = 1;
+                reticles.Add(r);
+                StartCoroutine(SpinReticle(r));
+            }
         }
 
         yield return WaitBeats(channelBeats);
@@ -54,8 +73,8 @@ public class BossHordeDropAttack : BossAttack
         {
             Vector3 pos = positions[i];
 
-            if (i < shadows.Count && shadows[i] != null)
-                Destroy(shadows[i].gameObject);
+            if (i < shadows.Count  && shadows[i]  != null) Destroy(shadows[i].gameObject);
+            if (i < reticles.Count && reticles[i] != null) Destroy(reticles[i].gameObject);
 
             if (impactVFXPrefab != null)
             {
@@ -70,9 +89,8 @@ public class BossHordeDropAttack : BossAttack
                 yield return WaitBeats(1f);
         }
 
-        // Clean up shadows that didn't get destroyed (edge case: attack interrupted)
-        foreach (var s in shadows)
-            if (s != null) Destroy(s.gameObject);
+        foreach (var s in shadows)  if (s != null) Destroy(s.gameObject);
+        foreach (var r in reticles) if (r != null) Destroy(r.gameObject);
     }
 
     IEnumerator GrowShadow(Transform shadow, float duration)
@@ -82,7 +100,6 @@ public class BossHordeDropAttack : BossAttack
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
-            // Ease in: slow at first, faster near landing — builds tension
             shadow.localScale = Vector3.one * (shadowMaxScale * Mathf.Sqrt(t));
             yield return null;
         }
@@ -90,18 +107,32 @@ public class BossHordeDropAttack : BossAttack
             shadow.localScale = Vector3.one * shadowMaxScale;
     }
 
+    IEnumerator SpinReticle(Transform reticle)
+    {
+        while (reticle != null)
+        {
+            reticle.Rotate(0f, 0f, reticleRotateSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
     List<Vector3> PickPositions(int count)
     {
         var result = new List<Vector3>();
         const int maxAttempts = 30;
+
+        Camera cam = Camera.main;
+        float halfH = cam.orthographicSize - screenEdgeMargin;
+        float halfW = halfH * cam.aspect;
+        Vector3 camPos = cam.transform.position;
 
         for (int i = 0; i < count; i++)
         {
             for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
                 var candidate = new Vector3(
-                    Random.Range(-arenaHalfX, arenaHalfX),
-                    Random.Range(-arenaHalfY, arenaHalfY),
+                    camPos.x + Random.Range(-halfW, halfW),
+                    camPos.y + Random.Range(-halfH, halfH),
                     0f);
 
                 if (player != null && Vector3.Distance(candidate, player.position) < minDistFromPlayer)

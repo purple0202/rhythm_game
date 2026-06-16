@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class WeaponSelectUI : MonoBehaviour
 {
@@ -13,9 +15,23 @@ public class WeaponSelectUI : MonoBehaviour
     public float preUIGraceSeconds = 1f;
     public int postUIGraceBeats = 1;
 
+    [Header("Focus Panel")]
+    public Image focusIcon;
+    public TMP_Text focusName;
+    public TMP_Text focusDescription;
+    public float spinSpeed = 30f;
+
+    [Header("Slide Animation")]
+    public RectTransform focusPanel;
+    public float slideDuration = 0.4f;
+    public float slideOffset = 300f;
+    public float staggerDelay = 0.08f;
+
     WeaponController pendingController;
     string pendingFmodParam;
+    int[] pendingFmodValues;
     int selectedIndex;
+    Weapon[] currentWeapons;
 
     void Awake()
     {
@@ -23,10 +39,12 @@ public class WeaponSelectUI : MonoBehaviour
         panel.SetActive(false);
     }
 
-    public void Show(Weapon[] weapons, string fmodParam, WeaponController controller)
+    public void Show(Weapon[] weapons, string fmodParam, int[] fmodValues, WeaponController controller)
     {
+        currentWeapons = weapons;
         pendingController = controller;
         pendingFmodParam = fmodParam;
+        pendingFmodValues = fmodValues;
 
         for (int i = 0; i < optionSlots.Length; i++)
             optionSlots[i].Setup(weapons[i], i);
@@ -40,7 +58,11 @@ public class WeaponSelectUI : MonoBehaviour
         yield return new WaitForSecondsRealtime(preUIGraceSeconds);
         selectedIndex = 0;
         panel.SetActive(true);
+        Canvas.ForceUpdateCanvases();
         FocusSelected();
+        if (focusPanel != null) StartCoroutine(SlideIn(focusPanel, Vector2.down * slideOffset));
+        for (int i = 0; i < optionSlots.Length; i++)
+            StartCoroutine(optionSlots[i].SlideIn(i * staggerDelay));
     }
 
     void Update()
@@ -54,6 +76,9 @@ public class WeaponSelectUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
             optionSlots[selectedIndex].Select();
+
+        if (focusIcon != null)
+            focusIcon.transform.Rotate(0f, 0f, -spinSpeed * Time.unscaledDeltaTime);
     }
 
     public void SetSelected(int index)
@@ -74,12 +99,34 @@ public class WeaponSelectUI : MonoBehaviour
             slot.SetHighlighted(false);
         EventSystem.current.SetSelectedGameObject(optionSlots[selectedIndex].button.gameObject);
         optionSlots[selectedIndex].SetHighlighted(true);
+        UpdateFocus(currentWeapons[selectedIndex]);
+    }
+
+    IEnumerator SlideIn(RectTransform rect, Vector2 fromOffset)
+    {
+        Vector2 target = rect.anchoredPosition;
+        float elapsed = 0f;
+        while (elapsed < slideDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, elapsed / slideDuration);
+            rect.anchoredPosition = Vector2.LerpUnclamped(target + fromOffset, target, t);
+            yield return null;
+        }
+        rect.anchoredPosition = target;
+    }
+
+    void UpdateFocus(Weapon weapon)
+    {
+        if (focusIcon != null) focusIcon.sprite = weapon.icon;
+        if (focusName != null) focusName.text = weapon.weaponName;
+        if (focusDescription != null) focusDescription.text = weapon.description;
     }
 
     // Called by WeaponOptionUI — optionIndex is 0-based, FMOD value is 1-based
     public void SelectWeapon(Weapon weapon, int optionIndex)
     {
-        pendingController.EquipGroupWeapon(weapon, pendingFmodParam, optionIndex + 1);
+        pendingController.EquipGroupWeapon(weapon, pendingFmodParam, pendingFmodValues[optionIndex]);
         panel.SetActive(false);
         StartCoroutine(PostGraceCoroutine());
     }

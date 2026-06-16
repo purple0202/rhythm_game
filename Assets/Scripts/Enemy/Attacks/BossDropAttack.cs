@@ -16,7 +16,9 @@ public class BossDropAttack : BossAttack
     [SerializeField] float dropVFXDurationBeats = 5f;
     [SerializeField] GameObject mobEnemyPrefab;        // mob that spawns at drop position
 
-    protected override bool CanActivateInternal(bool isPhase2) => false; // replaced by BossHordeDropAttack
+    protected override void Awake() { base.Awake(); enabled = false; } // replaced by BossHordeDropAttack
+
+    protected override bool CanActivateInternal(bool isPhase2) => false;
 
     protected override IEnumerator ExecuteAttack()
     {

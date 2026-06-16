@@ -41,7 +41,7 @@ public class MinibossController : MonoBehaviour
         player = playerGO.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyHealth = GetComponent<EnemyHealth>();
-        attacks = GetComponents<BossAttack>();
+        attacks = GetComponents<BossAttack>().Where(a => a.enabled).ToArray();
 
         if (enemyHealth != null)
         {

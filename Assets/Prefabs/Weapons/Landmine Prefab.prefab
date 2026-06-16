@@ -154,3 +154,5 @@ MonoBehaviour:
   flyingSprite: {fileID: 4138754562316617203, guid: 91853d816e2134b4b872c0a98af80376, type: 3}
   activatedSprite: {fileID: 5261583966030764873, guid: 22e2841eda9a23e47a00569787a3cc9a, type: 3}
   spinSpeed: 200
+  explosionVFXPrefab: {fileID: 3894083022207732161, guid: 1d14d4e12d95a2440aeaea033e384f24, type: 3}
+  explosionVFXDuration: 0.5

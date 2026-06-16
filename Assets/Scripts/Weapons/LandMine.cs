@@ -22,6 +22,8 @@ public class LandMine : MonoBehaviour
     public Sprite flyingSprite;
     public Sprite activatedSprite;
     [SerializeField] float spinSpeed = 200f;
+    [SerializeField] GameObject explosionVFXPrefab;
+    [SerializeField] float explosionVFXDuration = 0.5f;
 
     SpriteRenderer   sr;
     CircleCollider2D col;
@@ -100,6 +102,19 @@ public class LandMine : MonoBehaviour
                 DotReceiver dr = hit.GetComponent<DotReceiver>();
                 if (dr != null) foreach (var dot in dotApplications) dr.Apply(dot);
             }
+        }
+
+        if (explosionVFXPrefab != null)
+        {
+            GameObject vfx = Instantiate(explosionVFXPrefab, transform.position, Quaternion.identity);
+            SpriteRenderer vfxSr = vfx.GetComponentInChildren<SpriteRenderer>();
+            if (vfxSr != null && vfxSr.sprite != null)
+            {
+                float naturalRadius = vfxSr.sprite.rect.width / vfxSr.sprite.pixelsPerUnit * 0.5f;
+                if (naturalRadius > 0f)
+                    vfx.transform.localScale = Vector3.one * (explosionRadius / naturalRadius);
+            }
+            Destroy(vfx, explosionVFXDuration);
         }
 
         Destroy(gameObject);

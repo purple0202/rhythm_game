@@ -136,10 +136,31 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 140
       width: 126
       height: 117
     spriteID: 3ea26c402b17abb47b0cfeac6cbb07f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 140}
+  - name: Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 128
+      height: 128
+    spriteID: 9f91ee2f4c6b1fb44b9c747793a5b320
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -163,7 +184,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: 2-3 strings icon
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -172,6 +193,15 @@ ScriptedImporter:
         width: 126
         height: 117
       spriteId: 3ea26c402b17abb47b0cfeac6cbb07f9
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      spriteId: 9f91ee2f4c6b1fb44b9c747793a5b320
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -182,4 +212,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 128, y: 128}
-  previousTextureSize: {x: 256, y: 128}
+  previousTextureSize: {x: 256, y: 512}

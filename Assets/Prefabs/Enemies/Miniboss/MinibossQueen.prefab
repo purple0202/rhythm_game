@@ -251,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787552135016871603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17c8164cbeea4b345950a6ebf1c8fd9c, type: 3}
   m_Name: 
@@ -350,10 +350,12 @@ MonoBehaviour:
   minDistBetweenSites: 2.5
   arenaHalfX: 10
   arenaHalfY: 13
-  shadowPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
+  shadowPrefab: {fileID: 390743257920095560, guid: 27cf9ef171f1ddc43bad413652193af9, type: 3}
   shadowMaxScale: 1.5
-  mobEnemyPrefab: {fileID: 0}
-  impactVFXPrefab: {fileID: 0}
+  reticlePrefab: {fileID: 6142164417003653810, guid: e93611dc3263f2c4c8c0b4901afd840d, type: 3}
+  reticleRotateSpeed: 45
+  mobEnemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
+  impactVFXPrefab: {fileID: 440562091531174539, guid: 59b68765257c11148a6890dfbabc8c23, type: 3}
   impactVFXDuration: 0.5
 --- !u!1 &1442303204508586832
 GameObject:
