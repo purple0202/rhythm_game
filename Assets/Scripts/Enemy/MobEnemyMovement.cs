@@ -5,11 +5,27 @@ public class MobEnemyMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
 
+    [Header("Per-Type Move Speed")]
+    [SerializeField] float blueMoveSpeed = 2f;
+    [SerializeField] float redMoveSpeed = 2f;
+    [SerializeField] float greenMoveSpeed = 2f;
+    [SerializeField] float yellowMoveSpeed = 2f;
+
+    [Header("Per-Type Animator Controller")]
+    [SerializeField] RuntimeAnimatorController noneController;
+    [SerializeField] RuntimeAnimatorController blueController;
+    [SerializeField] RuntimeAnimatorController redController;
+    [SerializeField] RuntimeAnimatorController greenController;
+    [SerializeField] RuntimeAnimatorController yellowController;
+
+    float currentMoveSpeed;
+
     Transform player;
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     Animator animator;
     DotReceiver dotReceiver;
+    EnemyHealth enemyHealth;
 
     [Header("Level-Up Push")]
     [SerializeField] float pushDistance = 1f;
@@ -64,9 +80,37 @@ public class MobEnemyMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator      = GetComponent<Animator>();
         dotReceiver   = GetComponent<DotReceiver>();
+        enemyHealth   = GetComponent<EnemyHealth>();
+
+        // EnemyHealth.SetType() is called by the spawner right after Instantiate, so by the
+        // time Start() runs here the type is already assigned.
+        ApplyType(enemyHealth != null ? enemyHealth.enemyType : EnemyType.None);
 
         if (animator != null)
             animator.Play(0, 0, Random.value);
+    }
+
+    void ApplyType(EnemyType type)
+    {
+        currentMoveSpeed = type switch
+        {
+            EnemyType.Blue   => blueMoveSpeed,
+            EnemyType.Red    => redMoveSpeed,
+            EnemyType.Green  => greenMoveSpeed,
+            EnemyType.Yellow => yellowMoveSpeed,
+            _                => moveSpeed
+        };
+
+        RuntimeAnimatorController controller = type switch
+        {
+            EnemyType.Blue   => blueController,
+            EnemyType.Red    => redController,
+            EnemyType.Green  => greenController,
+            EnemyType.Yellow => yellowController,
+            _                => noneController
+        };
+        if (animator != null && controller != null)
+            animator.runtimeAnimatorController = controller;
     }
 
     void FixedUpdate()
@@ -75,7 +119,7 @@ public class MobEnemyMovement : MonoBehaviour
 
         movement = (player.position - transform.position).normalized;
         float slow = dotReceiver != null ? dotReceiver.slowMultiplier : 1f;
-        rb.linearVelocity = movement * moveSpeed * slow + pullVelocity;
+        rb.linearVelocity = movement * currentMoveSpeed * slow + pullVelocity;
         pullVelocity = Vector2.zero;
 
         if (movement.x != 0)

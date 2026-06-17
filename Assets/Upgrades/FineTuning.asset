@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Fine Tuning
   description: Adds +1 damage to active(good, perfect) attacks
-  icon: {fileID: -5010340172990460451, guid: 7b6e9336eeddf4c4c828c2990d323fd6, type: 3}
+  icon: {fileID: -1602360029635447413, guid: 8c7f7896997c74b40bc50815f2888b63, type: 3}
   enabled: 1

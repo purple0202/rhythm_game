@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Uptempo
   description: Grants 0.3 bonus move speed.
-  icon: {fileID: -3910070804355056712, guid: 9dc5299a3a4f5c34c87932ae8541c941, type: 3}
+  icon: {fileID: -2956402119234018277, guid: a4bf8bd66d5cb0541890585cb8d6bc3e, type: 3}
   enabled: 1

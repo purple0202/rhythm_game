@@ -44,7 +44,7 @@ public class HealthBar : MonoBehaviour
             if (group.weapons == null) continue;
             foreach (var w in group.weapons)
             {
-                if (w != active) continue;
+                if (w.weapon != active) continue;
 
                 foreach (var entry in groupFillSprites)
                 {

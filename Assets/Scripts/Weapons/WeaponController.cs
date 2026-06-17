@@ -12,6 +12,7 @@ public class WeaponEntry
 public class WeaponColourGroup
 {
     public string groupId;
+    public int fmodGroupNumber; // fixed FMOD "Group N" param this colour always drives (2, 3, or 4)
     public WeaponEntry[] weapons;
 }
 
@@ -32,12 +33,18 @@ public class WeaponController : MonoBehaviour
     private List<Weapon> equippedWeapons = new List<Weapon>();
     public IReadOnlyList<Weapon> EquippedWeapons => equippedWeapons;
 
+    // Once a colour has been picked from, later boxes of that same colour are blocked —
+    // keeps the player to one weapon per group instead of being able to stack a colour twice.
+    private readonly HashSet<string> usedGroupIds = new HashSet<string>();
+    public bool IsGroupUsed(string groupId) => usedGroupIds.Contains(groupId);
+
     // uiWeaponIndex  — what is highlighted in the UI right now (changes immediately).
     // activeWeaponIndex — which weapon's GameObject is actually SetActive(true).
     // pendingWeaponIndex — queued switch that waits for the active weapon to finish animating.
     private int uiWeaponIndex = -1;
     private int activeWeaponIndex = -1;
     private int pendingWeaponIndex = -1;
+    private bool scrollConsumed = false;
 
     void Awake()
     {
@@ -63,9 +70,19 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3) && equippedWeapons.Count >= 3) RequestSwitch(2);
         if (Input.GetKeyDown(KeyCode.Alpha4) && equippedWeapons.Count >= 4) RequestSwitch(3);
 
+        // GetAxis stays non-zero for several frames per physical scroll tick, so gate on a
+        // consumed flag — otherwise one tick fires RequestSwitch repeatedly while it decays.
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (scroll > 0f)      RequestSwitch(PrevNonPassive(uiWeaponIndex));
-        else if (scroll < 0f) RequestSwitch(NextNonPassive(uiWeaponIndex));
+        if (Mathf.Approximately(scroll, 0f))
+        {
+            scrollConsumed = false;
+        }
+        else if (!scrollConsumed)
+        {
+            scrollConsumed = true;
+            if (scroll > 0f) RequestSwitch(PrevNonPassive(uiWeaponIndex));
+            else             RequestSwitch(NextNonPassive(uiWeaponIndex));
+        }
     }
 
     int NextNonPassive(int from)
@@ -114,12 +131,40 @@ public class WeaponController : MonoBehaviour
 
         if (activeWeaponIndex >= 0 && activeWeaponIndex < equippedWeapons.Count
             && !equippedWeapons[activeWeaponIndex].IsPassive)
+        {
             equippedWeapons[activeWeaponIndex].gameObject.SetActive(false);
+            SetFocus(activeWeaponIndex, false);
+        }
 
         activeWeaponIndex = index;
         pendingWeaponIndex = -1;
         equippedWeapons[activeWeaponIndex].gameObject.SetActive(true);
+        SetFocus(activeWeaponIndex, true);
         OnWeaponSwitched?.Invoke(activeWeaponIndex);
+    }
+
+    void SetFocus(int index, bool on)
+    {
+        int groupNumber = GetFmodGroupNumber(index);
+        BeatConductor.Instance.SetParameter($"G{groupNumber}-FOCUS", on ? 1f : 0f);
+    }
+
+    // Slot 0 is always the fixed first weapon (Group 1). Slots 1-3 belong to whichever
+    // colour group they were equipped from, which can vary since box order is randomised.
+    int GetFmodGroupNumber(int slotIndex)
+    {
+        if (slotIndex == 0) return 1;
+
+        Weapon weapon = equippedWeapons[slotIndex];
+        if (colourGroups != null)
+            foreach (var group in colourGroups)
+            {
+                if (group.weapons == null) continue;
+                foreach (var entry in group.weapons)
+                    if (entry.weapon == weapon) return group.fmodGroupNumber;
+            }
+
+        return slotIndex + 1;
     }
 
     // Called by WeaponDropData (red box) — equips firstWeapon directly, no UI
@@ -142,23 +187,24 @@ public class WeaponController : MonoBehaviour
     // Called by WeaponGroupData (coloured box) — opens selection UI for the matching colour group
     public void OpenGroupSelect(string groupId)
     {
-        int nextSlot = equippedWeapons.Count;
-
-        string fmodParam = nextSlot switch
-        {
-            1 => "Group 2",
-            2 => "Group 3",
-            3 => "Group 4",
-            _ => ""
-        };
-
-        if (string.IsNullOrEmpty(fmodParam) || colourGroups == null) return;
+        if (colourGroups == null) return;
+        if (usedGroupIds.Contains(groupId)) return;
 
         WeaponColourGroup group = System.Array.Find(colourGroups, g => g.groupId == groupId);
         if (group == null || group.weapons == null || group.weapons.Length == 0) return;
 
+        usedGroupIds.Add(groupId);
+
+        string fmodParam = $"Group {group.fmodGroupNumber}";
+
         Weapon[] weapons = System.Array.ConvertAll(group.weapons, e => e.weapon);
         int[] fmodValues = System.Array.ConvertAll(group.weapons, e => e.fmodValue);
+
+        if (equippedWeapons.Count == 1)
+        {
+            BeatConductor.Instance.SetParameter("Weapon 1", 1f);
+            BeatConductor.Instance.SetParameter("Synth 2", 1f);
+        }
 
         Time.timeScale = 0f;
         WeaponSelectUI.Instance.Show(weapons, fmodParam, fmodValues, this);
@@ -169,12 +215,6 @@ public class WeaponController : MonoBehaviour
     {
         int slotIndex = equippedWeapons.Count;
         equippedWeapons.Add(weapon);
-
-        if (slotIndex == 1)
-        {
-            BeatConductor.Instance.SetParameter("Weapon 1", 1f);
-            BeatConductor.Instance.SetParameter("Synth 2", 1f);
-        }
 
         if (slotIndex == 2)
         {

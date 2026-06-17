@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Metronome
   description: Idle Auto Attack damage +1
-  icon: {fileID: 6651023460150340544, guid: 05b5e7b33537e9b428fe6a1e3dee7c23, type: 3}
+  icon: {fileID: -7036938236145336915, guid: 2694fe03aa42dcc42b12f1a582517097, type: 3}
   enabled: 1

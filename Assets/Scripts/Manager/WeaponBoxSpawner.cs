@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class WeaponBoxSpawner : MonoBehaviour
 {
@@ -31,8 +32,19 @@ public class WeaponBoxSpawner : MonoBehaviour
         }
         else
         {
-            if (groupPool == null || groupPool.Length == 0) return;
-            boxData = groupPool[Random.Range(0, groupPool.Length)];
+            WeaponController controller = player.GetComponentInChildren<WeaponController>();
+            if (controller == null) return;
+
+            // Same exclusivity rule as pickup: skip colours already obtained. If that empties
+            // the pool, the player has all weapons, so no box spawns at all.
+            List<WeaponGroupData> available = new List<WeaponGroupData>();
+            if (groupPool != null)
+                foreach (var group in groupPool)
+                    if (group != null && !controller.IsGroupUsed(group.groupId))
+                        available.Add(group);
+
+            if (available.Count == 0) return;
+            boxData = available[Random.Range(0, available.Count)];
         }
 
         if (boxData == null) return;

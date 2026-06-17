@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Popularity
   description: Spawn 10% more enemies.
-  icon: {fileID: -5018506650262160734, guid: 67571a741fcf8354dbbd64a55fb5df95, type: 3}
+  icon: {fileID: -5306735000372325292, guid: a976ae7a9a2d2234284e2fa9e3c42f61, type: 3}
   enabled: 1

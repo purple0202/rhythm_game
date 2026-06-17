@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Roadie
   description: Reduce dash cooldown by 0.2s
-  icon: {fileID: 5559340508167217122, guid: 60c10bfca30cb2c44adebed607a98201, type: 3}
+  icon: {fileID: -7630922249031778962, guid: 0c20c2612de4fd54a8382616fb836cb8, type: 3}
   enabled: 1

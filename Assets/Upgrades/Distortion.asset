@@ -17,5 +17,5 @@ MonoBehaviour:
 
     Upgraded weapon does electric DOT
     and slows enemies.'
-  icon: {fileID: 3419514596532216997, guid: 4f2fa1deb2eb34e42bf12ee47bca3385, type: 3}
-  enabled: 1
+  icon: {fileID: -2448559400576705923, guid: b00f903aa9f61eb4e802a1713ed30b0d, type: 3}
+  enabled: 0

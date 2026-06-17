@@ -7,6 +7,7 @@ using System.Collections;
 public class UpgradeOptionUI : MonoBehaviour, IPointerEnterHandler
 {
     public TextMeshProUGUI nameText;
+    public TextMeshProUGUI nameText2;
     public TextMeshProUGUI descriptionText;
     public Image icon;
     public Button button;
@@ -37,6 +38,7 @@ public class UpgradeOptionUI : MonoBehaviour, IPointerEnterHandler
         if (!valid) return;
 
         nameText.text        = upgrade.upgradeName;
+        if (nameText2 != null) nameText2.text = upgrade.upgradeName;
         descriptionText.text = upgrade.description;
         icon.sprite          = upgrade.icon;
 

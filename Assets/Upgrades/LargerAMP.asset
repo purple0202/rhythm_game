@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Larger AMP
   description: All weapons grow +10% in size.
-  icon: {fileID: 1410097570708424876, guid: a83f9e7fc6db7c34f9020559aee895cd, type: 3}
+  icon: {fileID: 6260551150611993399, guid: 1a7e2d460e42ae446a3083521300be27, type: 3}
   enabled: 1

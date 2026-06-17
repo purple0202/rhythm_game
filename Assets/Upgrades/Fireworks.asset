@@ -16,5 +16,5 @@ MonoBehaviour:
   description: 'Select a weapon to upgrade.
 
     Upgraded weapon does fire DOT.'
-  icon: {fileID: 2165328678099590842, guid: 65e07582f1c29884eb391a20d673c4ff, type: 3}
-  enabled: 1
+  icon: {fileID: 5582567690881122720, guid: 7a8cc0fd5e4230142ac4afa88193be40, type: 3}
+  enabled: 0

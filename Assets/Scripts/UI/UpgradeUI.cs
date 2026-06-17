@@ -94,7 +94,7 @@ public class UpgradeUI : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             Navigate(1);
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.E))
             optionSlots[selectedIndex].Select();
     }
 

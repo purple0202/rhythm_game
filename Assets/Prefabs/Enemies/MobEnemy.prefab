@@ -175,6 +175,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemyMovement
   moveSpeed: 2
+  blueMoveSpeed: 3
+  redMoveSpeed: 3
+  greenMoveSpeed: 3
+  yellowMoveSpeed: 3
+  noneController: {fileID: 9100000, guid: eedd4c737e1809d4da3d8fb31805847c, type: 2}
+  blueController: {fileID: 9100000, guid: 92a0396ede7311a4fa31aa96d05f143f, type: 2}
+  redController: {fileID: 9100000, guid: 9305183b2e5af224aaf6a98dce038cf2, type: 2}
+  greenController: {fileID: 9100000, guid: a42bfca3ccd08a740be18dcf2e6268c9, type: 2}
+  yellowController: {fileID: 9100000, guid: a62e2c5411ada5840b9065e7d5ae391b, type: 2}
   pushDistance: 1
   pushRadius: 2
   pushDuration: 0.3

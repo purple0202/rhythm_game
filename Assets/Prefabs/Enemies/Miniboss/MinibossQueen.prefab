@@ -179,11 +179,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinibossController
   bossName: THE QUEEN
+  introDialogue: {fileID: 11400000, guid: 080939c8b57ba8046ac0573b6debe639, type: 2}
   bypassReadyChecks: 1
   phase2Threshold: 0.5
   parryRushChance: 0.5
   parryRushAttackCount: 5
   parryRushCooldownBeats: 10
+  preGlideDelay: 3
+  glideHeight: 8
+  glideDuration: 2
+  landingOffsetY: 5
+  landingRandomRangeX: 3
 --- !u!114 &4419270541883101345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,8 +354,7 @@ MonoBehaviour:
   maxSites: 5
   minDistFromPlayer: 3
   minDistBetweenSites: 2.5
-  arenaHalfX: 10
-  arenaHalfY: 13
+  screenEdgeMargin: 1
   shadowPrefab: {fileID: 390743257920095560, guid: 27cf9ef171f1ddc43bad413652193af9, type: 3}
   shadowMaxScale: 1.5
   reticlePrefab: {fileID: 6142164417003653810, guid: e93611dc3263f2c4c8c0b4901afd840d, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Practice, practice, practice...!!
   description: Instantly doubles every bonus stats earned through level up so far.
-  icon: {fileID: 1810549664705777534, guid: a7a9134a0fd009049ad82726b22e07d5, type: 3}
+  icon: {fileID: -1690843649585435182, guid: 76f87b6f488afcf44960575de99cbcba, type: 3}
   enabled: 1

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public static CameraFollow Instance;
+
     [Header("References")]
     public Transform player;             // The player to follow
     public SpriteRenderer background;    // The background sprite
@@ -13,6 +15,17 @@ public class CameraFollow : MonoBehaviour
     private float camHalfHeight;
 
     private float minX, maxX, minY, maxY;
+
+    // While set, the camera follows this instead of the player — used for boss spawn-ins etc.
+    private Transform focusOverride;
+
+    public void SetFocusOverride(Transform target) => focusOverride = target;
+    public void ClearFocusOverride() => focusOverride = null;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -35,11 +48,12 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        if (player == null) return;
+        Transform target = focusOverride != null ? focusOverride : player;
+        if (target == null) return;
 
-        // Target camera position follows player
-        float targetX = Mathf.Clamp(player.position.x, minX + camHalfWidth, maxX - camHalfWidth);
-        float targetY = Mathf.Clamp(player.position.y, minY + camHalfHeight, maxY - camHalfHeight);
+        // Target camera position follows whichever transform currently has focus
+        float targetX = Mathf.Clamp(target.position.x, minX + camHalfWidth, maxX - camHalfWidth);
+        float targetY = Mathf.Clamp(target.position.y, minY + camHalfHeight, maxY - camHalfHeight);
 
         Vector3 targetPos = new Vector3(targetX, targetY, transform.position.z);
 

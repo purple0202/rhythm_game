@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Setbreak
   description: Instantly recover 25% of max health.
-  icon: {fileID: -2161089366640896974, guid: 0b7c80dfd15614140823ca471fb5a759, type: 3}
+  icon: {fileID: -6818598001639085861, guid: 40e68f345960fbf49a20c8572a74c106, type: 3}
   enabled: 1

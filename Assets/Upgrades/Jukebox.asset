@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Jukebox
   description: Gain 1 reroll for levelup upgrades (Max 3)
-  icon: {fileID: -8405413478619695685, guid: 0512eb3f28dae9144b9dd2d10ed2ddeb, type: 3}
+  icon: {fileID: -7883273833569588802, guid: c33870fa720dbd844a92ada0099b37ce, type: 3}
   enabled: 1

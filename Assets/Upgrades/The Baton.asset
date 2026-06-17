@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: The Baton
   description: Gain +2 damage on perfectly timed attacks.
-  icon: {fileID: -7624991491782279463, guid: 449ed8d510e44cc4d807e590f910e620, type: 3}
+  icon: {fileID: 7899200590867668163, guid: 42d4dd4fdafb3bd49b03b14e28c0d3a0, type: 3}
   enabled: 1

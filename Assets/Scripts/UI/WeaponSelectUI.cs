@@ -11,6 +11,11 @@ public class WeaponSelectUI : MonoBehaviour
     public GameObject panel;
     public WeaponOptionUI[] optionSlots;
 
+    [Header("Backdrop")]
+    [SerializeField] Image backdrop;
+    [SerializeField] float backdropTargetAlpha = 0.7f;
+    [SerializeField] float backdropFadeDuration = 0.3f;
+
     [Header("Grace Periods")]
     public float preUIGraceSeconds = 1f;
     public int postUIGraceBeats = 1;
@@ -29,6 +34,7 @@ public class WeaponSelectUI : MonoBehaviour
 
     WeaponController pendingController;
     string pendingFmodParam;
+    string pendingPreviewParam;
     int[] pendingFmodValues;
     int selectedIndex;
     Weapon[] currentWeapons;
@@ -37,6 +43,12 @@ public class WeaponSelectUI : MonoBehaviour
     {
         Instance = this;
         panel.SetActive(false);
+        if (backdrop != null)
+        {
+            Color c = backdrop.color;
+            c.a = 0f;
+            backdrop.color = c;
+        }
     }
 
     public void Show(Weapon[] weapons, string fmodParam, int[] fmodValues, WeaponController controller)
@@ -44,6 +56,7 @@ public class WeaponSelectUI : MonoBehaviour
         currentWeapons = weapons;
         pendingController = controller;
         pendingFmodParam = fmodParam;
+        pendingPreviewParam = fmodParam.Replace("Group ", "G") + "-Preview";
         pendingFmodValues = fmodValues;
 
         for (int i = 0; i < optionSlots.Length; i++)
@@ -60,6 +73,8 @@ public class WeaponSelectUI : MonoBehaviour
         panel.SetActive(true);
         Canvas.ForceUpdateCanvases();
         FocusSelected();
+        if (backdrop != null)
+            StartCoroutine(FadeBackdrop(0f, backdropTargetAlpha, backdropFadeDuration));
         if (focusPanel != null) StartCoroutine(SlideIn(focusPanel, Vector2.down * slideOffset));
         for (int i = 0; i < optionSlots.Length; i++)
             StartCoroutine(optionSlots[i].SlideIn(i * staggerDelay));
@@ -74,7 +89,7 @@ public class WeaponSelectUI : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             Navigate(1);
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.E))
             optionSlots[selectedIndex].Select();
 
         if (focusIcon != null)
@@ -100,6 +115,8 @@ public class WeaponSelectUI : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(optionSlots[selectedIndex].button.gameObject);
         optionSlots[selectedIndex].SetHighlighted(true);
         UpdateFocus(currentWeapons[selectedIndex]);
+        BeatConductor.Instance.SetParameter(pendingFmodParam, (float)pendingFmodValues[selectedIndex]);
+        BeatConductor.Instance.SetParameter(pendingPreviewParam, (float)pendingFmodValues[selectedIndex]);
     }
 
     IEnumerator SlideIn(RectTransform rect, Vector2 fromOffset)
@@ -116,6 +133,23 @@ public class WeaponSelectUI : MonoBehaviour
         rect.anchoredPosition = target;
     }
 
+    IEnumerator FadeBackdrop(float from, float to, float duration)
+    {
+        float elapsed = 0f;
+        Color c = backdrop.color;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            c.a = Mathf.Lerp(from, to, elapsed / duration);
+            backdrop.color = c;
+            yield return null;
+        }
+
+        c.a = to;
+        backdrop.color = c;
+    }
+
     void UpdateFocus(Weapon weapon)
     {
         if (focusIcon != null) focusIcon.sprite = weapon.icon;
@@ -127,7 +161,10 @@ public class WeaponSelectUI : MonoBehaviour
     public void SelectWeapon(Weapon weapon, int optionIndex)
     {
         pendingController.EquipGroupWeapon(weapon, pendingFmodParam, pendingFmodValues[optionIndex]);
+        BeatConductor.Instance.SetParameter(pendingPreviewParam, 0f);
         panel.SetActive(false);
+        if (backdrop != null)
+            StartCoroutine(FadeBackdrop(backdropTargetAlpha, 0f, backdropFadeDuration));
         StartCoroutine(PostGraceCoroutine());
     }
 

@@ -46,7 +46,7 @@ public class WeaponUI : MonoBehaviour
         {
             if (group.weapons == null) continue;
             foreach (var w in group.weapons)
-                if (w == weapon) return group.groupId;
+                if (w.weapon == weapon) return group.groupId;
         }
 
         return "";
