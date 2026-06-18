@@ -1,0 +1,479 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &787552135016871603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4477374194338929459}
+  - component: {fileID: 7604880809732204321}
+  - component: {fileID: 9218714363450139667}
+  - component: {fileID: 8586960538307548785}
+  - component: {fileID: 4694186392620733005}
+  - component: {fileID: 4419270541883101345}
+  - component: {fileID: 6218220727595519408}
+  - component: {fileID: 9024769152322958308}
+  - component: {fileID: 1885639178264435951}
+  - component: {fileID: 2156967547455096068}
+  - component: {fileID: 3019081952197458813}
+  - component: {fileID: 5312984247092960339}
+  - component: {fileID: 387190238701022963}
+  m_Layer: 7
+  m_Name: Dummy Final Boss
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4477374194338929459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.54272, y: 0.17739, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1239098080523029057}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7604880809732204321
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -5514728133092229313, guid: cc93dade4033bee468c3b34d10b26448, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.31, y: 8.55}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!50 &9218714363450139667
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &8586960538307548785
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.7125
+--- !u!114 &4694186392620733005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9840e3d353e5c41ae4cc7376741c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinibossController
+  bossName: THE UNKNOWN
+  introDialogue: {fileID: 11400000, guid: 7555fe67c211cde4ea27fa1f16d272e7, type: 2}
+  isFinalBoss: 1
+  bypassReadyChecks: 1
+  phase2Threshold: 0.5
+  parryRushChance: 0.5
+  parryRushAttackCount: 5
+  parryRushCooldownBeats: 10
+  preGlideDelay: 3
+  glideHeight: 8
+  glideDuration: 2
+  landingOffsetY: 5
+  landingRandomRangeX: 3
+--- !u!114 &4419270541883101345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a11eb92fcd2b65469328d552ef163ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 500
+  expValue: 10
+  enemyType: 0
+  blueMaterial: {fileID: 0}
+  redMaterial: {fileID: 0}
+  greenMaterial: {fileID: 0}
+  yellowMaterial: {fileID: 0}
+  damagePopupPrefab: {fileID: 329508539881309488, guid: a9afca8d2777dba4fa69409a416348e8, type: 3}
+--- !u!114 &6218220727595519408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf70c759132bc94f9228160e037be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossProjectileAttack
+  cooldownBeats: 2
+  startGrid: 0
+  projectilePrefab: {fileID: 5673322968140803010, guid: 25c1cbdf4394cc2458a83a54ab1c85cb, type: 3}
+  projectileSpeed: 4
+  damage: 10
+  phase2BurstCount: 3
+--- !u!114 &9024769152322958308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5fb2c66a4ee6d439b9db9613d5938e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossCircleAOEAttack
+  cooldownBeats: 2
+  startGrid: 0
+  circleIndicatorPrefab: {fileID: 4190567674063789850, guid: fd8de7ba23644544a8e51a8d224d1456, type: 3}
+  damage: 15
+  circleRadius: 1
+  circleCount: 5
+  stepDistance: 2
+  forecastBeats: 1
+  phase2ForecastBeats: 1
+  phase2RadiusGrowthPerStep: 0.35
+--- !u!114 &1885639178264435951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c8164cbeea4b345950a6ebf1c8fd9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossDropAttack
+  cooldownBeats: 2
+  startGrid: 0
+  channelBeats: 3
+  channelReticlePrefab: {fileID: 8288192721654136184, guid: ac97dcc8486ce1d46909edd3c80232c4, type: 3}
+  damage: 20
+  dropRadius: 1.5
+  dropVFXPrefab: {fileID: 0}
+  dropVFXDurationBeats: 5
+  mobEnemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
+--- !u!114 &2156967547455096068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e17d18ccad87804f973a48d8d864571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossRingPulseAttack
+  cooldownBeats: 2
+  startGrid: 0
+  ringPrefab: {fileID: 2027087421809937740, guid: 004a379c94cb4d846b60aa48265c87d5, type: 3}
+  damage: 8
+  ringSpeed: 6
+  debuffDuration: 3
+  phase2DebuffDuration: 5
+--- !u!114 &3019081952197458813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4064a184203864d93b6103812ad86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossChargedProjectileAttack
+  cooldownBeats: 2
+  startGrid: 1
+  projectilePrefab: {fileID: 3465048316302798380, guid: 56057b03c55a20e44939d0df6811f707, type: 3}
+  damage: 35
+  parryDamage: 25
+  chargeBeats: 3
+  chargeVisual: {fileID: 1239098080523029057}
+  chargeMinScale: 0.3
+  chargeMaxScale: 1
+  chargeAnimator: {fileID: 5077672687605994218}
+  chargeRenderer: {fileID: 5977575779664759764}
+  fireFrameSprite: {fileID: 4981934096615926861, guid: f2aec70f4b03ac24dba6640c4622494e, type: 3}
+--- !u!114 &5312984247092960339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ea98b987bb326468185cc0f09da6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossChannelVolleyAttack
+  cooldownBeats: 2
+  startGrid: 1
+  orbitalPrefab: {fileID: 312057443058882285, guid: 825f1906649f1424d8627bdfc2100a15, type: 3}
+  projectilePrefab: {fileID: 3465048316302798380, guid: 97eda62b565c5204c86001261c9174b4, type: 3}
+  damage: 20
+  parryDamage: 15
+  channelBeats: 6
+  orbitRadius: 2
+  orbitSpeed: 180
+--- !u!114 &387190238701022963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787552135016871603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e935efa7b432b47be0ece7df2ff612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHordeDropAttack
+  cooldownBeats: 2
+  startGrid: 1
+  channelBeats: 4
+  minSites: 3
+  maxSites: 5
+  minDistFromPlayer: 3
+  minDistBetweenSites: 2.5
+  screenEdgeMargin: 1
+  shadowPrefab: {fileID: 390743257920095560, guid: 27cf9ef171f1ddc43bad413652193af9, type: 3}
+  shadowMaxScale: 1.5
+  reticlePrefab: {fileID: 6142164417003653810, guid: e93611dc3263f2c4c8c0b4901afd840d, type: 3}
+  reticleRotateSpeed: 45
+  mobEnemyPrefab: {fileID: 398283090820756673, guid: cc924f4b023c5304abd85a12926a0653, type: 3}
+  impactVFXPrefab: {fileID: 440562091531174539, guid: 59b68765257c11148a6890dfbabc8c23, type: 3}
+  impactVFXDuration: 0.5
+--- !u!1 &1442303204508586832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239098080523029057}
+  - component: {fileID: 5977575779664759764}
+  - component: {fileID: 5077672687605994218}
+  m_Layer: 7
+  m_Name: BossChargeVisual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239098080523029057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442303204508586832}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.024, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4477374194338929459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5977575779664759764
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442303204508586832}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &5077672687605994218
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442303204508586832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26d2a24eaf8983b45a2d53fffdbae42b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

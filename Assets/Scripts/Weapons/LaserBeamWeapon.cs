@@ -189,10 +189,10 @@ public class LaserBeamWeapon : Weapon
         float length = GetLaserLength(firingDirection, playerPos);
         float width = laserWidth * (1f + SizeBonus * 0.1f);
 
+        float angle = Mathf.Atan2(firingDirection.y, firingDirection.x) * Mathf.Rad2Deg;
         laserGO.transform.position = playerPos + (Vector3)(firingDirection * length * 0.5f);
-        laserGO.transform.localScale = firingDirection.x != 0
-            ? new Vector3(length, width, 1f)
-            : new Vector3(width, length, 1f);
+        laserGO.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        laserGO.transform.localScale = new Vector3(length, width, 1f);
     }
 
     private float GetLaserLength(Vector2 dir, Vector3 playerPos)

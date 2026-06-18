@@ -1,12 +1,15 @@
-using UnityEngine;
+using System;
 using System.Collections;
 using System.Linq;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MinibossController : MonoBehaviour
 {
     [Header("Identity")]
     [SerializeField] string bossName = "UNNAMED";
     [SerializeField] DialogueData introDialogue;
+    [SerializeField] bool isFinalBoss = false;
 
     [Header("Debug")]
     [SerializeField] bool bypassReadyChecks = false;
@@ -19,6 +22,7 @@ public class MinibossController : MonoBehaviour
 
     [Header("Spawn Glide")]
     [SerializeField] float preGlideDelay = 3f;
+    [SerializeField] float cameraFocusHoldDuration = 6f;
     [SerializeField] float glideHeight = 8f;
     [SerializeField] float glideDuration = 2f;
     [SerializeField] float landingOffsetY = 5f;
@@ -66,11 +70,14 @@ public class MinibossController : MonoBehaviour
         Vector3 startPos = landingPos + Vector3.up * glideHeight;
         transform.position = startPos;
 
-        BeatConductor.Instance.SetParameter("Mini Boss Spawn", 1f);
+        if (isFinalBoss)
+            BeatConductor.Instance?.SetParameter("Boss states", 1f);
+        else
+            BeatConductor.Instance?.SetParameter("Mini Boss Spawn", 1f);
         CameraFollow.Instance?.SetFocusOverride(transform);
 
         // Boss sits visible at the glide start point so the player has time to notice and react.
-        yield return new WaitForSeconds(preGlideDelay);
+        yield return new WaitForSeconds(isFinalBoss ? cameraFocusHoldDuration : preGlideDelay);
 
         float elapsed = 0f;
         while (elapsed < glideDuration)
@@ -85,7 +92,10 @@ public class MinibossController : MonoBehaviour
         CameraFollow.Instance?.ClearFocusOverride();
 
         if (DialogueUI.Instance != null && introDialogue != null)
-            DialogueUI.Instance.Play(introDialogue, PlayIntro);
+        {
+            Action onLastLine = isFinalBoss ? () => StartCoroutine(FinalBossDialogueSequence()) : (Action)null;
+            DialogueUI.Instance.Play(introDialogue, PlayIntro, onLastLine);
+        }
         else
             PlayIntro();
     }
@@ -105,13 +115,26 @@ public class MinibossController : MonoBehaviour
         attackLoop = StartCoroutine(AttackLoop());
     }
 
+    IEnumerator FinalBossDialogueSequence()
+    {
+        DialogueUI.Instance.SetInputBlocked(true);
+        BeatConductor.Instance?.SetParameter("Boss states", 2f);
+        yield return new WaitForSecondsRealtime(11f);
+        BeatConductor.Instance?.SetParameter("Boss states", 3f);
+        DialogueUI.Instance.AutoClose();
+    }
+
     void OnDeath()
     {
         isAlive = false;
         if (attackLoop != null) StopCoroutine(attackLoop);
         foreach (var a in attacks) a.StopAllCoroutines();
         BossHUD.Instance?.Hide();
-        BeatConductor.Instance?.SetParameter("mini Kill", 1f);
+
+        if (isFinalBoss)
+            BeatConductor.Instance?.SetParameter("Boss states", 4f);
+        else
+            BeatConductor.Instance?.SetParameter("mini Kill", 1f);
     }
 
     IEnumerator AttackLoop()

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756a5c2e7946b9444ace4d21f0c402f5, type: 3}
+  m_Name: New Dialogue Data
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  speakerName: 
+  lines:
+  - ....... ....... .......... ...........
+  - 'Kneel, child of ash. You stand before a sovereign of the eternal firmament. '
+  - "This husk of stars has waited long for a soul bold enough \u2014 or foolish
+    enough \u2014 to seek my audience. "
+  - 'Your kind calls this world ''home.'' I unmade a thousand such cradles before
+    your sun ever burned. '
+  - What do I look like....?
+  - The Queen....? Do not mistake this for what I am, mortal. What I truly am would
+    unmake the marrow of your eyes.
+  - "What you see now is a courtesy \u2014 a shape your fragile mind can hold. A
+    translation. Nothing more. "
+  - Even now, my true form goes untranslated. There are no words in your tongue,
+    nor any tongue of flesh, for what I am.
+  - 'Strike, if you must. The stars themselves have struck me, and learned humility
+    for it. '
+  - 'Enough words. Let the dust speak, if it has anything left to say. '

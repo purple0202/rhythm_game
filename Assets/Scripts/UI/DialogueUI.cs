@@ -19,8 +19,10 @@ public class DialogueUI : MonoBehaviour
     string[] pendingLines;
     int lineIndex;
     bool isTyping;
+    bool inputBlocked;
     Coroutine typeCoroutine;
     Action pendingOnComplete;
+    Action pendingOnLastLineAdvanced;
 
     void Awake()
     {
@@ -29,7 +31,7 @@ public class DialogueUI : MonoBehaviour
             panel.SetActive(false);
     }
 
-    public void Play(DialogueData data, Action onComplete)
+    public void Play(DialogueData data, Action onComplete, Action onLastLineAdvanced = null)
     {
         if (panel == null || lineText == null || data == null || data.lines == null || data.lines.Length == 0)
         {
@@ -39,6 +41,7 @@ public class DialogueUI : MonoBehaviour
 
         pendingLines = data.lines;
         pendingOnComplete = onComplete;
+        pendingOnLastLineAdvanced = onLastLineAdvanced;
         lineIndex = 0;
 
         if (speakerNameText != null)
@@ -85,9 +88,14 @@ public class DialogueUI : MonoBehaviour
             BeatConductor.Instance?.SetParameter("Mini Boss Dialogue", 1f);
     }
 
+    public void SetInputBlocked(bool blocked) => inputBlocked = blocked;
+
+    public void AutoClose() => Finish();
+
     void Update()
     {
         if (panel == null || !panel.activeSelf) return;
+        if (inputBlocked) return;
         if (!Input.GetKeyDown(KeyCode.E) && !Input.GetMouseButtonDown(0)) return;
 
         if (isTyping)
@@ -107,17 +115,25 @@ public class DialogueUI : MonoBehaviour
         lineIndex++;
         if (lineIndex < pendingLines.Length)
             ShowLine(lineIndex);
+        else if (pendingOnLastLineAdvanced != null)
+        {
+            Action cb = pendingOnLastLineAdvanced;
+            pendingOnLastLineAdvanced = null;
+            cb.Invoke();
+        }
         else
             Finish();
     }
 
     void Finish()
     {
+        inputBlocked = false;
         panel.SetActive(false);
         Time.timeScale = 1f;
 
         Action callback = pendingOnComplete;
         pendingOnComplete = null;
+        pendingOnLastLineAdvanced = null;
         pendingLines = null;
         callback?.Invoke();
     }

@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Linq;
 
 public class WaveManager : MonoBehaviour
 {
@@ -19,8 +21,12 @@ public class WaveManager : MonoBehaviour
     [Tooltip("How far beyond the camera edge enemies can spawn for the smallest wave.")]
     public float minStripDepth = 2f;
 
+    [Header("Post-Boss Delay")]
+    [SerializeField] float postBossDelay = 8f;
+
     private Camera cam;
     private bool waveActive = false;
+    private bool transitionPending = false;
 
     public static event System.Action OnWaveCleared;
 
@@ -41,10 +47,13 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        if (!waveActive) return;
+        if (!waveActive || transitionPending) return;
 
         if (EnemyManager.Instance.AreAllEnemiesDead())
-            NextWave();
+        {
+            transitionPending = true;
+            StartCoroutine(NextWave());
+        }
     }
 
     void StartFirstWave()
@@ -79,20 +88,44 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    void NextWave()
+    IEnumerator NextWave()
     {
+        int clearedIndex = currentWaveIndex;
         currentWaveIndex++;
+        Debug.Log($"Wave cleared: index {clearedIndex} (wave {clearedIndex + 1})");
+
+        bool hadBoss = waves[clearedIndex].enemies.Any(
+            e => e.enemyPrefab != null && e.enemyPrefab.GetComponent<MinibossController>() != null);
+
+        if (hadBoss)
+            yield return new WaitForSeconds(postBossDelay);
+
         if (currentWaveIndex >= 1 && currentWaveIndex <= 3)
             OnWaveCleared?.Invoke();
+
+        if (hadBoss)
+        {
+            BeatConductor.Instance?.SetParameter("Mini Boss Spawn", 0f);
+            BeatConductor.Instance?.SetParameter("Mini Boss Dialogue", 0f);
+            BeatConductor.Instance?.SetParameter("mini Kill", 0f);
+        }
+
+        if (clearedIndex == 3)
+        {
+            if (DarkEnvironmentController.Instance != null)
+                yield return DarkEnvironmentController.Instance.Trigger();
+        }
 
         if (currentWaveIndex >= waves.Length)
         {
             Debug.Log("All waves cleared!");
             waveActive = false;
-            return;
+            transitionPending = false;
+            yield break;
         }
 
         StartWave();
+        transitionPending = false;
     }
 
     Vector3 GetSpawnPosition(int waveSize)

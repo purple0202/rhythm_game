@@ -85,14 +85,28 @@ public class UpgradeUI : MonoBehaviour
         }
     }
 
+    // Grid layout:  TL=0  TR=3
+    //               BL=1  BR=2
+    // [slotIndex][direction] -> neighbor index (0=up, 1=down, 2=left, 3=right)
+    static readonly int[][] navTable = {
+        new[] { 1, 1, 3, 3 }, // 0 TL
+        new[] { 0, 0, 2, 2 }, // 1 BL
+        new[] { 3, 3, 1, 1 }, // 2 BR
+        new[] { 2, 2, 0, 0 }, // 3 TR
+    };
+
     void Update()
     {
         if (!panel.activeSelf) return;
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            Navigate(-1);
+            NavigateGrid(0);
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-            Navigate(1);
+            NavigateGrid(1);
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            NavigateGrid(2);
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            NavigateGrid(3);
 
         if (Input.GetKeyDown(KeyCode.E))
             optionSlots[selectedIndex].Select();
@@ -105,9 +119,9 @@ public class UpgradeUI : MonoBehaviour
         FocusSelected();
     }
 
-    void Navigate(int dir)
+    void NavigateGrid(int dir)
     {
-        SetSelected((selectedIndex + dir + optionSlots.Length) % optionSlots.Length);
+        SetSelected(navTable[selectedIndex][dir]);
     }
 
     void FocusSelected()
